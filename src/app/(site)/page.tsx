@@ -2,8 +2,9 @@ import Home from "@/components/Home";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Dofix",
-  description: "This is Home for NextCommerce Template",
+  title: "Dofix | Home",
+  description: "Dofix Home Page",
+  
   // other metadata
 };
 
