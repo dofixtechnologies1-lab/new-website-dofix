@@ -1,44 +1,44 @@
 const data = [
   {
-    title: "Televisions",
+    title: "Ac Repair & Installation",
     id: 1,
-    img: "/images/categories/categories-01.png",
+    img: "/images/categories/categories-ac.png",
   },
   {
-    title: "Laptop & PC",
+    title: "Home Cleaning",
     id: 2,
-    img: "/images/categories/categories-02.png",
+    img: "/images/categories/categories-hc.png",
   },
   {
-    title: "Mobile & Tablets",
+    title: "Home Appliances",
     id: 3,
     img: "/images/categories/categories-03.png",
   },
   {
-    title: "Games & Videos",
+    title: "Interior",
     id: 4,
     img: "/images/categories/categories-04.png",
   },
   {
-    title: "Home Appliances",
+    title: "Painting",
     id: 5,
     img: "/images/categories/categories-05.png",
   },
   {
-    title: "Health & Sports",
+    title: "Electrician",
     id: 6,
     img: "/images/categories/categories-06.png",
   },
-  {
-    title: "Watches",
-    id: 7,
-    img: "/images/categories/categories-07.png",
-  },
-  {
-    title: "Televisions",
-    id: 8,
-    img: "/images/categories/categories-04.png",
-  },
+  // {
+  //   title: "Watches",
+  //   id: 7,
+  //   img: "/images/categories/categories-07.png",
+  // },
+  // {
+  //   title: "Televisions",
+  //   id: 8,
+  //   img: "/images/categories/categories-04.png",
+  // },
 ];
 
 export default data;

@@ -2,7 +2,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 
-// Import Swiper styles
 import "swiper/css/pagination";
 import "swiper/css";
 
@@ -17,110 +16,96 @@ const HeroCarousal = () => {
         delay: 2500,
         disableOnInteraction: false,
       }}
-      pagination={{
-        clickable: true,
-      }}
+      pagination={{ clickable: true }}
       modules={[Autoplay, Pagination]}
       className="hero-carousel"
     >
+      {/* ================= SLIDE 1 ================= */}
       <SwiperSlide>
-  <div className="relative flex items-center pt-6 sm:pt-0 min-h-[420px]">
+        <div className="flex items-center pt-6 sm:pt-0 flex-col-reverse sm:flex-row">
 
-    {/* Left Content */}
-    <div className="max-w-[394px] py-10 sm:py-15 lg:py-20 pl-4 sm:pl-7.5 lg:pl-12.5 z-10">
-      
-      {/* <div className="flex items-center gap-4 mb-7.5 sm:mb-10">
-        <span className="block font-semibold text-heading-3 sm:text-heading-1 text-blue">
-          30%
-        </span>
-        <span className="block text-dark text-sm sm:text-custom-1 sm:leading-[24px]">
-          Sale <br /> Off
-        </span>
-      </div> */}
+          {/* TEXT SECTION */}
+          <div className="max-w-[1500px] w-full py-8 sm:py-15 lg:py-24.5 
+                          px-4 sm:pl-7.5 lg:pl-12.5 text-center sm:text-left">
 
-      <h1 className="font-bold text-dark text-xl sm:text-4xl mb-3">
-        <a href="#">Professional AC Repair & Service</a>
-      </h1>
+            <h1 className="font-semibold text-[#113547] text-xl sm:text-3xl mb-3">
+              Professional AC Repair & Service
+            </h1>
 
-      <p>
-        Keep your air conditioner running smoothly with expert technicians.<br></br>
-Fast service | Genuine parts | Same-day support
-      </p>
+            <p className="text-gray-600 text-sm sm:text-base">
+              Keep your air conditioner running smoothly with expert technicians.
+              <br className="hidden sm:block" /><br></br>
+              Fast service | Genuine parts | Same-day support
+            </p>
 
-      <a
-        href="#"
-        className="inline-flex font-medium text-white text-custom-sm rounded-md bg-[#3683ab] py-3 px-9 duration-200 hover:bg-[#215d7c] mt-5"
-      >
-        Book Now
-      </a>
+            <a
+              href="#"
+              className="inline-flex font-medium text-white text-sm sm:text-custom-sm 
+                         rounded-md bg-[#3683ab] py-3 px-8 
+                         ease-out duration-200 hover:bg-[#113547] 
+                         mt-6 sm:mt-10"
+            >
+              Book Now
+            </a>
+          </div>
 
-    </div>
+          {/* IMAGE SECTION */}
+          <div className="flex justify-center sm:ml-35 mb-6 sm:mb-0 w-full">
+            <Image
+              src="/images/hero/hero-slide.png"
+              alt="Service-image"
+              width={350}
+              height={358}
+              className="w-[220px] sm:w-auto h-auto"
+              priority
+            />
+          </div>
 
-    {/* Right Corner Image */}
-<div className="absolute right-0 bottom-0 h-full flex items-end ">
-  <Image
-    src="/images/hero/hero-slide.png"
-    alt="headphone"
-    width={500}
-    height={500}
-    className="h-[90%] w-auto object-contain "
-    priority
-  />
-</div>
+        </div>
+      </SwiperSlide>
 
-
-  </div>
-</SwiperSlide>
-
+      {/* ================= SLIDE 2 ================= */}
       <SwiperSlide>
-  <div className="relative flex items-center pt-6 sm:pt-0 min-h-[450px]">
+        <div className="flex items-center pt-6 sm:pt-0 flex-col-reverse sm:flex-row">
 
-    {/* Left Content */}
-    <div className="max-w-[394px] py-10 sm:py-15 lg:py-20 pl-4 sm:pl-7.5 lg:pl-12.5 z-10">
-      
-      {/* <div className="flex items-center gap-4 mb-7.5 sm:mb-10">
-        <span className="block font-semibold text-heading-3 sm:text-heading-1 text-blue">
-          30%
-        </span>
-        <span className="block text-dark text-sm sm:text-custom-1 sm:leading-[24px]">
-          Sale <br /> Off
-        </span>
-      </div> */}
+          {/* TEXT SECTION */}
+          <div className="max-w-[1500px] w-full py-8 sm:py-15 lg:py-26 
+                          px-4 sm:pl-7.5 lg:pl-12.5 text-center sm:text-left">
 
-      <h1 className="font-bold text-dark text-xl sm:text-4xl mb-3">
-        <a href="#">Become a Certified AC Professional Partner</a>
-      </h1>
+            <h1 className="font-semibold text-[#113547] text-xl sm:text-3xl mb-3 -mt-6 sm:mt-0">
+              Become a Certified AC Professional Partner
+            </h1>
 
-      <p>
-        Join our trusted network of AC technicians and get verified service leads in your area.
-        More jobs | Timely payments | Full support
-      </p>
+            <p className="text-gray-600 text-sm sm:text-base">
+              Join our trusted network of AC technicians and get verified service leads in your area.
+              <br className="hidden sm:block" /><br></br>
+              More jobs | Timely payments | Full support
+            </p>
 
-      <a
-        href="#"
-        className="inline-flex font-medium text-white text-custom-sm rounded-md bg-[#3683ab] py-3 px-9 duration-200 hover:bg-[#215d7c] mt-5"
-      >
-        Join Now
-      </a>
+            <a
+              href="#"
+              className="inline-flex font-medium text-white text-sm sm:text-custom-sm 
+                         rounded-md bg-[#3683ab] py-3 px-8 
+                         ease-out duration-200 hover:bg-[#113547] 
+                         mt-6 sm:mt-10"
+            >
+              Join Now
+            </a>
+          </div>
 
-    </div>
+          {/* IMAGE SECTION */}
+          <div className="flex justify-center sm:ml-15 mb-6 sm:mb-0 w-full">
+            <Image
+              src="/images/hero/hero-slide2.png"
+              alt="Partner-image"
+              width={350}
+              height={358}
+              className="w-[220px] sm:w-auto h-auto"
+            />
+          </div>
 
-   {/* Right Corner Image */}
-<div className="absolute right-0 bottom-0 h-full flex items-end">
-  <Image
-    src="/images/hero/hero-slide2.png"
-    alt="headphone"
-    width={500}
-    height={500}
-    className="h-[90%] w-auto object-contain"
-    priority
-  />
-</div>
-
-
-  </div>
-</SwiperSlide>
-
+        </div>
+      </SwiperSlide>
     </Swiper>
   );
 };
