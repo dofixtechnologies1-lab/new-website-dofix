@@ -72,12 +72,12 @@ const PromoBanner = () => {
           </div>
 
           {/* <!-- promo banner small --> */}
-          <div className="relative z-1 overflow-hidden rounded-lg bg-[#FFECE1] py-10 xl:py-16 px-4 sm:px-7.5 xl:px-10">
+          <div className="relative z-1 overflow-hidden rounded-lg bg-[#14455e] py-10 xl:py-16 px-4 sm:px-7.5 xl:px-10">
             <Image
-              src="/images/promo/promo-03.png"
+              src="/images/promo/promo5.png"
               alt="promo img"
               className="absolute top-1/2 -translate-y-1/2 right-3 sm:right-8.5 -z-1"
-              width={200}
+              width={250}
               height={200}
             />
 
