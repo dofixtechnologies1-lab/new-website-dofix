@@ -12,22 +12,22 @@ const data = [
   {
     title: "Home Appliances",
     id: 3,
-    img: "/images/categories/categories-03.png",
+    img: "/images/categories/categories-re.png",
   },
   {
     title: "Interior",
     id: 4,
-    img: "/images/categories/categories-04.png",
+    img: "/images/categories/categories-in.png",
   },
   {
     title: "Painting",
     id: 5,
-    img: "/images/categories/categories-05.png",
+    img: "/images/categories/categories-pa.png",
   },
   {
     title: "Electrician",
     id: 6,
-    img: "/images/categories/categories-06.png",
+    img: "/images/categories/categories-el.png",
   },
   // {
   //   title: "Watches",

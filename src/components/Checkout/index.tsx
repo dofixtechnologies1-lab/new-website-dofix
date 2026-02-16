@@ -91,10 +91,10 @@ const Checkout = () => {
                     {/* <!-- product item --> */}
                     <div className="flex items-center justify-between py-5 border-b border-gray-3">
                       <div>
-                        <p className="text-dark">Havit HV-G69 USB Gamepad</p>
+                        <p className="text-dark">Ac Service</p>
                       </div>
                       <div>
-                        <p className="text-dark text-right">$29.00</p>
+                        <p className="text-dark text-right">₹499.00</p>
                       </div>
                     </div>
 
