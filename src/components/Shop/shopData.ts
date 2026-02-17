@@ -3,8 +3,8 @@ const shopData: Product[] = [
   {
     title: "Ac Service",
     reviews: 15,
-    price: 59.0,
-    discountedPrice: 29.0,
+    price: 7.0,
+    discountedPrice: 2.0,
     id: 1,
     imgs: {
       thumbnails: [
