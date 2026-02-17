@@ -1436,8 +1436,6 @@ const ShopDetails = () => {
           </section>
 
           <RecentlyViewdItems />
-
-          <Newsletter />
         </>
       )}
     </>

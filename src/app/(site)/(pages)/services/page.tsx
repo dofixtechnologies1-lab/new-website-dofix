@@ -1,5 +1,5 @@
 import React from "react";
-import ShopWithSidebar from "@/components/ShopWithSidebar";
+import ACServices from "@/components/Services/AC";
 
 import { Metadata } from "next";
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const Services = () => {
   return (
     <main>
-      <ShopWithSidebar />
+      <ACServices />
     </main>
   );
 };

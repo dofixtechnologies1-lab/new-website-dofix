@@ -72,34 +72,32 @@ const PromoBanner = () => {
           </div>
 
           {/* <!-- promo banner small --> */}
-          <div className="relative z-1 overflow-hidden rounded-lg bg-[#FFECE1] py-10 xl:py-16 px-4 sm:px-7.5 xl:px-10">
+          <div className="relative z-1 overflow-hidden rounded-lg bg-[#14455e] py-10 xl:py-16 px-4 sm:px-7.5 xl:px-10">
             <Image
-              src="/images/promo/promo-03.png"
+              src="/images/promo/promo5.png"
               alt="promo img"
               className="absolute top-1/2 -translate-y-1/2 right-3 sm:right-8.5 -z-1"
-              width={200}
+              width={250}
               height={200}
             />
 
             <div>
-              <span className="block text-lg text-dark mb-1.5">
-                Apple Watch Ultra
+              <span className="block text-lg text-[#fff] mb-1.5">
+                Appliance Not Working Properly?
               </span>
 
-              <h2 className="font-bold text-xl lg:text-heading-4 text-dark mb-2.5">
-                Up to <span className="text-orange">40%</span> off
+              <h2 className="font-bold text-xl lg:text-heading-5 text-[#d4eefb] mb-2.5">
+                We’ve Got You 
               </h2>
 
-              <p className="max-w-[285px] text-custom-sm">
-                The aerospace-grade titanium case strikes the perfect balance of
-                everything.
+              <p className="max-w-[285px] text-custom-10   text-[#d5d5d5]">
+                Fast doorstep service, skilled <br></br>technicians, and reliable solutions you can trust.
               </p>
 
               <a
                 href="#"
-                className="inline-flex font-medium text-custom-sm text-white bg-orange py-2.5 px-8.5 rounded-md ease-out duration-200 hover:bg-orange-dark mt-7.5"
-              >
-                Buy Now
+                className="inline-flex font-medium text-custom-sm text-[#14455b] bg-[#d4eefb] py-2.5 px-8.5 rounded-md ease-out duration-200  mt-9">
+                Book Now
               </a>
             </div>
           </div>
