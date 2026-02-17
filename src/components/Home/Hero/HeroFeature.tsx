@@ -34,7 +34,6 @@ const HeroFeature = () => {
 
             <div>
               <h3 className="font-medium text-lg text-[#3683ab]">{item.title}</h3>
-              <p className="text-sm">{item.description}</p>
             </div>
           </div>
         ))}

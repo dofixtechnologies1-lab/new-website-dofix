@@ -8,23 +8,25 @@ import { useDispatch } from "react-redux";
 import Image from "next/image";
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
 import { resetQuickView } from "@/redux/features/quickView-slice";
-import { updateproductDetails } from "@/redux/features/product-details";
+import { updateserviceDetails } from "@/redux/features/service-details";
 
-const QuickViewModal = () => {
+
+const QuickViewModalService = () => {
   const { isModalOpen, closeModal } = useModalContext();
   const { openPreviewModal } = usePreviewSlider();
   const [quantity, setQuantity] = useState(1);
 
   const dispatch = useDispatch<AppDispatch>();
 
-  // get the product data
-  const product = useAppSelector((state) => state.quickViewReducer.value);
+  // get the service data
+//   const service = useAppSelector((state) => state.quickViewReducer.value);
+ const service = useAppSelector((state) => state.quickViewReducer.value);
 
   const [activePreview, setActivePreview] = useState(0);
 
   // preview modal
   const handlePreviewSlider = () => {
-    dispatch(updateproductDetails(product));
+    dispatch(updateserviceDetails(service));
 
     openPreviewModal();
   };
@@ -33,7 +35,7 @@ const QuickViewModal = () => {
   const handleAddToCart = () => {
     dispatch(
       addItemToCart({
-        ...product,
+        ...service,
         quantity,
       })
     );
@@ -93,7 +95,7 @@ const QuickViewModal = () => {
             <div className="max-w-[526px] w-full">
               <div className="flex gap-5">
                 <div className="flex flex-col gap-5">
-                  {product.imgs.thumbnails?.map((img, key) => (
+                  {/* {service.imgs.thumbnails?.map((img, key) => (
                     <button
                       onClick={() => setActivePreview(key)}
                       key={key}
@@ -108,7 +110,15 @@ const QuickViewModal = () => {
                         className="aspect-square"
                       />
                     </button>
-                  ))}
+                  ))} */}
+                  {/* {service?.img && (
+                     <Image
+                       src={service.img}
+                       alt={service.title}
+                       width={400}
+                       height={400}
+                     />
+                   )} */}
                 </div>
 
                 <div className="relative z-1 overflow-hidden flex items-center justify-center w-full sm:min-h-[508px] bg-gray-1 rounded-lg border border-gray-3">
@@ -135,14 +145,14 @@ const QuickViewModal = () => {
                       </svg>
                     </button>
 
-                    {product?.imgs?.previews?.[activePreview] && (
+                    {/* {service?.imgs?.previews?.[activePreview] && (
                       <Image
-                        src={product.imgs.previews[activePreview]}
+                        src={service.imgs.previews[activePreview]}
                         alt="service-details"
                         width={400}
                         height={400}
                       />
-                    )}
+                    )} */}
                   </div>
                 </div>
               </div>
@@ -154,7 +164,7 @@ const QuickViewModal = () => {
               </span> */}
 
               <h3 className="font-semibold text-xl xl:text-heading-5 text-dark mb-4">
-                {product.title}
+                {service.title}
               </h3>
 
               <div className="flex flex-wrap items-center gap-5 mb-6">
@@ -313,10 +323,10 @@ const QuickViewModal = () => {
 
                   <span className="flex items-center gap-2">
                     <span className="font-semibold text-dark text-xl xl:text-heading-4">
-                      ₹{product.discountedPrice}
+                      ₹{service.discountedPrice}
                     </span>
                     <span className="font-medium text-dark-4 text-lg xl:text-2xl line-through">
-                      ₹{product.price}
+                      ₹{service.price}
                     </span>
                   </span>
                 </div>
@@ -329,7 +339,7 @@ const QuickViewModal = () => {
                   <div className="flex items-center gap-3">
                     <button
                       onClick={() => quantity > 1 && setQuantity(quantity - 1)}
-                      aria-label="button for remove product"
+                      aria-label="button for remove service"
                       className="flex items-center justify-center w-10 h-10 rounded-[5px] bg-gray-2 text-dark ease-out duration-200 hover:text-blue"
                       disabled={quantity < 0 && true}
                     >
@@ -359,7 +369,7 @@ const QuickViewModal = () => {
 
                     <button
                       onClick={() => setQuantity(quantity + 1)}
-                      aria-label="button for add product"
+                      aria-label="button for add service"
                       className="flex items-center justify-center w-10 h-10 rounded-[5px] bg-gray-2 text-dark ease-out duration-200 hover:text-blue"
                     >
                       <svg
@@ -427,4 +437,4 @@ const QuickViewModal = () => {
   );
 };
 
-export default QuickViewModal;
+export default QuickViewModalService;
