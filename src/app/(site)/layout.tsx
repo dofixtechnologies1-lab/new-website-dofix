@@ -6,6 +6,8 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 import { ModalProvider } from "../context/QuickViewModalContext";
+import { ModalProviderService } from "../context/QuickViewModalContextService";
+
 import { CartModalProvider } from "../context/CartSidebarModalContext";
 import { ReduxProvider } from "@/redux/provider";
 import QuickViewModal from "@/components/Common/QuickViewModal";
@@ -37,6 +39,7 @@ export default function RootLayout({
             <ReduxProvider>
               <CartModalProvider>
                 <ModalProvider>
+                  <ModalProviderService>
                   <PreviewSliderProvider>
                     <Header />
                     {children}
@@ -45,6 +48,7 @@ export default function RootLayout({
                     <CartSidebarModal />
                     <PreviewSliderModal />
                   </PreviewSliderProvider>
+                  </ModalProviderService>
                 </ModalProvider>
               </CartModalProvider>
             </ReduxProvider>

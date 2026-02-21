@@ -14,7 +14,7 @@ export default function DynamicModal({ items }) {
           <button
             key={item.id}
             onClick={() => setSelectedItem(item)}
-            className="text-blue-600 underline"
+            className="text-[#3683ab]-600 underline"
           >
             {item.buttonText}
           </button>

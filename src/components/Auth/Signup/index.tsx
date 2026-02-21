@@ -13,10 +13,10 @@ const Signup = () => {
               <h2 className="font-semibold text-xl sm:text-2xl xl:text-heading-5 text-dark mb-1.5">
                 Create an Account
               </h2>
-              <p>Enter your detail below</p>
+              <p>Enter your Number</p>
             </div>
 
-            <div className="flex flex-col gap-4.5">
+            {/* <div className="flex flex-col gap-4.5">
               <button className="flex justify-center items-center gap-3.5 rounded-lg border border-gray-3 bg-gray-1 p-3 ease-out duration-200 hover:bg-gray-2">
                 <svg
                   width="20"
@@ -79,91 +79,129 @@ const Signup = () => {
                 </svg>
                 Sign Up with Github
               </button>
-            </div>
+            </div> */}
 
-            <span className="relative z-1 block font-medium text-center mt-4.5">
+            {/* <span className="relative z-1 block font-medium text-center mt-4.5">
               <span className="block absolute -z-1 left-0 top-1/2 h-px w-full bg-gray-3"></span>
               <span className="inline-block px-3 bg-white">Or</span>
-            </span>
+            </span> */}
 
             <div className="mt-5.5">
-              <form>
-                <div className="mb-5">
-                  <label htmlFor="name" className="block mb-2.5">
-                    Full Name <span className="text-red">*</span>
+  <form>
+
+    {/* First & Last Name Row */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+
+      <div>
+        <label htmlFor="firstName" className="block mb-2.5">
+          First Name <span className="text-red">*</span>
+        </label>
+
+        <input
+          type="text"
+          name="firstName"
+          id="firstName"
+          placeholder="Enter your first name"
+          required
+          className="rounded-lg border border-gray-300 bg-gray-100 placeholder:text-gray-400 w-full py-3 px-5 outline-none duration-200 focus:ring-2 focus:ring-blue-500/20"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="lastName" className="block mb-2.5">
+          Last Name <span className="text-red">*</span>
+        </label>
+
+        <input
+          type="text"
+          name="lastName"
+          id="lastName"
+          placeholder="Enter your last name"
+          required
+          className="rounded-lg border border-gray-300 bg-gray-100 placeholder:text-gray-400 w-full py-3 px-5 outline-none duration-200 focus:ring-2 focus:ring-blue-500/20"
+        />
+      </div>
+
+    </div>
+
+ {/* Email */}
+    <div className="mb-5">
+      <label htmlFor="email" className="block mb-2.5">
+        Email Address <span className="text-red">*</span>
+      </label>
+
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Enter your email address"
+        required
+        className="rounded-lg border border-gray-300 bg-gray-100 placeholder:text-gray-400 w-full py-3 px-5 outline-none duration-200 focus:ring-2 focus:ring-blue-500/20"
+      />
+    </div>
+
+
+    {/* Phone Number */}
+    <div className="mb-5">
+      <label htmlFor="phone" className="block mb-2.5">
+        Phone Number <span className="text-red">*</span>
+      </label>
+
+      <input
+        type="tel"
+        name="phone"
+        id="phone"
+        placeholder="Enter your 10 digit mobile number"
+        maxLength={10}
+        pattern="[0-9]{10}"
+        inputMode="numeric"
+        required
+        className="rounded-lg border border-gray-300 bg-gray-100 placeholder:text-gray-400 w-full py-3 px-5 outline-none duration-200 focus:ring-2 focus:ring-blue-500/20"
+       
+      
+      />
+    </div>
+
+             <div className="mb-5">
+                  <label htmlFor="Otp" className="block mb-2.5">
+                    OTP
                   </label>
 
                   <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    placeholder="Enter your full name"
-                    className="rounded-lg border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
-                  />
+                   type="tel"
+                   name="otp"
+                   id="otp"
+                   placeholder="Enter 6 digit OTP"
+                   maxLength={6}
+                   pattern="[0-9]{6}"
+                   inputMode="numeric"
+                   autoComplete="one-time-code"
+                   className="rounded-lg border border-gray-300 bg-gray-100 placeholder:text-gray-400 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue-500/20"
+                 
+                 />
+                 </div>
+
+                    {/* Submit Button */}
+                    <button
+                      type="submit"
+                      className="w-full flex justify-center font-medium text-white bg-[#3683ab] py-3 px-6 rounded-lg duration-200 hover:bg-[#14455b] mt-7"
+                    >
+                      Create Account
+                    </button>
+                
+                    <p className="text-center mt-6">
+                      Already have an account?
+                      <Link
+                        href="/signin"
+                        className="text-[#14455b] duration-200 hover:text-[#3683ab] pl-2"
+                      >
+                        Sign in Now
+                      </Link>
+                    </p>
+                
+                  </form>
                 </div>
-
-                <div className="mb-5">
-                  <label htmlFor="email" className="block mb-2.5">
-                    Email Address <span className="text-red">*</span>
-                  </label>
-
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Enter your email address"
-                    className="rounded-lg border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
-                  />
-                </div>
-
-                <div className="mb-5">
-                  <label htmlFor="password" className="block mb-2.5">
-                    Password <span className="text-red">*</span>
-                  </label>
-
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Enter your password"
-                    autoComplete="on"
-                    className="rounded-lg border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
-                  />
-                </div>
-
-                <div className="mb-5.5">
-                  <label htmlFor="re-type-password" className="block mb-2.5">
-                    Re-type Password <span className="text-red">*</span>
-                  </label>
-
-                  <input
-                    type="password"
-                    name="re-type-password"
-                    id="re-type-password"
-                    placeholder="Re-type your password"
-                    autoComplete="on"
-                    className="rounded-lg border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full flex justify-center font-medium text-white bg-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-blue mt-7.5"
-                >
-                  Create Account
-                </button>
-
-                <p className="text-center mt-6">
-                  Already have an account?
-                  <Link
-                    href="/signin"
-                    className="text-dark ease-out duration-200 hover:text-blue pl-2"
-                  >
-                    Sign in Now
-                  </Link>
-                </p>
-              </form>
-            </div>
+                
           </div>
         </div>
       </section>

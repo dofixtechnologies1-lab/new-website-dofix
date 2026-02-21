@@ -1,8 +1,10 @@
 const data = [
   {
-    title: "Ac Repair & Installation",
+    title: "Ac Repair Installation",
     id: 1,
     img: "/images/categories/categories-ac.png",
+    link: "/home-cleaning",
+   
   },
   {
     title: "Home Cleaning",

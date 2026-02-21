@@ -312,7 +312,7 @@ const MyAccount = () => {
                   </p>
 
                   <button
-                    className="text-dark ease-out duration-200 hover:text-blue"
+                    className="text-dark ease-out duration-200 hover:text-[#3683ab]"
                     onClick={openAddressModal}
                   >
                     <svg
@@ -444,7 +444,7 @@ const MyAccount = () => {
                   </p>
 
                   <button
-                    className="text-dark ease-out duration-200 hover:text-blue"
+                    className="text-dark ease-out duration-200 hover:text-[#3683ab]"
                     onClick={openAddressModal}
                   >
                     <svg

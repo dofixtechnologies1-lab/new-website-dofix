@@ -7,14 +7,14 @@ const CategoryItem = ({ category }) => {
   return (
     <button
       className={`${
-        selected && "text-blue"
-      } group flex items-center justify-between ease-out duration-200 hover:text-blue `}
+        selected && "text-[#3683ab]"
+      } group flex items-center justify-between ease-out duration-200 hover:text-[#3683ab] `}
       onClick={() => setSelected(!selected)}
     >
       <div className="flex items-center gap-2">
         <div
           className={`cursor-pointer flex items-center justify-center rounded w-4 h-4 border ${
-            selected ? "border-blue bg-blue" : "bg-white border-gray-3"
+            selected ? "border-[#3683ab] bg-[#3683ab]" : "bg-white border-gray-3"
           }`}
         >
           <svg

@@ -6,8 +6,8 @@ const GenderItem = ({ category }) => {
   return (
     <button
       className={`${
-        selected && "text-blue"
-      } group flex items-center justify-between ease-out duration-200 hover:text-blue `}
+        selected && "text-[#3683ab]"
+      } group flex items-center justify-between ease-out duration-200 hover:text-[#3683ab] `}
       onClick={() => setSelected(!selected)}
     >
       <div className="flex items-center gap-2">

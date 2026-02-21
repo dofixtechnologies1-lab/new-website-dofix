@@ -28,18 +28,18 @@ const HeroCarousal = () => {
           <div className="max-w-[1500px] w-full py-8 sm:py-15 lg:py-24.5 
                           px-4 sm:pl-7.5 lg:pl-12.5 text-center sm:text-left">
 
-            <h1 className="font-semibold text-[#113547] text-xl sm:text-3xl mb-3">
+            <h1 className="font-semibold text-[#113547] text-xl sm:text-3xl mb-3 -mt-6 sm:mt-0">
               Professional AC Repair & Service
             </h1>
 
             <p className="text-gray-600 text-sm sm:text-base">
               Keep your air conditioner running smoothly with expert technicians.
               <br className="hidden sm:block" /><br></br>
-              Fast service | Genuine parts | Same-day support
+              Fast service | Genuine parts | Full support
             </p>
 
             <a
-              href="#"
+              href="/services"
               className="inline-flex font-medium text-white text-sm sm:text-custom-sm 
                          rounded-md bg-[#3683ab] py-3 px-8 
                          ease-out duration-200 hover:bg-[#113547] 
@@ -83,12 +83,11 @@ const HeroCarousal = () => {
             </p>
 
             <a
-              href="#"
+              href="https://play.google.com/store/apps/details?id=com.dofix.apptechnician&hl=en_IN"
               className="inline-flex font-medium text-white text-sm sm:text-custom-sm 
                          rounded-md bg-[#3683ab] py-3 px-8 
                          ease-out duration-200 hover:bg-[#113547] 
-                         mt-6 sm:mt-10"
-            >
+                         mt-6 sm:mt-10" >
               Join Now
             </a>
           </div>

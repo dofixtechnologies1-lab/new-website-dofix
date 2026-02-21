@@ -21,14 +21,14 @@ const BlogDetails = () => {
 
           <div>
             <span className="flex items-center gap-3 mb-4">
-              <a href="#" className="ease-out duration-200 hover:text-blue">
+              <a href="#" className="ease-out duration-200 hover:text-[#3683ab]">
                 Mar 27, 2022
               </a>
 
               {/* <!-- divider --> */}
               <span className="block w-px h-4 bg-gray-4"></span>
 
-              <a href="#" className="ease-out duration-200 hover:text-blue">
+              <a href="#" className="ease-out duration-200 hover:text-[#3683ab]">
                 300k Views
               </a>
             </span>

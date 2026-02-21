@@ -1,11 +1,12 @@
-export type Product = {
+export interface Product {
+  id: number;
   title: string;
   reviews: number;
   price: number;
   discountedPrice: number;
-  id: number;
-  imgs?: {
+  categoryId: string; // 🔥 ADD THIS
+  imgs: {
     thumbnails: string[];
     previews: string[];
   };
-};
+}
