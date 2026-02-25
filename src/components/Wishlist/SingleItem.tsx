@@ -1,5 +1,5 @@
 import React from "react";
-import { AppDispatch } from "@/redux/hooks";
+import { AppDispatch } from "@/redux/store";
 import { useDispatch } from "react-redux";
 
 import { removeItemFromWishlist } from "@/redux/features/wishlist-slice";
