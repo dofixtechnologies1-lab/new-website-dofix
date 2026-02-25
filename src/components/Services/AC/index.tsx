@@ -3,7 +3,7 @@ import React, { use, useEffect, useState } from "react";
 // import Breadcrumb from "../Common/Breadcrumb";
 import Image from "next/image";
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
-import { useAppSelector } from "@/redux/store";
+import { useAppSelector } from "@/redux/hooks";
 
 const AC = () => {
   const [activeColor, setActiveColor] = useState("blue");

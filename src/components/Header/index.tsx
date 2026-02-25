@@ -4,7 +4,7 @@ import Link from "next/link";
 import CustomSelect from "./CustomSelect";
 import { menuData } from "./menuData";
 import Dropdown from "./Dropdown";
-import { useAppSelector } from "@/redux/store";
+import { useAppSelector } from "@/redux/hooks";
 import { useSelector } from "react-redux";
 import { selectTotalPrice } from "@/redux/features/cart-slice";
 import { useCartModalContext } from "@/app/context/CartSidebarModalContext";
@@ -41,10 +41,9 @@ const Header = () => {
     { label: "Ac Repair", value: "1" },
     { label: "Home Cleaning", value: "2" },
     { label: "Interior Work", value: "3" },
-    { label: "Phone", value: "4" },
-    { label: "Watch", value: "5" },
-    { label: "Mouse", value: "6" },
-    { label: "Tablet", value: "7" },
+    { label: "Home Appliance", value: "4" },
+    { label: "Painting", value: "5" },
+    { label: "Electrician", value: "6" },
   ];
 
   return (
@@ -53,7 +52,7 @@ const Header = () => {
         stickyMenu && "shadow"
       }`}
     >
-      <div className="max-w-[1170px] mx-auto px-4 sm:px-7.5 xl:px-0">
+      <div className="max-w-[1170px] mx-auto px-4 sm:px-7.5 xl:px-0 ">
         {/* <!-- header top start --> */}
         <div
           className={`flex flex-col lg:flex-row gap-5 items-end lg:items-center xl:justify-between ease-out duration-200 ${
@@ -93,7 +92,7 @@ const Header = () => {
                     <button
                       id="search-btn"
                       aria-label="Search"
-                      className="flex items-center justify-center absolute right-3 top-1/2 -translate-y-1/2 ease-in duration-200 hover:text-blue"
+                      className="flex items-center justify-center absolute right-3 top-1/2 -translate-y-1/2 ease-in duration-200 hover:text-[#3683ab]"
                     >
                       <svg
                         className="fill-current"
@@ -191,9 +190,7 @@ const Header = () => {
                 </Link>
 
                 <button
-                  onClick={handleOpenCartModal}
-                  className="flex items-center gap-2.5"
-                >
+                  className="flex items-center gap-2.5" >
                   <span className="inline-block relative">
                     <svg
                       width="24"
@@ -226,19 +223,21 @@ const Header = () => {
                       />
                     </svg>
 
-                    <span className="flex items-center justify-center font-medium text-2xs absolute -right-2 -top-2.5 bg-blue w-4.5 h-4.5 rounded-full text-white">
+                    <span className="flex items-center justify-center font-medium text-2xs absolute -right-2 -top-2.5 bg-[#3683ab] w-4.5 h-4.5 rounded-full text-white">
                       {product.length}
                     </span>
                   </span>
 
-                  <div>
-                    <span className="block text-2xs text-dark-4 uppercase">
-                      cart
-                    </span>
-                    <p className="font-medium text-custom-sm text-dark">
-                      <strong>₹</strong>{totalPrice}
-                    </p>
-                  </div>
+                 <a href="/cart" className="cursor-pointer">
+                   <div>
+    <span className="block text-2xs text-dark-4 uppercase">
+      cart
+    </span>
+    <p className="font-medium text-custom-sm text-dark">
+      <strong>₹</strong>{totalPrice}
+    </p>
+  </div>
+</a>
                 </button>
               </div>
 
@@ -289,14 +288,14 @@ const Header = () => {
         {/* <!-- header top end --> */}
       </div>
 
-      <div className="border-t border-gray-3">
+      <div className=" bg-[#3683ab]">
         <div className="max-w-[1170px] mx-auto px-4 sm:px-7.5 xl:px-0">
           <div className="flex items-center justify-between">
             {/* <!--=== Main Nav Start ===--> */}
             <div
               className={`w-[288px] absolute right-4 top-full xl:static xl:w-auto h-0 xl:h-auto invisible xl:visible xl:flex items-center justify-between ${
                 navigationOpen &&
-                `!visible bg-white shadow-lg border border-gray-3 !h-auto max-h-[400px] overflow-y-scroll rounded-md p-5`
+                `!visible bg-[#3683ab] shadow-lg border border-gray-3 !h-auto max-h-[400px] overflow-y-scroll rounded-md p-5`
               }`}
             >
               {/* <!-- Main Nav Start --> */}
@@ -312,11 +311,11 @@ const Header = () => {
                     ) : (
                       <li
                         key={i}
-                        className="group relative before:w-0 before:h-[3px] before:bg-blue before:absolute before:left-0 before:top-0 before:rounded-b-[3px] before:ease-out before:duration-200 hover:before:w-full "
+                        className="group relative before:w-0 before:h-[3px] before:bg-[#d4eefb] before:absolute before:left-0 before:top-0 before:rounded-b-[3px] before:ease-out before:duration-200 hover:before:w-full "
                       >
                         <Link
                           href={menuItem.path}
-                          className={`hover:text-blue text-custom-sm font-medium text-dark flex ${
+                          className={`hover:text-[#d4eefb] text-custom-sm font-medium text-white flex ${
                             stickyMenu ? "xl:py-4" : "xl:py-6"
                           }`}
                         >
@@ -337,7 +336,7 @@ const Header = () => {
                 <li className="py-4">
                   {/* <a
                     href="#"
-                    className="flex items-center gap-1.5 font-medium text-custom-sm text-dark hover:text-blue"
+                    className="flex items-center gap-1.5 font-medium text-custom-sm text-dark hover:text-[#3683ab]"
                   >
                     <svg
                       className="fill-current"
@@ -363,7 +362,7 @@ const Header = () => {
                 <li className="py-4">
                   <Link
                     href="/wishlist"
-                    className="flex items-center gap-1.5 font-medium text-custom-sm text-dark hover:text-blue"
+                    className="flex items-center gap-1.5 font-medium text-custom-sm text-white hover:text-[#d4eefb]"
                   >
                     <svg
                       className="fill-current"

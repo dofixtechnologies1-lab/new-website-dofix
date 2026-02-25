@@ -14,8 +14,9 @@ const initialState = {
   } as Service,
 } as InitialState;
 
-export const quickView = createSlice({
-  name: "quickViewServices",
+
+export const quickViewService = createSlice({
+  name: "quickViewService",
   initialState,
   reducers: {
     updateQuickViewServices: (_, action) => {
@@ -26,13 +27,15 @@ export const quickView = createSlice({
       };
     },
 
+
     resetQuickView: () => {
       return {
         value: initialState.value,
+        
       };
     },
   },
 });
 
-export const { updateQuickViewServices, resetQuickView } = quickView.actions;
-export default quickView.reducer;
+export const { updateQuickViewServices, resetQuickView } = quickViewService.actions;
+export default quickViewService.reducer;

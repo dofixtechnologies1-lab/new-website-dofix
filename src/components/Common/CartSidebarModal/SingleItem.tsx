@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/redux/store";
+import { AppDispatch } from "@/redux/hooks";
 import Image from "next/image";
 
 const SingleItem = ({ item, removeItemFromCart }) => {
@@ -18,7 +18,7 @@ const SingleItem = ({ item, removeItemFromCart }) => {
         </div>
 
         <div>
-          <h3 className="font-medium text-dark mb-1 ease-out duration-200 hover:text-blue">
+          <h3 className="font-medium text-dark mb-1 ease-out duration-200 hover:text-[#3683ab]">
             <a href="#"> {item.title} </a>
           </h3>
           <p className="text-custom-sm">Price: ₹{item.discountedPrice}</p>

@@ -32,11 +32,18 @@ const Footer = () => {
                     />
                   </svg>
                 </span>
-                B-30, Sector-06, Noida, Uttar Pradesh, 201301
+              <a
+                href="https://www.google.com/maps/place/DOFIX/@28.5922201,77.3131555,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce5d299ab59bf:0xf344f6052d87445e!8m2!3d28.5922201!4d77.3157304!16s%2Fg%2F11x7dpwbq8?entry=ttu&g_ep=EgoyMDI2MDIxNy4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#3683ab] transition duration-200"
+              >
+              B-30, Sector-06, Noida, Uttar Pradesh, 201301
+              </a>
               </li>
 
               <li>
-                <a href="#" className="flex items-center gap-4.5">
+                <a href="tel:+918383849293" className="flex items-center gap-4.5">
                   <svg
                     width="24"
                     height="24"
@@ -66,7 +73,7 @@ const Footer = () => {
               </li>
 
               <li>
-                <a href="#" className="flex items-center gap-4.5">
+                <a href="mailto:contact@dofix.in" className="flex items-center gap-4.5">
                   <svg
                     width="24"
                     height="24"
@@ -91,7 +98,7 @@ const Footer = () => {
               <a
                 href="#"
                 aria-label="Facebook Social Link"
-                className="flex ease-out duration-200 hover:text-blue"
+                className="flex ease-out duration-200 hover:text-[#3683ab]"
               >
                 <svg
                   className="fill-current"
@@ -116,7 +123,7 @@ const Footer = () => {
               <a
                 href="#"
                 aria-label="Twitter Social Link"
-                className="flex ease-out duration-200 hover:text-blue"
+                className="flex ease-out duration-200 hover:text-[#3683ab]"
               >
                 <svg
                   className="fill-current"
@@ -136,7 +143,7 @@ const Footer = () => {
               <a
                 href="#"
                 aria-label="Instagram Social Link"
-                className="flex ease-out duration-200 hover:text-blue"
+                className="flex ease-out duration-200 hover:text-[#3683ab]"
               >
                 <svg
                   className="fill-current"
@@ -171,7 +178,7 @@ const Footer = () => {
               <a
                 href="#"
                 aria-label="Linkedin Social Link"
-                className="flex ease-out duration-200 hover:text-blue"
+                className="flex ease-out duration-200 hover:text-[#3683ab]"
               >
                 <svg
                   className="fill-current"
@@ -203,30 +210,22 @@ const Footer = () => {
 
             <ul className="flex flex-col gap-3.5">
               <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
+                <a className="ease-out duration-200 hover:text-[#3683ab]" href="#">
                   My Account
                 </a>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
+                <a className="ease-out duration-200 hover:text-[#3683ab]" href="/signin">
                   Login / Register
                 </a>
               </li>
+              
               <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
-                  Cart
-                </a>
-              </li>
-              <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
+                <a className="ease-out duration-200 hover:text-[#3683ab]" href="/wishlist">
                   Wishlist
                 </a>
               </li>
-              <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
-                  Services
-                </a>
-              </li>
+              
             </ul>
           </div>
 
@@ -237,27 +236,27 @@ const Footer = () => {
 
             <ul className="flex flex-col gap-3">
               <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
+                <a className="ease-out duration-200 hover:text-[#3683ab]" href="/privacy-policy">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
+                <a className="ease-out duration-200 hover:text-[#3683ab]" href="#">
                   Refund Policy
                 </a>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
+                <a className="ease-out duration-200 hover:text-[#3683ab]" href="/terms">
                   Terms & Conditions
                 </a>
               </li>
               {/* <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
+                <a className="ease-out duration-200 hover:text-[#3683ab]" href="#">
                   FAQ’s
                 </a>
               </li> */}
               <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
+                <a className="ease-out duration-200 hover:text-[#3683ab]" href="/contact">
                   Contact Us
                 </a>
               </li>
@@ -277,7 +276,7 @@ const Footer = () => {
               <li>
                 <a
                   className="inline-flex items-center gap-3 py-[9px] pl-4 pr-7.5 text-white rounded-md bg-[#000] ease-out duration-200 hover:bg-opacity-95"
-                  href="#"
+                  href="https://apps.apple.com/in/app/dofix/id6748050890"
                 >
                   <svg
                     className="fill-current"
@@ -305,7 +304,7 @@ const Footer = () => {
               <li>
                 <a
                   className="inline-flex items-center gap-3 py-[9px] pl-4 pr-8.5 text-white rounded-md bg-[#3683ab] ease-out duration-200 hover:bg-opacity-95"
-                  href="#"
+                  href="https://play.google.com/store/apps/details?id=com.dofix.appcustomer&hl=en_IN"
                 >
                   <svg
                     className="fill-current"

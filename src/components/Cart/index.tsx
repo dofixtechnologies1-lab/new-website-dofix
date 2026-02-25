@@ -2,14 +2,17 @@
 import React from "react";
 import Discount from "./Discount";
 import OrderSummary from "./OrderSummary";
-import { useAppSelector } from "@/redux/store";
+// import { useAppSelector } from "@/redux/hooks";
+import { useAppSelector } from "@/redux/hooks";
+import { useAppDispatch } from "@/redux/hooks";
+import { removeAllItemsFromCart } from "@/redux/features/cart-slice";
 import SingleItem from "./SingleItem";
 import Breadcrumb from "../Common/Breadcrumb";
 import Link from "next/link";
 
 const Cart = () => {
   const cartItems = useAppSelector((state) => state.cartReducer.items);
-
+const dispatch = useAppDispatch();
   return (
     <>
       {/* <!-- ===== Breadcrumb Section Start ===== --> */}
@@ -22,7 +25,12 @@ const Cart = () => {
           <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
             <div className="flex flex-wrap items-center justify-between gap-5 mb-7.5">
               <h2 className="font-medium text-dark text-2xl">Your Cart</h2>
-              <button className="text-blue">Clear Shopping Cart</button>
+              <button
+                      onClick={() => dispatch(removeAllItemsFromCart())}
+                      className="text-[#3683ab]"
+                    >
+                      Clear Cart
+                    </button>
             </div>
 
             <div className="bg-white rounded-[10px] shadow-1">
@@ -104,7 +112,7 @@ const Cart = () => {
 
             <Link
               href="/shop-with-sidebar"
-              className="w-96 mx-auto flex justify-center font-medium text-white bg-dark py-[13px] px-6 rounded-md ease-out duration-200 hover:bg-opacity-95"
+              className="w-96 mx-auto flex justify-center font-medium text-white bg-[#14455b] py-[13px] px-6 rounded-md ease-out duration-200 hover:bg-opacity-95"
             >
               Continue Shopping
             </Link>

@@ -13,60 +13,59 @@ const Signin = () => {
               <h2 className="font-semibold text-xl sm:text-2xl xl:text-heading-5 text-dark mb-1.5">
                 Sign In to Your Account
               </h2>
-              <p>Enter your detail below</p>
+              <p>Enter your Number</p>
             </div>
 
             <div>
               <form>
                 <div className="mb-5">
-                  <label htmlFor="email" className="block mb-2.5">
-                    Email
+                  <label htmlFor="Number" className="block mb-2.5">
+                    Mobile No.
                   </label>
 
                   <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Enter your email"
-                    className="rounded-lg border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
-                  />
-                </div>
-
+                  type="tel"
+                  name="mobile"
+                  id="mobile"
+                  placeholder="Enter your Number"
+                  maxLength={10}
+                  pattern="[0-9]{10}"
+                  inputMode="numeric"
+                  className="rounded-lg border border-gray-300 bg-gray-100 placeholder:text-gray-400 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue-500/20"
+                />
+              </div>
                 <div className="mb-5">
-                  <label htmlFor="password" className="block mb-2.5">
-                    Password
+                  <label htmlFor="Otp" className="block mb-2.5">
+                    OTP
                   </label>
 
                   <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Enter your password"
-                    autoComplete="on"
-                    className="rounded-lg border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
+                    type="tel"
+                    name="otp"
+                    id="otp"
+                    placeholder="Enter 6 digit OTP"
+                    maxLength={6}
+                    pattern="[0-9]{6}"
+                    inputMode="numeric"
+                    autoComplete="one-time-code"
+                    className="rounded-lg border border-gray-300 bg-gray-100 placeholder:text-gray-400 w-full py-3 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue-500/20"
+                  
                   />
-                </div>
+                  </div>
 
                 <button
                   type="submit"
-                  className="w-full flex justify-center font-medium text-white bg-dark py-3 px-6 rounded-lg ease-out duration-200 hover:bg-blue mt-7.5"
+                  className="w-full flex justify-center font-medium text-white bg-[#3683ab] py-3 px-6 rounded-lg ease-out duration-200 hover:bg-[#14455b] mt-7.5"
                 >
-                  Sign in to account
+                 Sign In
                 </button>
-
-                <a
-                  href="#"
-                  className="block text-center text-dark-4 mt-4.5 ease-out duration-200 hover:text-dark"
-                >
-                  Forget your password?
-                </a>
 
                 <span className="relative z-1 block font-medium text-center mt-4.5">
                   <span className="block absolute -z-1 left-0 top-1/2 h-px w-full bg-gray-3"></span>
                   <span className="inline-block px-3 bg-white">Or</span>
                 </span>
 
-                <div className="flex flex-col gap-4.5 mt-4.5">
+                {/* <div className="flex flex-col gap-4.5 mt-4.5">
                   <button className="flex justify-center items-center gap-3.5 rounded-lg border border-gray-3 bg-gray-1 p-3 ease-out duration-200 hover:bg-gray-2">
                     <svg
                       width="20"
@@ -129,13 +128,13 @@ const Signin = () => {
                     </svg>
                     Sign Up with Github
                   </button>
-                </div>
+                </div> */}
 
                 <p className="text-center mt-6">
                   Don&apos;t have an account?
                   <Link
                     href="/signup"
-                    className="text-dark ease-out duration-200 hover:text-blue pl-2"
+                    className="text-[#14455b] ease-out duration-200 hover:text-[#3683ab] pl-2"
                   >
                     Sign Up Now!
                   </Link>

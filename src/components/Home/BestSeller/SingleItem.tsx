@@ -3,7 +3,7 @@ import React from "react";
 import { Product } from "@/types/product";
 import { useModalContext } from "@/app/context/QuickViewModalContext";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/redux/store";
+import { AppDispatch } from "@/redux/hooks";
 import { updateQuickView } from "@/redux/features/quickView-slice";
 import { addItemToCart } from "@/redux/features/cart-slice";
 import Image from "next/image";
@@ -43,7 +43,7 @@ const SingleItem = ({ item }: { item: Product }) => {
     <div className="group">
       <div className="relative overflow-hidden rounded-lg bg-[#F6F7FB] min-h-[403px]">
         <div className="text-center px-4 py-7.5">
-          <div className="flex items-center justify-center gap-2.5 mb-2">
+          {/* <div className="flex items-center justify-center gap-2.5 mb-2">
             <div className="flex items-center gap-1">
               <Image
                 src="/images/icons/icon-star.svg"
@@ -78,9 +78,9 @@ const SingleItem = ({ item }: { item: Product }) => {
             </div>
 
             <p className="text-custom-sm">({item.reviews})</p>
-          </div>
+          </div> */}
 
-          <h3 className="font-medium text-dark ease-out duration-200 hover:text-blue mb-1.5">
+          <h3 className="font-medium text-dark ease-out duration-200 hover:text-[#3683ab] mb-1.5">
             <Link href="/shop-details"> {item.title} </Link>
           </h3>
 

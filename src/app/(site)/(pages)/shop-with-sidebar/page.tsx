@@ -3,8 +3,8 @@ import ShopWithSidebar from "@/components/ShopWithSidebar";
 
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Dofix Technologies Pvt Ltd",
-  description: "This is Service Page for Dofix",
+  title: "Services",
+  description: "Service Page",
   // other metadata
 };
 

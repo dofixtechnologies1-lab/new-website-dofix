@@ -23,7 +23,7 @@ const PromoBanner = () => {
 
             <a
               href="#"
-              className="inline-flex font-medium text-custom-sm text-white bg-[#3683ab] py-[11px] px-9.5 rounded-md ease-out duration-200 hover:bg-[#113e55] mt-7.5"
+              className="inline-flex font-medium text-custom-sm text-white bg-blue py-[11px] px-9.5 rounded-md ease-out duration-200 hover:bg-[#113e55] mt-7.5"
             >
               Buy Now
             </a>
@@ -63,7 +63,7 @@ const PromoBanner = () => {
               </p>
 
               <a
-                href="#"
+                href="/services"
                 className="inline-flex font-medium text-custom-sm text-white bg-[#3683ab] py-2.5 px-8.5 rounded-md ease-out duration-200 hover:bg-[#14455e] mt-9"
               >
                 Book Now
