@@ -1,0 +1,3 @@
+{
+  "/(site)/(pages)/rate-card/[categoryId]/page": "app/(site)/(pages)/rate-card/[categoryId]/page.js"
+}

@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(site)/layout,_N_T_/(site)/(pages)/layout,_N_T_/(site)/(pages)/painting/layout,_N_T_/(site)/(pages)/painting/page,_N_T_/painting"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KHNpdGUp/!KHBhZ2VzKQ/painting/__PAGE__",
+    "/!KHNpdGUp/!KHBhZ2VzKQ/painting",
+    "/!KHNpdGUp/!KHBhZ2VzKQ",
+    "/!KHNpdGUp",
+    "/_index",
+    "/_head"
+  ]
+}
