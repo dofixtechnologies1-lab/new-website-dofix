@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 
 import { useModalContextService } from "@/app/context/QuickViewModalContextService";
-import { AppDispatch, useAppSelector } from "@/redux/store";
+import { AppDispatch, useAppSelector } from "@/redux/hooks";
 import { addItemToCart } from "@/redux/features/cart-slice";
 import { useDispatch } from "react-redux";
 import Image from "next/image";

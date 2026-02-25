@@ -1,14 +1,17 @@
 "use client";
 import React, { useEffect, useState } from "react";
-
+import RateCard from "./RateCard";
 import { useModalContext } from "@/app/context/QuickViewModalContext";
-import { AppDispatch, useAppSelector } from "@/redux/store";
+import { AppDispatch, useAppSelector } from "@/redux/hooks";
 import { addItemToCart } from "@/redux/features/cart-slice";
 import { useDispatch } from "react-redux";
 import Image from "next/image";
+import RateCardPreview from "@/components/rate-card/RateCardPreview";
 import { usePreviewSlider } from "@/app/context/PreviewSliderContext";
 import { resetQuickView } from "@/redux/features/quickView-slice";
 import { updateproductDetails } from "@/redux/features/product-details";
+import { usePathname } from "next/navigation";
+
 
 const QuickViewModal = () => {
   const { isModalOpen, closeModal } = useModalContext();
@@ -40,6 +43,15 @@ const QuickViewModal = () => {
 
     closeModal();
   };
+
+const pathname = usePathname();
+
+useEffect(() => {
+  if (isModalOpen) {
+    closeModal();
+  }
+}, [pathname]);
+
 
   useEffect(() => {
     // closing modal while clicking outside
@@ -97,7 +109,7 @@ const QuickViewModal = () => {
                     <button
                       onClick={() => setActivePreview(key)}
                       key={key}
-                      className={`flex items-center justify-center w-20 h-20 overflow-hidden rounded-lg bg-gray-1 ease-out duration-200 hover:border-2 hover:border-blue ${activePreview === key && "border-2 border-blue"
+                      className={`flex items-center justify-center w-20 h-20 overflow-hidden rounded-lg bg-gray-1 ease-out duration-200 hover:border-2 hover:border-[#3683ab] ${activePreview === key && "border-2 border-[#3683ab]"
                         }`}
                     >
                       <Image
@@ -304,7 +316,9 @@ const QuickViewModal = () => {
 
               <p>
              Certified Dofix Partners ensure secure setup, precise fitting, optimal performance, and reliable doorstep support with complete safety standards. </p>
-
+{product?.rateCardKey && (
+  <RateCardPreview categoryId={product.rateCardKey} />
+)}
               <div className="flex flex-wrap justify-between gap-5 mt-6 mb-7.5">
                 <div>
                   <h4 className="font-semibold text-lg text-dark mb-3.5">
@@ -392,7 +406,7 @@ const QuickViewModal = () => {
                 <button
                   disabled={quantity === 0 && true}
                   onClick={() => handleAddToCart()}
-                  className={`inline-flex font-medium text-white bg-blue py-3 px-7 rounded-md ease-out duration-200 hover:bg-blue-dark
+                  className={`inline-flex font-medium text-white bg-[#3683ab] py-3 px-7 rounded-md ease-out duration-200 hover:bg-[#14455b]-dark
                   `}
                 >
                   Add to Cart

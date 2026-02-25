@@ -6,7 +6,7 @@ import {
   removeItemFromCart,
   selectTotalPrice,
 } from "@/redux/features/cart-slice";
-import { useAppSelector } from "@/redux/store";
+import { useAppSelector } from "@/redux/hooks";
 import { useSelector } from "react-redux";
 import SingleItem from "./SingleItem";
 import Link from "next/link";

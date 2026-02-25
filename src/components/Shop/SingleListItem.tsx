@@ -7,7 +7,7 @@ import { updateQuickView } from "@/redux/features/quickView-slice";
 import { addItemToCart } from "@/redux/features/cart-slice";
 import { addItemToWishlist } from "@/redux/features/wishlist-slice";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/redux/store";
+import { AppDispatch } from "@/redux/hooks";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -80,7 +80,7 @@ const SingleListItem = ({ item }: { item: Product }) => {
 
             <button
               onClick={() => handleAddToCart()}
-              className="inline-flex font-medium text-custom-sm py-[7px] px-5 rounded-[5px] bg-[#3683ab] text-white ease-out duration-200 hover:bg-[#3683ab]-dark"
+              className="inline-flex font-medium text-custom-sm py-[7px] px-5 rounded-[5px] bg-[#3683ab] text-white ease-out duration-200 hover:bg-[#14455b]"
             >
               Add to cart
             </button>

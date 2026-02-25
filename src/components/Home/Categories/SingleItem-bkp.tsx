@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useModalContext } from "@/app/context/QuickViewModalContext";
 import { updateQuickViewServices } from "@/redux/features/quickViewService-slice";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/redux/store";
+import { AppDispatch } from "@/redux/hooks";
 
 const SingleItem = ({ item }: { item: Category }) => {
   const { openModal } = useModalContext();

@@ -2,10 +2,11 @@
 import React, { useState } from "react";
 import Breadcrumb from "../Common/Breadcrumb";
 
-import CleaningSingleGridItem from "../Shop/CleaningSingleGridItem";
-// import SingleListItem from "../Shop/SingleListItem";
+import SingleGridItem from "../Shop/SingleGridItem";
+import SingleListItem from "../Shop/SingleListItem";
 import CustomSelect from "../ShopWithSidebar/CustomSelect";
 
+// import shopData from "../Shop/homeCleaningData";
 import homeCleaningData from "../Shop/homeCleaningData";
 
 const HomeCleaning = () => {
@@ -14,9 +15,9 @@ const HomeCleaning = () => {
 
   const options = [
     { label: "All Services", value: "0" },
-    { label: "Home Cleaning Service", value: "1" },
-    { label: "Kitchen Cleaning", value: "2" },
-    { label: "", value: "3" },
+    { label: "Ac Service", value: "1" },
+    { label: "Ac Repair", value: "2" },
+    { label: "Ac Installation", value: "3" },
     { label: "Ac Uninstallation", value: "4" },
     { label: "Ac Gas Refilling", value: "5" },
   ];
@@ -53,10 +54,10 @@ const HomeCleaning = () => {
                       }
                     />
 
-                    <p>Explore All Services</p>
+                    <p>All Available Services</p>
                   </div>
 
-                  <div className="flex items-center gap-2.5">
+                  {/* <div className="flex items-center gap-2.5">
                     <button
                       onClick={() => setProductStyle("grid")}
                       className={`${
@@ -78,7 +79,7 @@ const HomeCleaning = () => {
                     >
                       List
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -92,9 +93,9 @@ const HomeCleaning = () => {
               >
                 {filteredServices.map((item, key) =>
                   productStyle === "grid" ? (
-                    <CleaningSingleGridItem item={item} key={key} />
+                    <SingleGridItem item={item} key={key} />
                   ) : (
-                    <CleaningSingleGridItem item={item} key={key} />
+                    <SingleListItem item={item} key={key} />
                   )
                 )}
               </div>

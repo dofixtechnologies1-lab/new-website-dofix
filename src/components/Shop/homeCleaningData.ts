@@ -4,7 +4,7 @@ import { Cleaning } from "@/types/cleaning";
 
 const homeCleaningData: Cleaning[] = [
   {
-    title: "Home Cleaning",
+    title: "Home Cleaning ",
     reviews: 15,
     price: 7.0,
     discountedPrice: 2.0,
@@ -75,6 +75,498 @@ const homeCleaningData: Cleaning[] = [
       ],
     },
   },
+
+ {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+ {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+   {
+    title: "Sofa Cleaning",
+    reviews: 6,
+    price: 59.0,
+    discountedPrice: 29.0,
+    id: 4,
+    categoryId: "0", // 🔥 You can change if needed
+    imgs: {
+      thumbnails: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+      previews: [
+        "/images/products/service-4-bg-1.png",
+        "/images/products/service-4-bg-2.png",
+      ],
+    },
+  },
+
+
+
+
+
+
 ];
 
 export default homeCleaningData;

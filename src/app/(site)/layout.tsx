@@ -42,6 +42,7 @@ export default function RootLayout({
                   <ModalProviderService>
                   <PreviewSliderProvider>
                     <Header />
+                  
                     {children}
 
                     <QuickViewModal />
