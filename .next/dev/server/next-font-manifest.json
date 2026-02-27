@@ -1,0 +1,13 @@
+{
+  "app": {
+    "[project]/src/app/(site)/(pages)/acrepairinstallation/page": [],
+    "[project]/src/app/(site)/(pages)/booking-address/page": [],
+    "[project]/src/app/(site)/(pages)/booking/page": [],
+    "[project]/src/app/(site)/(pages)/cart/page": [],
+    "[project]/src/app/(site)/(pages)/homecleaning/page": [],
+    "[project]/src/app/(site)/page": []
+  },
+  "appUsingSizeAdjust": false,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}

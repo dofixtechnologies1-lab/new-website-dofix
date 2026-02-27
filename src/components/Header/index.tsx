@@ -230,14 +230,14 @@ const Header = () => {
 
                  <a href="/cart" className="cursor-pointer">
                    <div>
-    <span className="block text-2xs text-dark-4 uppercase">
-      cart
-    </span>
-    <p className="font-medium text-custom-sm text-dark">
-      <strong>₹</strong>{totalPrice}
-    </p>
-  </div>
-</a>
+                      <span className="block text-2xs text-dark-4 uppercase">
+                        cart
+                      </span>
+                      <p className="font-medium text-custom-sm text-dark">
+                        <strong>₹</strong>{totalPrice}
+                      </p>
+                    </div>
+                  </a>
                 </button>
               </div>
 

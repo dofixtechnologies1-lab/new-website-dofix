@@ -1,66 +1,74 @@
+"use client";
 import { selectTotalPrice } from "@/redux/features/cart-slice";
-// import { useAppSelector } from "@/redux/hooks";
 import { useAppSelector } from "@/redux/hooks";
 import React from "react";
+import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 
 const OrderSummary = () => {
+  const router = useRouter();
   const cartItems = useAppSelector((state) => state.cartReducer.items);
   const totalPrice = useSelector(selectTotalPrice);
 
+  const tax = Math.round(totalPrice * 0.18); // 18% GST example
+  const finalAmount = totalPrice + tax;
+
   return (
-    <div className="lg:max-w-[455px] w-full">
-      {/* <!-- order list box --> */}
-      <div className="bg-white shadow-1 rounded-[10px]">
-        <div className="border-b border-gray-3 py-5 px-4 sm:px-8.5">
-          <h3 className="font-medium text-xl text-dark">Order Summary</h3>
-        </div>
+    <div className="w-full lg:max-w-[420px]">
+      <div className="bg-white rounded-2xl shadow-md border border-gray-200 p-6">
 
-        <div className="pt-2.5 pb-8.5 px-4 sm:px-8.5">
-          {/* <!-- title --> */}
-          <div className="flex items-center justify-between py-5 border-b border-gray-3">
-            <div>
-              <h4 className="font-medium text-dark">Product</h4>
-            </div>
-            <div>
-              <h4 className="font-medium text-dark text-right">Subtotal</h4>
-            </div>
-          </div>
+        {/* Heading */}
+        <h3 className="text-xl font-semibold mb-5">
+          Billing Details
+        </h3>
 
-          {/* <!-- product item --> */}
+        {/* Product List */}
+        <div className="space-y-4 mb-6">
           {cartItems.map((item, key) => (
-            <div key={key} className="flex items-center justify-between py-5 border-b border-gray-3">
-              <div>
-                <p className="text-dark">{item.title}</p>
-              </div>
-              <div>
-                <p className="text-dark text-right">
-                  ₹{item.discountedPrice * item.quantity}
-                </p>
-              </div>
+            <div key={key} className="flex justify-between text-sm">
+              <span className="text-gray-600">
+                {item.title} × {item.quantity}
+              </span>
+              <span className="font-medium">
+                ₹{item.discountedPrice * item.quantity}
+              </span>
             </div>
           ))}
+        </div>
 
-          {/* <!-- total --> */}
-          <div className="flex items-center justify-between pt-5">
-            <div>
-              <p className="font-medium text-lg text-dark">Total</p>
-            </div>
-            <div>
-              <p className="font-medium text-lg text-dark text-right">
-                ₹{totalPrice}
-              </p>
-            </div>
+        <hr className="mb-5" />
+
+        {/* Price Breakdown */}
+        <div className="space-y-3 text-sm">
+          <div className="flex justify-between text-gray-600">
+            <span>Item Total</span>
+            <span>₹{totalPrice}</span>
           </div>
 
-          {/* <!-- checkout button --> */}
-          <button
-            type="submit"
-            className="w-full flex justify-center font-medium text-white bg-[#3683ab] py-3 px-6 rounded-md ease-out duration-200 hover:bg-[#14455b] mt-7.5"
-          >
-            Process to Checkout
-          </button>
+          <div className="flex justify-between text-gray-600">
+            <span>Tax & Fees (18%)</span>
+            <span>₹{tax}</span>
+          </div>
         </div>
+
+        <hr className="my-5" />
+
+        {/* Total */}
+        <div className="flex justify-between items-center text-lg font-semibold">
+          <span>Total Amount</span>
+          <span className="text-[#3683ab]">
+            ₹{finalAmount}
+          </span>
+        </div>
+
+        {/* CTA Button */}
+        <button
+          type="button"
+          onClick={() => router.push("/booking")}
+          className="w-full mt-6 bg-[#3683ab] text-white py-3 rounded-xl font-medium hover:bg-[#14455b] transition"
+        >
+          Continue To Booking
+        </button>
       </div>
     </div>
   );
