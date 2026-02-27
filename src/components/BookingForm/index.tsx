@@ -21,16 +21,58 @@ const slots = [
 export default function BookingForm() {
   const router = useRouter();
 
+  // Service
   const [serviceType, setServiceType] = useState("On-site Service");
   const [selectedDate, setSelectedDate] = useState(0);
   const [selectedSlot, setSelectedSlot] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("cash");
 
+  // Customer Details
+  const [customerName, setCustomerName] = useState("");
+  const [customerPhone, setCustomerPhone] = useState("");
+  const [customerEmail, setCustomerEmail] = useState("");
+  const [comment, setComment] = useState("");
+
+  const [loading, setLoading] = useState(false);
+
+  const handleBooking = async () => {
+
+    if (!customerName || !customerPhone || !selectedSlot) {
+      alert("Please fill required fields");
+      return;
+    }
+
+    setLoading(true);
+
+    const bookingData = {
+      serviceType,
+      date: dates[selectedDate],
+      slot: selectedSlot,
+      paymentMethod,
+      customerName,
+      customerPhone,
+      customerEmail,
+      comment,
+    };
+
+    console.log("Booking Data:", bookingData);
+
+    // 👉 Replace this with your Laravel API
+    // await fetch("/api/create-booking", { method: "POST", body: JSON.stringify(bookingData) });
+
+    setTimeout(() => {
+      setLoading(false);
+      alert("Booking Created Successfully ✅");
+    }, 1500);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 py-6 px-4 pt-40">
       <div className="max-w-[800px] mx-auto bg-white rounded-3xl shadow-xl p-6 space-y-6">
 
-        <h2 className="text-2xl font-semibold text-center">Book Service</h2>
+        <h2 className="text-2xl font-semibold text-center">
+          Book Service
+        </h2>
 
         {/* Service Preference */}
         <div>
@@ -117,7 +159,49 @@ export default function BookingForm() {
           </div>
         </div>
 
-        {/* Address Field */}
+        {/* Customer Details */}
+        <div>
+          <h3 className="font-medium mb-3">Assign Customer Details</h3>
+
+          <div className="space-y-4">
+
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Customer Name"
+                value={customerName}
+                onChange={(e) => setCustomerName(e.target.value)}
+                className="w-full border border-gray-300 rounded-xl p-3 pl-10 focus:outline-none focus:border-[#3683ab]"
+              />
+              <span className="absolute left-3 top-3.5 text-gray-400">👤</span>
+            </div>
+
+            <div className="relative">
+              <input
+                type="tel"
+                placeholder="Customer Phone"
+                value={customerPhone}
+                onChange={(e) => setCustomerPhone(e.target.value)}
+                className="w-full border border-gray-300 rounded-xl p-3 pl-10 focus:outline-none focus:border-[#3683ab]"
+              />
+              <span className="absolute left-3 top-3.5 text-gray-400">📞</span>
+            </div>
+
+            <div className="relative">
+              <input
+                type="email"
+                placeholder="Customer Email"
+                value={customerEmail}
+                onChange={(e) => setCustomerEmail(e.target.value)}
+                className="w-full border border-gray-300 rounded-xl p-3 pl-10 focus:outline-none focus:border-[#3683ab]"
+              />
+              <span className="absolute left-3 top-3.5 text-gray-400">✉️</span>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Address */}
         <div>
           <h3 className="font-medium mb-3">Add Address</h3>
           <div
@@ -129,9 +213,25 @@ export default function BookingForm() {
           </div>
         </div>
 
+        {/* Comment */}
+        <div>
+          <h3 className="font-medium mb-3">Any Comment</h3>
+           <textarea
+            placeholder="Write comment here"
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            rows={3}
+            className="w-full border border-gray-300 rounded-xl p-3 focus:outline-none focus:border-[#3683ab]"
+          />
+        </div>
+
         {/* Submit */}
-        <button className="w-full bg-[#3683ab] hover:bg-[#14455b] text-white py-4 rounded-2xl font-semibold text-lg transition">
-          Create Booking
+        <button
+          onClick={handleBooking}
+          disabled={loading}
+          className="w-full bg-[#3683ab] hover:bg-[#14455b] text-white py-4 rounded-2xl font-semibold text-lg transition disabled:opacity-50"
+        >
+          {loading ? "Processing..." : "Create Booking"}
         </button>
 
       </div>
