@@ -1,6 +1,8 @@
 {
   "/(site)/(pages)/about/page": "app/(site)/(pages)/about/page.js",
   "/(site)/(pages)/acrepairinstallation/page": "app/(site)/(pages)/acrepairinstallation/page.js",
+  "/(site)/(pages)/booking-address/page": "app/(site)/(pages)/booking-address/page.js",
+  "/(site)/(pages)/booking/page": "app/(site)/(pages)/booking/page.js",
   "/(site)/(pages)/cart/page": "app/(site)/(pages)/cart/page.js",
   "/(site)/(pages)/checkout/page": "app/(site)/(pages)/checkout/page.js",
   "/(site)/(pages)/contact/page": "app/(site)/(pages)/contact/page.js",

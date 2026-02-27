@@ -1,6 +1,8 @@
 {
   "/(site)/(pages)/about/page": "/about",
   "/(site)/(pages)/acrepairinstallation/page": "/acrepairinstallation",
+  "/(site)/(pages)/booking-address/page": "/booking-address",
+  "/(site)/(pages)/booking/page": "/booking",
   "/(site)/(pages)/cart/page": "/cart",
   "/(site)/(pages)/checkout/page": "/checkout",
   "/(site)/(pages)/contact/page": "/contact",

@@ -2,6 +2,8 @@
   "app": {
     "[project]/src/app/(site)/(pages)/about/page": [],
     "[project]/src/app/(site)/(pages)/acrepairinstallation/page": [],
+    "[project]/src/app/(site)/(pages)/booking-address/page": [],
+    "[project]/src/app/(site)/(pages)/booking/page": [],
     "[project]/src/app/(site)/(pages)/cart/page": [],
     "[project]/src/app/(site)/(pages)/checkout/page": [],
     "[project]/src/app/(site)/(pages)/contact/page": [],
