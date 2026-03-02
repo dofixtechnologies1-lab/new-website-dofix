@@ -1,69 +1,87 @@
 "use client";
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 
-export default function DynamicModal({ items }) {
-  const [selectedItem, setSelectedItem] = useState(null);
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { subCategoryMapping } from "@/Data/subCategoriesMapping";
+
+interface Props {
+  categorySlug: string | null;
+  onClose: () => void;
+}
+
+export default function DynamicModal({
+  categorySlug,
+  onClose,
+}: Props) {
+  const router = useRouter();
+
+  // 🔥 Extra safety — agar slug null ho to render mat karo
+  if (!categorySlug) return null;
+
+  const subCategories = subCategoryMapping[categorySlug];
+
+  // 🔥 Agar mapping exist nahi karti to render mat karo
+  if (!subCategories) return null;
+
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [onClose]);
 
   return (
-    <>
-      {/* Trigger Buttons */}
-      <div className="flex gap-4 flex-wrap">
-        {items.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => setSelectedItem(item)}
-            className="text-[#3683ab]-600 underline"
-          >
-            {item.buttonText}
-          </button>
-        ))}
-      </div>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white w-[95%] max-w-5xl rounded-2xl shadow-2xl p-8 relative"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute top-5 right-5 text-gray-600 hover:text-black text-2xl"
+        >
+          ✕
+        </button>
 
-      {/* Modal */}
-      {selectedItem && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
-          <div className="bg-white rounded-2xl w-[90%] max-w-md p-6 relative">
+        {/* Title */}
+        <h2 className="text-3xl font-semibold mb-8 capitalize">
+          {categorySlug.replace(/-/g, " ")}
+        </h2>
 
-            {/* Close */}
-            <button
-              onClick={() => setSelectedItem(null)}
-              className="absolute top-3 right-3"
+        {/* Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {subCategories.map((sub: any) => (
+            <div
+              key={sub.id}
+              onClick={(e) => {
+                e.stopPropagation();
+                onClose();
+
+                router.push(`/${categorySlug}/${sub.id}`);
+              }}
+              className="cursor-pointer border rounded-xl p-5 hover:shadow-lg hover:scale-105 transition-all duration-300"
             >
-              ✕
-            </button>
+              <div className="h-24 rounded-lg mb-4 overflow-hidden bg-gray-100 flex items-center justify-center">
+                <img
+                  src={sub.img}
+                  alt={sub.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
 
-            {/* Image */}
-            <div className="relative w-full h-60 mb-4">
-              <Image
-                src={selectedItem.image}
-                alt={selectedItem.title}
-                fill
-                className="object-cover rounded-lg"
-              />
+              <h3 className="font-semibold text-lg text-center">
+                {sub.title}
+              </h3>
             </div>
-
-            {/* ✅ YOUR DYNAMIC TITLE HERE */}
-            <div className="flex justify-center">
-              <Link href={selectedItem.link}>
-                <h3 className="inline-block font-medium text-center text-dark 
-                  bg-gradient-to-r from-[#3683ab] to-[#3683ab] 
-                  bg-[length:0px_1px] bg-left-bottom bg-no-repeat 
-                  transition-[background-size] duration-500 
-                  hover:bg-[length:100%_3px] 
-                  group-hover:bg-[length:100%_1px] 
-                  group-hover:text-[#3683ab]">
-                  
-                  {selectedItem.title}
-                  
-                </h3>
-              </Link>
-            </div>
-
-          </div>
+          ))}
         </div>
-      )}
-    </>
+      </div>
+    </div>
   );
 }

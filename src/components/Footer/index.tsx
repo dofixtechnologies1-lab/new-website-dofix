@@ -73,7 +73,7 @@ const Footer = () => {
               </li>
 
               <li>
-                <a href="mailto:contact@dofix.in" className="flex items-center gap-4.5">
+                <a href="mailto:support@dofix.in" className="flex items-center gap-4.5">
                   <svg
                     width="24"
                     height="24"
@@ -96,7 +96,7 @@ const Footer = () => {
             {/* <!-- Social Links start --> */}
             <div className="flex items-center gap-4 mt-7.5">
               <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61574626560232"
                 aria-label="Facebook Social Link"
                 className="flex ease-out duration-200 hover:text-[#3683ab]"
               >
@@ -120,8 +120,8 @@ const Footer = () => {
                 </svg>
               </a>
 
-              <a
-                href="#"
+              {/* <a
+                href="https://www.instagram.com/dofix.in/"
                 aria-label="Twitter Social Link"
                 className="flex ease-out duration-200 hover:text-[#3683ab]"
               >
@@ -138,10 +138,10 @@ const Footer = () => {
                     fill=""
                   />
                 </svg>
-              </a>
+              </a> */}
 
               <a
-                href="#"
+                href="https://www.instagram.com/dofix.in/"
                 aria-label="Instagram Social Link"
                 className="flex ease-out duration-200 hover:text-[#3683ab]"
               >
@@ -176,7 +176,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="#"
+                href="https://www.linkedin.com/company/dofix-technologies-private-limited/"
                 aria-label="Linkedin Social Link"
                 className="flex ease-out duration-200 hover:text-[#3683ab]"
               >
@@ -268,9 +268,9 @@ const Footer = () => {
               Download App
             </h2>
 
-            <p className="lg:text-right text-custom-sm mb-4">
+            {/* <p className="lg:text-right text-custom-sm mb-4">
               Dofix App
-            </p>
+            </p> */}
 
             <ul className="flex flex-col lg:items-end gap-3">
               <li>

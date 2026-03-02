@@ -1,30 +1,44 @@
-[00:00:01.914] Server  LOG     ✓ Ready in 1471ms
-[00:00:11.306] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
-[00:00:12.112] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:13.502] Browser WARN    Image with src "/images/logo/headerlogo.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:13.502] Browser WARN    Image with src "/images/icons/technician.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:13.502] Browser WARN    Image with src "/images/icons/24-hours.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:13.502] Browser WARN    Image with src "/images/icons/price-tag.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:13.502] Browser WARN    Image with src "/images/icons/24-7.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:13.502] Browser WARN    Image with src "/images/categories/categories-ac.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:13.502] Browser WARN    Image with src "/images/categories/categories-hc.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:13.502] Browser WARN    Image with src "/images/categories/categories-re.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:13.502] Browser WARN    Image with src "/images/categories/categories-in.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:13.502] Browser WARN    Image with src "/images/categories/categories-pa.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:13.503] Browser WARN    Image with src "/images/categories/categories-el.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:13.503] Browser WARN    Image with src "/images/hero/hero-bg.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+[00:00:01.158] Server  LOG     ✓ Ready in 830ms
+[00:00:09.462] Server  ERROR   redux-persist failed to create sync storage. falling back to noop storage.
+[00:00:10.219] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:11.297] Browser WARN    Image with src "/images/logo/headerlogo.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:11.297] Browser WARN    Image with src "/images/icons/24-hours.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:11.297] Browser WARN    Image with src "/images/icons/price-tag.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:11.297] Browser WARN    Image with src "/images/icons/24-7.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:11.297] Browser WARN    Image with src "/images/icons/technician.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:11.297] Browser WARN    Image with src "/images/hero/hero-bg.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
 Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:00:13.503] Browser WARN    Image with src "/images/promo/promo3.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:13.503] Browser WARN    Image with src "/images/promo/promo5.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:15.749] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:17.003] Browser WARN    Image with src "/images/logo/headerlogo.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:00:17.003] Browser WARN    Image with src "/images/logo/headerlogo.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:00:17.003] Browser WARN    Image with src "/images/products/service-2-bg-1.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:17.003] Browser WARN    Image with src "/images/products/service-3-bg-1.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:17.003] Browser WARN    Image with src "/images/products/service-2-bg-1.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:03:56.303] Server  LOG     ✓ Compiled in 1425ms
-[00:06:01.540] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:12:01.565] Browser WARN    As of February 21st, 2024, google.maps.Marker is deprecated. Please use google.maps.marker.AdvancedMarkerElement instead. At this time, google.maps.Marker is not scheduled to be discontinued, but google.maps.marker.AdvancedMarkerElement is recommended over google.maps.Marker. While google.maps.Marker will continue to receive bug fixes for any major regressions, existing bugs in google.maps.Marker will not be addressed. At least 12 months notice will be given before support is discontinued. Please see https://developers.google.com/maps/deprecations for additional details and https://developers.google.com/maps/documentation/javascript/advanced-markers/migration for the migration guide.
-[00:12:06.325] Browser LOG     AIzaSyBLI5I6o95GqluNuRh0YT3zRj5yqoix8zA
+[00:00:11.297] Browser WARN    Image with src "/images/categories/categories-ac.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:11.297] Browser WARN    Image with src "/images/categories/categories-hc.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:11.297] Browser WARN    Image with src "/images/categories/categories-pa.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:11.297] Browser WARN    Image with src "/images/categories/categories-re.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:11.297] Browser WARN    Image with src "/images/categories/categories-in.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:11.297] Browser WARN    Image with src "/images/categories/categories-el.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:11.298] Browser WARN    Image with src "/images/promo/promo3.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:11.492] Browser WARN    Image with src "/images/promo/promo5.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:00:11.494] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/ac/ac-service.jpg" "received" null
+[00:00:11.496] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/ac/ac-repair.jpg" "received" null
+[00:00:11.510] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/ac/ac-install-uninstall.jpg" "received" null
+[00:00:11.512] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/cleaning/deep.jpg" "received" null
+[00:00:33.384] Browser LOG     Clicked: acrepairinstallation
+[00:00:35.291] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:00:35.304] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/ac/ac-service.jpg" "received" null
+[00:00:47.124] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/ac/ac-service.jpg" "received" null
+[00:00:47.127] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/ac/ac-repair.jpg" "received" null
+[00:00:47.158] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/ac/ac-install-uninstall.jpg" "received" null
+[00:00:47.173] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/cleaning/deep.jpg" "received" null
+[00:01:30.591] Browser LOG     Clicked: interior
+[00:01:31.908] Browser LOG     Clicked: interior
+[00:01:33.292] Browser LOG     Clicked: home-appliances
+[00:01:34.325] Browser LOG     Clicked: home-appliances
+[00:01:35.624] Browser LOG     Clicked: electrician
+[00:01:36.851] Browser LOG     Clicked: painting
+[00:01:36.851] Browser ERROR   React has detected a change in the order of Hooks called by %s. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://react.dev/link/rules-of-hooks
+
+   Previous render            Next render
+   ------------------------------------------------------
+%s   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ DynamicModal 1. useContext                 useContext
+2. undefined                  useEffect
+
+[00:01:36.851] Browser ERROR   Internal React error: Expected static flag was missing. Please notify the React team.

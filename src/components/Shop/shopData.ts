@@ -1,290 +1,136 @@
 import { Product } from "@/types/product";
 
 const shopData: Product[] = [
+  // ================= AC REPAIR INSTALLATION =================
+
+  // {
+  //   id: 1,
+  //   title: "AC Installation",
+  //   category: "acrepairinstallation",
+  //   subCategory: "ac-installation",
+  //   rateCardKey: "ac",
+  //   reviews: 15,
+  //   imgs: {
+  //     thumbnails: ["/images/ac/ac-main.jpg"],
+  //     previews: ["/images/ac/ac-main.jpg"],
+  //   },
+  //   variants: [],
+  // },
+
   {
-    title: "Foam Jet Service",
-    reviews: 15,
-    price: 699.0,
-    discountedPrice: 599.0,
-    id: 1,
-    categoryId: "1",
-    rateCardKey: "ac",
-    imgs: {
-      thumbnails: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-      previews: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "Windows Gas Refill/Checkup",
-    reviews: 5,
-    price: 2599.0,
-    discountedPrice: 2399.0,
     id: 2,
-    categoryId: "5",
+    title: "AC Service",
+    category: "acrepairinstallation",
+    subCategory: "ac-service",
     rateCardKey: "ac",
+    reviews: 20,
     imgs: {
-      thumbnails: [
-        "/images/products/service-2-bg-1.png",
-        "/images/products/service-2-bg-2.png",
-      ],
-      previews: [
-        "/images/products/service-2-bg-1.png",
-        "/images/products/service-2-bg-2.png",
-      ],
+      thumbnails: ["/images/ac/ac-service.jpg"],
+      previews: ["/images/ac/ac-service.jpg"],
     },
+    variants: [],
   },
+
   {
-    title: "Split Gas Refill/Checkup",
-    reviews: 5,
-    price: 2999.0,
-    discountedPrice: 2799.0,
-    id: 3,
-    categoryId: "5",
-    rateCardKey: "ac",
-    imgs: {
-      thumbnails: [
-        "/images/products/service-3-bg-1.png",
-        "/images/products/service-3-bg-2.png",
-      ],
-      previews: [
-        "/images/products/service-3-bg-1.png",
-        "/images/products/service-3-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "Window Ac Installation",
-    reviews: 6,
-    price: 1199.0,
-    discountedPrice: 699.0,
-    id: 4,
-    categoryId: "3",
-    rateCardKey: "ac",
-    imgs: {
-      thumbnails: [
-        "/images/products/service-4-bg-1.png",
-        "/images/products/service-4-bg-2.png",
-      ],
-      previews: [
-        "/images/products/service-4-bg-1.png",
-        "/images/products/service-4-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "Split Ac Installation",
-    reviews: 15,
-    price: 1599.0,
-    discountedPrice: 1299.0,
     id: 5,
-    categoryId: "3",
+    title: "AC Repair",
+    category: "acrepairinstallation",
+    subCategory: "ac-repair",   // ✅ added
     rateCardKey: "ac",
+    reviews: 18,
     imgs: {
-      thumbnails: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-      previews: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
+      thumbnails: ["/images/ac/ac-repair.jpg"],
+      previews: ["/images/ac/ac-repair.jpg"],
     },
+    variants: [],
   },
+
   {
-    title: "Window Ac Uninstallation",
-    reviews: 15,
-    price: 899.0,
-    discountedPrice: 549.0,
     id: 6,
-    categoryId: "4",
+    title: "AC Installation & Uninstallation",
+    category: "acrepairinstallation",
+    subCategory: "ac-installation-uninstallation",  // ✅ added
     rateCardKey: "ac",
+    reviews: 12,
     imgs: {
-      thumbnails: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-      previews: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
+      thumbnails: ["/images/ac/ac-install-uninstall.jpg"],
+      previews: ["/images/ac/ac-install-uninstall.jpg"],
     },
+    variants: [],
   },
+
+  // ================= HOME CLEANING =================
+
   {
-    title: "Split Ac Uninstallation",
-    reviews: 15,
-    price: 999.0,
-    discountedPrice: 699.0,
+    id: 3,
+    title: "Deep Cleaning",
+    category: "home-cleaning",
+    subCategory: "deep-cleaning",
+    rateCardKey: "cleaning",
+    reviews: 10,
+    imgs: {
+      thumbnails: ["/images/cleaning/deep.jpg"],
+      previews: ["/images/cleaning/deep.jpg"],
+    },
+    variants: [],
+  },
+
+  {
     id: 7,
-    categoryId: "4",
-    rateCardKey: "ac",
+    title: "Bathroom Cleaning",
+    category: "home-cleaning",
+    subCategory: "bathroom-cleaning",   // ✅ added
+    rateCardKey: "cleaning",
+    reviews: 9,
     imgs: {
-      thumbnails: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-      previews: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
+      thumbnails: ["/images/cleaning/bathroom.jpg"],
+      previews: ["/images/cleaning/bathroom.jpg"],
     },
+    variants: [],
   },
+
   {
-    title: "Window Ac Water Leakage Repair",
-    reviews: 15,
-    price: 699.0,
-    discountedPrice: 449.0,
     id: 8,
-    categoryId: "2",
-    rateCardKey: "ac",
+    title: "Kitchen Cleaning",
+    category: "home-cleaning",
+    subCategory: "kitchen-cleaning",   // ✅ added
+    rateCardKey: "cleaning",
+    reviews: 11,
     imgs: {
-      thumbnails: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-      previews: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
+      thumbnails: ["/images/cleaning/kitchen.jpg"],
+      previews: ["/images/cleaning/kitchen.jpg"],
     },
+    variants: [],
   },
+
   {
-    title: "Split Ac Water Leakage Repair",
-    reviews: 15,
-    price: 799.0,
-    discountedPrice: 449.0,
     id: 9,
-    categoryId: "2",
-    rateCardKey: "ac",
+    title: "Full Home Cleaning",
+    category: "home-cleaning",
+    subCategory: "full-home",   // ✅ added
+    rateCardKey: "cleaning",
+    reviews: 14,
     imgs: {
-      thumbnails: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-      previews: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
+      thumbnails: ["/images/cleaning/full-home.jpg"],
+      previews: ["/images/cleaning/full-home.jpg"],
     },
+    variants: [],
   },
+
+  // ================= PAINTING =================
+
   {
-    title: "Window Ac Noise/Smell Repair",
-    reviews: 15,
-    price: 699.0,
-    discountedPrice: 499.0,
-    id: 10,
-    categoryId: "2",
-    rateCardKey: "ac",
+    id: 4,
+    title: "Wall Painting",
+    category: "painting",
+    subCategory: "wall-paint",
+    rateCardKey: "painting",
+    reviews: 8,
     imgs: {
-      thumbnails: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-      previews: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
+      thumbnails: ["/images/painting/wall.jpg"],
+      previews: ["/images/painting/wall.jpg"],
     },
-  },
-  {
-    title: "Split Ac Noise/Smell Repair",
-    reviews: 15,
-    price: 699.0,
-    discountedPrice: 499.0,
-    id: 11,
-    categoryId: "2",
-    rateCardKey: "ac",
-    imgs: {
-      thumbnails: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-      previews: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "Window Ac Power Issue Repair",
-    reviews: 15,
-    price: 499.0,
-    discountedPrice: 299.0,
-    id: 12,
-    categoryId: "2",
-    rateCardKey: "ac",
-    imgs: {
-      thumbnails: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-      previews: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "Split Ac Power Issue Repair",
-    reviews: 15,
-    price: 499.0,
-    discountedPrice: 299.0,
-    id: 13,
-    categoryId: "2",
-    rateCardKey: "ac",
-    imgs: {
-      thumbnails: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-      previews: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "Window Ac Visiting Charge",
-    reviews: 15,
-    price: 499.0,
-    discountedPrice: 299.0,
-    id: 14,
-    categoryId: "2",
-    rateCardKey: "ac",
-    imgs: {
-      thumbnails: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-      previews: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-    },
-  },
-  {
-    title: "Split Ac Visiting Charge",
-    reviews: 15,
-    price: 499.0,
-    discountedPrice: 399.0,
-    id: 15,
-    categoryId: "2",
-    rateCardKey: "ac",
-    imgs: {
-      thumbnails: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-      previews: [
-        "/images/products/service-1-bg-1.png",
-        "/images/products/service-1-bg-2.png",
-      ],
-    },
+    variants: [],
   },
 ];
 

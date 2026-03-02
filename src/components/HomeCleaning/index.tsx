@@ -1,106 +1,96 @@
 "use client";
+
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import Breadcrumb from "../Common/Breadcrumb";
-
-import SingleGridItem from "../Shop/SingleGridItem";
-import SingleListItem from "../Shop/SingleListItem";
 import CustomSelect from "../ShopWithSidebar/CustomSelect";
-
-// import shopData from "../Shop/homeCleaningData";
 import homeCleaningData from "../Shop/homeCleaningData";
+import { Product } from "@/types/product";
 
 const HomeCleaning = () => {
-  const [productStyle, setProductStyle] = useState("grid");
+  const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState("0");
 
   const options = [
     { label: "All Services", value: "0" },
-    { label: "Ac Service", value: "1" },
-    { label: "Ac Repair", value: "2" },
-    { label: "Ac Installation", value: "3" },
-    { label: "Ac Uninstallation", value: "4" },
-    { label: "Ac Gas Refilling", value: "5" },
+    { label: "Bathroom Cleaning", value: "1" },
+    { label: "Kitchen Cleaning", value: "2" },
+    { label: "Full Home Cleaning", value: "3" },
   ];
 
-  // 🔥 FILTER LOGIC
-  const filteredServices =
-    selectedCategory === "0"
-      ? homeCleaningData
-      : homeCleaningData.filter(
-          (item) => item.categoryId === selectedCategory
-        );
+const filteredServices =
+  selectedCategory === "0"
+    ? homeCleaningData
+    : homeCleaningData.filter(
+        (item) => item.categoryId === selectedCategory
+      );
 
   return (
     <>
       <Breadcrumb
-        title={"Explore All Services"}
-        pages={["services", "/", "all services"]}
+        title={"Home Cleaning Services"}
+        pages={["", "/", "Home Cleaning Services"]}
       />
 
-      <section className="overflow-hidden relative pb-20 pt-5 lg:pt-20 xl:pt-28 bg-[#f3f4f6] -mt-50">
-        <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
-          <div className="flex gap-7.5">
-            <div className="w-full">
-              {/* Top Bar */}
-              <div className="rounded-lg bg-white shadow-1 pl-3 pr-2.5 py-2.5 mb-6">
-                <div className="flex items-center justify-between">
-                  <div className="flex flex-wrap items-center gap-4">
-                    
-                    {/* 🔥 Dropdown Working */}
-                    <CustomSelect
-                      options={options}
-                      onChange={(value: string) =>
-                        setSelectedCategory(value)
-                      }
-                    />
+      <section className="bg-gray py-8">
+        <div className="max-w-[800px] mx-auto px-4">
 
-                    <p>All Available Services</p>
-                  </div>
-
-                  {/* <div className="flex items-center gap-2.5">
-                    <button
-                      onClick={() => setProductStyle("grid")}
-                      className={`${
-                        productStyle === "grid"
-                          ? "bg-[#3683ab] border-[#3683ab] text-white"
-                          : "text-dark bg-gray-1 border-gray-3"
-                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border`}
-                    >
-                      Grid
-                    </button>
-
-                    <button
-                      onClick={() => setProductStyle("list")}
-                      className={`${
-                        productStyle === "list"
-                          ? "bg-[#3683ab] border-[#3683ab] text-white"
-                          : "text-dark bg-gray-1 border-gray-3"
-                      } flex items-center justify-center w-10.5 h-9 rounded-[5px] border`}
-                    >
-                      List
-                    </button>
-                  </div> */}
-                </div>
-              </div>
-
-              {/* Products Grid/List */}
-              <div
-                className={`${
-                  productStyle === "grid"
-                    ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-7.5 gap-y-9"
-                    : "flex flex-col gap-7.5"
-                }`}
-              >
-                {filteredServices.map((item, key) =>
-                  productStyle === "grid" ? (
-                    <SingleGridItem item={item} key={key} />
-                  ) : (
-                    <SingleListItem item={item} key={key} />
-                  )
-                )}
-              </div>
+          {/* Filter Box */}
+          <div className="bg-white rounded-2xl shadow-sm p-4 mb-8">
+            <div className="flex items-center gap-4">
+              <CustomSelect
+                options={options}
+                onChange={(value: string) =>
+                  setSelectedCategory(value)
+                }
+              />
+              <p className="font-medium">
+                {filteredServices.length} Services Available
+              </p>
             </div>
           </div>
+
+          {/* Service Cards */}
+          <div className="flex flex-col gap-6">
+
+            {filteredServices.map((item) => (
+
+              <div
+                key={item.id}
+                onClick={() => router.push(`/home-cleaning/${item.id}`)}
+                className="cursor-pointer bg-white rounded-3xl shadow-md p-5 flex gap-5 hover:shadow-lg transition"
+              >
+
+                {/* Image */}
+                <div className="w-40 h-40 rounded-2xl overflow-hidden">
+                  <img
+                    src={item.imgs?.thumbnails?.[0]}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="flex flex-col justify-center">
+                  <h3 className="text-xl font-semibold">
+                    {item.title}
+                  </h3>
+
+                  <div className="text-sm text-gray-500 mt-2">
+                    {item.reviews} Reviews
+                  </div>
+
+                  <div className="text-[#3683ab] mt-4 font-medium">
+                    View Options →
+                  </div>
+                </div>
+
+              </div>
+
+            ))}
+
+          </div>
+
         </div>
       </section>
     </>

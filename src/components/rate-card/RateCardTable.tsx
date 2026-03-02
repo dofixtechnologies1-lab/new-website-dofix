@@ -2,13 +2,20 @@
 import { rateCardsData } from "@/Data/rateCardsData";
 
 interface Props {
-  categoryId: string;
+  rateCardKey: string;
 }
 
-const RateCardTable = ({ categoryId }: Props) => {
-  const category = rateCardsData[categoryId];
+const RateCardTable = ({ rateCardKey }: Props) => {
+  const category = rateCardsData[rateCardKey];
 
-  if (!category) return <p className="p-6">No rate card available.</p>;
+  if (!category)
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-gray-500 text-lg">
+          No rate card available.
+        </p>
+      </div>
+    );
 
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-4">
@@ -46,7 +53,7 @@ const RateCardTable = ({ categoryId }: Props) => {
                 <div className="hidden md:grid grid-cols-3 px-8 py-4 text-sm text-gray-700 hover:bg-gray-50 transition">
                   <p>{index + 1}</p>
                   <p>{item.name}</p>
-                  <p className="text-right font-medium text-gray-900">
+                  <p className="text-right font-medium text-[#3683ab]">
                     {item.price}
                   </p>
                 </div>
