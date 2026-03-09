@@ -49,8 +49,13 @@ const NewArrival = () => {
         <div className="text-center sm:text-left grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-7.5 gap-y-9">
           {/* <!-- New Arrivals item --> */}
          {shopData.slice(0, 4).map((item, key) => (
-            <ProductItem item={item} key={key} />
-          ))}
+  <ProductItem
+    item={item}
+    key={key}
+    hideCart
+    hidePrice
+  />
+))}
         </div>
       </div>
     </section>

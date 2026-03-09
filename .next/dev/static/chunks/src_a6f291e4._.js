@@ -8,32 +8,68 @@ __turbopack_context__.s([
 ]);
 const shopData = [
     // ================= AC REPAIR INSTALLATION =================
-    // {
-    //   id: 1,
-    //   title: "AC Installation",
-    //   category: "acrepairinstallation",
-    //   subCategory: "ac-installation",
-    //   rateCardKey: "ac",
-    //   reviews: 15,
-    //   imgs: {
-    //     thumbnails: ["/images/ac/ac-main.jpg"],
-    //     previews: ["/images/ac/ac-main.jpg"],
-    //   },
-    //   variants: [],
-    // },
     {
-        id: 2,
-        title: "AC Service",
+        id: 10,
+        title: "Jet Service",
         category: "acrepairinstallation",
         subCategory: "ac-service",
         rateCardKey: "ac",
-        reviews: 20,
+        reviews: 10,
         imgs: {
             thumbnails: [
-                "/images/ac/ac-service.jpg"
+                "/images/ac/jet-service.png"
             ],
             previews: [
-                "/images/ac/ac-service.jpg"
+                "/images/ac/jet-service.png"
+            ]
+        },
+        description: {
+            about: [
+                "High-pressure jet cleaning of indoor unit",
+                "Deep cleaning of cooling coil",
+                "Blower and fan cleaning",
+                "Drain line cleaning",
+                "Outdoor condenser jet wash",
+                "Cooling performance testing"
+            ],
+            benefits: [
+                "Strong and fast cooling",
+                "Removal of deep dirt and blockages",
+                "Improved airflow",
+                "Reduced electricity consumption",
+                "Extended AC lifespan"
+            ]
+        },
+        variants: [
+            {
+                id: 101,
+                title: "1 AC Foam Jet Service",
+                price: 599,
+                oldPrice: 699,
+                description: "Complete AC inspection and jet cleaning"
+            },
+            {
+                id: 102,
+                title: "2 AC Foam Jet Service",
+                price: 799,
+                oldPrice: 899,
+                description: "Deep jet cleaning for two AC units"
+            }
+        ]
+    },
+    {
+        id: 12,
+        title: "Gas Charging",
+        category: "acrepairinstallation",
+        subCategory: "ac-service",
+        rateCardKey: "ac",
+        reviews: 6,
+        imgs: {
+            thumbnails: [
+                "/images/ac/gas-charging.jpg"
+            ],
+            previews: [
+                "/images/ac/gas-charging.jpg"
             ]
         },
         variants: []
@@ -178,9 +214,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$hooks$2e$ts_
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$features$2f$cart$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/redux/features/cart-slice.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Shop$2f$shopData$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Shop/shopData.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
+;
 ;
 ;
 ;
@@ -195,29 +233,24 @@ function ServiceVariantPage() {
     const service = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Shop$2f$shopData$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].find((s)=>s.id === id);
     const cartItems = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$hooks$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppSelector"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$features$2f$cart$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["selectCartItems"]);
     const totalPrice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$hooks$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppSelector"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$features$2f$cart$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["selectTotalPrice"]);
+    const [selectedVariant, setSelectedVariant] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     if (!service) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "p-10",
         children: "Service Not Found"
     }, void 0, false, {
         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-        lineNumber: 25,
+        lineNumber: 28,
         columnNumber: 24
     }, this);
+    // const [selectedVariant, setSelectedVariant] = useState<any>(null);
     const handleAdd = (variant)=>{
         dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$features$2f$cart$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addItemToCart"])({
             id: variant.id,
-            title: variant.name,
+            title: variant.title,
             price: variant.price,
-            discountedPrice: variant.discountedPrice,
+            discountedPrice: variant.oldPrice,
             quantity: 1,
-            imgs: {
-                thumbnails: [
-                    variant.image
-                ],
-                previews: [
-                    variant.image
-                ]
-            }
+            imgs: service.imgs
         }));
     };
     const getItemQuantity = (variantId)=>{
@@ -225,134 +258,299 @@ function ServiceVariantPage() {
         return item ? item.quantity : 0;
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "min-h-screen bg-gray-100 pb-32 pt-32 px-6",
+        className: "min-h-screen bg-gray pt-32 pb-40 pt-55 px-4 md:px-8",
         children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "bg-white rounded-2xl shadow-sm overflow-hidden mb-8",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "relative",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                src: service.imgs.thumbnails[0],
+                                alt: service.title,
+                                width: 1200,
+                                height: 400,
+                                className: "w-full h-[220px] object-cover"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                                lineNumber: 56,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "absolute bottom-4 left-4 text-white text-2xl font-semibold",
+                                children: service.title
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                                lineNumber: 64,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                        lineNumber: 54,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "px-5 py-4 flex items-center text-gray-600 text-sm border-t",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "mr-2",
+                                children: "🏠"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                                lineNumber: 71,
+                                columnNumber: 11
+                            }, this),
+                            "AC Service, Repair & Installation"
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                        lineNumber: 70,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                lineNumber: 52,
+                columnNumber: 7
+            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                className: "text-3xl font-bold mb-8",
-                children: service.title
+                className: "text-xl md:text-2xl font-bold mb-6",
+                children: "Available Services"
             }, void 0, false, {
                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                lineNumber: 50,
+                lineNumber: 78,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "grid md:grid-cols-2 gap-6",
+                className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6",
                 children: service.variants.map((variant)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "bg-white p-6 rounded-xl shadow-md",
+                        onClick: ()=>setSelectedVariant(variant),
+                        className: "bg-white rounded-xl shadow-sm p-4 cursor-pointer",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                src: variant.image,
-                                alt: variant.name,
-                                width: 400,
-                                height: 250,
-                                className: "rounded-lg mb-4 object-cover"
-                            }, void 0, false, {
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex justify-between items-start",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        src: service.imgs.thumbnails[0],
+                                        alt: variant.title,
+                                        width: 160,
+                                        height: 110,
+                                        className: "rounded-lg object-cover h-[110px] w-[160px]"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                                        lineNumber: 95,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>handleAdd(variant),
+                                        className: "bg-[#2b7a9a] text-white px-6 py-2 rounded-md text-sm",
+                                        children: "Add"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                                        lineNumber: 103,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                lineNumber: 60,
+                                lineNumber: 93,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                className: "text-xl font-semibold mb-2",
-                                children: variant.name
+                                className: "font-semibold text-lg mt-4",
+                                children: variant.title
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                lineNumber: 68,
+                                lineNumber: 113,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "mb-4",
+                                className: "text-sm mt-1",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "text-gray-400 line-through mr-2",
+                                        className: "font-bold text-gray-800",
                                         children: [
                                             "₹",
                                             variant.price
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                        lineNumber: 73,
+                                        lineNumber: 119,
                                         columnNumber: 15
                                     }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "text-green-600 font-bold text-lg",
+                                    variant.oldPrice && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "line-through text-gray-400 ml-2",
                                         children: [
                                             "₹",
-                                            variant.discountedPrice
+                                            variant.oldPrice
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                        lineNumber: 76,
+                                        lineNumber: 124,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                                lineNumber: 118,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-sm text-gray-500 mt-2",
+                                children: variant.description
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                                lineNumber: 131,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex justify-between items-center mt-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-yellow-500 italic text-sm",
+                                        children: "The Dofix Rate Card"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                                        lineNumber: 138,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>router.push(`/rate-card/${service.rateCardKey}`),
+                                        className: "text-[#3683ab] font-medium",
+                                        children: "View Rate Card"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                                        lineNumber: 142,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                lineNumber: 72,
+                                lineNumber: 136,
                                 columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                onClick: ()=>handleAdd(variant),
-                                className: "bg-blue-600 text-white px-4 py-2 rounded-lg",
-                                children: "Add to Cart"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                lineNumber: 81,
-                                columnNumber: 13
-                            }, this),
-                            getItemQuantity(variant.id) > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "mt-2 text-sm text-gray-600",
-                                children: [
-                                    "In Cart: ",
-                                    getItemQuantity(variant.id)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                lineNumber: 89,
-                                columnNumber: 15
                             }, this)
                         ]
                     }, variant.id, true, {
                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                        lineNumber: 56,
+                        lineNumber: 86,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                lineNumber: 54,
+                lineNumber: 83,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "fixed bottom-0 left-0 right-0 bg-white shadow-lg p-4 flex justify-between items-center",
+            service.description?.about && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "mt-6",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: "font-semibold",
-                        children: [
-                            "Total: ₹",
-                            totalPrice
-                        ]
-                    }, void 0, true, {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                        className: "text-lg font-semibold mb-2",
+                        children: "About This Service"
+                    }, void 0, false, {
                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                        lineNumber: 98,
-                        columnNumber: 9
+                        lineNumber: 158,
+                        columnNumber: 5
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        onClick: ()=>router.push("/cart"),
-                        className: "bg-green-600 text-white px-6 py-2 rounded-lg",
-                        children: [
-                            "View Cart (",
-                            cartItems.length,
-                            ")"
-                        ]
-                    }, void 0, true, {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                        className: "list-disc pl-5 space-y-1 text-gray-600",
+                        children: service.description.about.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                children: item
+                            }, index, false, {
+                                fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                                lineNumber: 161,
+                                columnNumber: 9
+                            }, this))
+                    }, void 0, false, {
                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                        lineNumber: 101,
-                        columnNumber: 9
+                        lineNumber: 159,
+                        columnNumber: 5
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                lineNumber: 97,
-                columnNumber: 7
+                lineNumber: 157,
+                columnNumber: 3
+            }, this),
+            service.description?.benefits && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "mt-6",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                        className: "text-lg font-semibold mb-2",
+                        children: "Benefits"
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                        lineNumber: 169,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                        className: "list-disc pl-5 space-y-1 text-gray-600",
+                        children: service.description.benefits.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                children: item
+                            }, index, false, {
+                                fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                                lineNumber: 172,
+                                columnNumber: 9
+                            }, this))
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                        lineNumber: 170,
+                        columnNumber: 5
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                lineNumber: 168,
+                columnNumber: 3
+            }, this),
+            cartItems.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "fixed bottom-4 left-1/2 -translate-x-1/2 w-[95%] md:w-[600px] bg-[#2b7a9a] text-white rounded-xl shadow-lg flex justify-between items-center px-6 py-4",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-sm",
+                                children: [
+                                    cartItems.length,
+                                    " item in cart"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                                lineNumber: 183,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-lg font-semibold",
+                                children: [
+                                    "₹",
+                                    totalPrice
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                                lineNumber: 186,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                        lineNumber: 182,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        onClick: ()=>router.push("/cart"),
+                        className: "bg-white text-[#2b7a9a] px-6 py-2 rounded-lg font-semibold",
+                        children: "View Cart"
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                        lineNumber: 191,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
+                lineNumber: 180,
+                columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
@@ -361,7 +559,7 @@ function ServiceVariantPage() {
         columnNumber: 5
     }, this);
 }
-_s(ServiceVariantPage, "nUImDEMjSdL5RG+bG+avS5u1zVc=", false, function() {
+_s(ServiceVariantPage, "E6MgcI9MXBa2ShEVbAFOZIEZkec=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useParams"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],

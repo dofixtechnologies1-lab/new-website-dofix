@@ -525,7 +525,7 @@ const subCategoryMapping = {
         },
         {
             id: "ac-installation-uninstallation",
-            title: "AC Installation & Uninstallation",
+            title: "AC Installation Uninstallation",
             img: "/images/subcategories/ac-ins.png"
         }
     ],
@@ -583,10 +583,8 @@ var _s = __turbopack_context__.k.signature();
 function DynamicModal({ categorySlug, onClose }) {
     _s();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
-    // 🔥 Extra safety — agar slug null ho to render mat karo
     if (!categorySlug) return null;
     const subCategories = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$Data$2f$subCategoriesMapping$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["subCategoryMapping"][categorySlug];
-    // 🔥 Agar mapping exist nahi karti to render mat karo
     if (!subCategories) return null;
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "DynamicModal.useEffect": ()=>{
@@ -604,83 +602,90 @@ function DynamicModal({ categorySlug, onClose }) {
         onClose
     ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm",
+        className: "fixed inset-0 z-50 bg-black/50 backdrop-blur-sm p-4 overflow-y-auto",
         onClick: onClose,
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "bg-white w-[95%] max-w-5xl rounded-2xl shadow-2xl p-8 relative",
-            onClick: (e)=>e.stopPropagation(),
-            children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                    onClick: onClose,
-                    className: "absolute top-5 right-5 text-gray-600 hover:text-black text-2xl",
-                    children: "✕"
-                }, void 0, false, {
-                    fileName: "[project]/src/components/Common/DynamicModal.tsx",
-                    lineNumber: 45,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                    className: "text-3xl font-semibold mb-8 capitalize",
-                    children: categorySlug.replace(/-/g, " ")
-                }, void 0, false, {
-                    fileName: "[project]/src/components/Common/DynamicModal.tsx",
-                    lineNumber: 53,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6",
-                    children: subCategories.map((sub)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            onClick: (e)=>{
-                                e.stopPropagation();
-                                onClose();
-                                router.push(`/${categorySlug}/${sub.id}`);
-                            },
-                            className: "cursor-pointer border rounded-xl p-5 hover:shadow-lg hover:scale-105 transition-all duration-300",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "h-24 rounded-lg mb-4 overflow-hidden bg-gray-100 flex items-center justify-center",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                        src: sub.img,
-                                        alt: sub.title,
-                                        className: "w-full h-full object-cover"
+            className: "min-h-full flex items-center justify-center pt-20",
+            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "bg-white w-[95%] max-w-5xl rounded-2xl shadow-2xl p-4 md:p-8 relative",
+                onClick: (e)=>e.stopPropagation(),
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        onClick: onClose,
+                        className: "absolute top-4 right-4 text-gray-600 hover:text-black text-2xl",
+                        children: "✕"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/Common/DynamicModal.tsx",
+                        lineNumber: 47,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                        className: "text-xl md:text-2xl font-semibold mb-6 capitalize",
+                        children: categorySlug.replace(/-/g, " ")
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/Common/DynamicModal.tsx",
+                        lineNumber: 55,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4",
+                        children: subCategories.map((sub)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                onClick: (e)=>{
+                                    e.stopPropagation();
+                                    onClose();
+                                    router.push(`/${categorySlug}/${sub.id}`);
+                                },
+                                className: "cursor-pointer rounded-xl p-3 md:p-5 hover:shadow-lg hover:scale-105 transition-all duration-300 bg-white",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "h-16 md:h-24 rounded-lg mb-2 overflow-hidden bg-gray-100",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                            src: sub.img,
+                                            alt: sub.title,
+                                            className: "w-full h-full object-cover"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/Common/DynamicModal.tsx",
+                                            lineNumber: 75,
+                                            columnNumber: 19
+                                        }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Common/DynamicModal.tsx",
-                                        lineNumber: 71,
+                                        lineNumber: 74,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                        className: "font-semibold text-xs md:text-lg text-center leading-tight",
+                                        children: sub.title
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/Common/DynamicModal.tsx",
+                                        lineNumber: 83,
                                         columnNumber: 17
                                     }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/Common/DynamicModal.tsx",
-                                    lineNumber: 70,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                    className: "font-semibold text-lg text-center",
-                                    children: sub.title
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/Common/DynamicModal.tsx",
-                                    lineNumber: 78,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, sub.id, true, {
-                            fileName: "[project]/src/components/Common/DynamicModal.tsx",
-                            lineNumber: 60,
-                            columnNumber: 13
-                        }, this))
-                }, void 0, false, {
-                    fileName: "[project]/src/components/Common/DynamicModal.tsx",
-                    lineNumber: 58,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true, {
+                                ]
+                            }, sub.id, true, {
+                                fileName: "[project]/src/components/Common/DynamicModal.tsx",
+                                lineNumber: 63,
+                                columnNumber: 15
+                            }, this))
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/Common/DynamicModal.tsx",
+                        lineNumber: 60,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/components/Common/DynamicModal.tsx",
+                lineNumber: 42,
+                columnNumber: 9
+            }, this)
+        }, void 0, false, {
             fileName: "[project]/src/components/Common/DynamicModal.tsx",
-            lineNumber: 40,
+            lineNumber: 39,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/Common/DynamicModal.tsx",
-        lineNumber: 36,
+        lineNumber: 34,
         columnNumber: 5
     }, this);
 }
@@ -910,28 +915,40 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-const ProductItem = ({ item })=>{
+const ProductItem = ({ item, hideCart, hidePrice })=>{
     _s();
     const { openModal } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$context$2f$QuickViewModalContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useModalContext"])();
     const dispatch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$hooks$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppDispatch"])();
-    // update the QuickView state
+    const firstVariant = item.variants?.[0];
+    // Quick view
     const handleQuickViewUpdate = ()=>{
         dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$features$2f$quickView$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["updateQuickView"])({
             ...item
         }));
     };
-    // add to cart
+    // Add to cart
     const handleAddToCart = ()=>{
+        if (!firstVariant) return;
         dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$features$2f$cart$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addItemToCart"])({
-            ...item,
-            quantity: 1
+            id: item.id,
+            title: item.title,
+            price: firstVariant.oldPrice || firstVariant.price,
+            discountedPrice: firstVariant.price,
+            quantity: 1,
+            imgs: item.imgs
         }));
     };
+    // Wishlist
     const handleItemToWishList = ()=>{
+        if (!firstVariant) return;
         dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$features$2f$wishlist$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addItemToWishlist"])({
-            ...item,
-            status: "available",
-            quantity: 1
+            id: item.id,
+            title: item.title,
+            price: firstVariant.oldPrice || firstVariant.price,
+            discountedPrice: firstVariant.price,
+            quantity: 1,
+            // status: "available",
+            imgs: item.imgs
         }));
     };
     const handleProductDetails = ()=>{
@@ -952,7 +969,7 @@ const ProductItem = ({ item })=>{
                         height: 250
                     }, void 0, false, {
                         fileName: "[project]/src/components/Common/ProductItem.tsx",
-                        lineNumber: 51,
+                        lineNumber: 72,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -963,9 +980,7 @@ const ProductItem = ({ item })=>{
                                     openModal();
                                     handleQuickViewUpdate();
                                 },
-                                id: "newOne",
-                                "aria-label": "button for quick view",
-                                className: "flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-[#3683ab]",
+                                className: "flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 bg-white hover:text-[#3683ab]",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                     className: "fill-current",
                                     width: "16",
@@ -981,7 +996,7 @@ const ProductItem = ({ item })=>{
                                             fill: ""
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Common/ProductItem.tsx",
-                                            lineNumber: 71,
+                                            lineNumber: 97,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -991,34 +1006,32 @@ const ProductItem = ({ item })=>{
                                             fill: ""
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Common/ProductItem.tsx",
-                                            lineNumber: 77,
+                                            lineNumber: 103,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/Common/ProductItem.tsx",
-                                    lineNumber: 63,
+                                    lineNumber: 89,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Common/ProductItem.tsx",
-                                lineNumber: 54,
+                                lineNumber: 82,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            !hideCart && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>handleAddToCart(),
                                 className: "inline-flex font-medium text-custom-sm py-[7px] px-5 rounded-[5px] bg-[#3683ab] text-white ease-out duration-200 hover:bg-[#14455b]-dark",
                                 children: "Add to cart"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Common/ProductItem.tsx",
-                                lineNumber: 86,
-                                columnNumber: 11
+                                lineNumber: 114,
+                                columnNumber: 3
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                onClick: ()=>handleItemToWishList(),
-                                "aria-label": "button for favorite select",
-                                id: "favOne",
-                                className: "flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-[#3683ab]",
+                                onClick: handleItemToWishList,
+                                className: "flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 bg-white hover:text-[#3683ab]",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                     className: "fill-current",
                                     width: "16",
@@ -1033,29 +1046,29 @@ const ProductItem = ({ item })=>{
                                         fill: ""
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Common/ProductItem.tsx",
-                                        lineNumber: 107,
+                                        lineNumber: 135,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Common/ProductItem.tsx",
-                                    lineNumber: 99,
-                                    columnNumber: 13
+                                    lineNumber: 127,
+                                    columnNumber: 14
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Common/ProductItem.tsx",
-                                lineNumber: 93,
+                                lineNumber: 123,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Common/ProductItem.tsx",
-                        lineNumber: 53,
+                        lineNumber: 79,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Common/ProductItem.tsx",
-                lineNumber: 50,
+                lineNumber: 71,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1066,58 +1079,58 @@ const ProductItem = ({ item })=>{
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 src: "/images/icons/icon-star.svg",
-                                alt: "star icon",
+                                alt: "star",
                                 width: 14,
                                 height: 14
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Common/ProductItem.tsx",
-                                lineNumber: 120,
+                                lineNumber: 149,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 src: "/images/icons/icon-star.svg",
-                                alt: "star icon",
+                                alt: "star",
                                 width: 14,
                                 height: 14
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Common/ProductItem.tsx",
-                                lineNumber: 126,
+                                lineNumber: 150,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 src: "/images/icons/icon-star.svg",
-                                alt: "star icon",
+                                alt: "star",
                                 width: 14,
                                 height: 14
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Common/ProductItem.tsx",
-                                lineNumber: 132,
+                                lineNumber: 151,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 src: "/images/icons/icon-star.svg",
-                                alt: "star icon",
+                                alt: "star",
                                 width: 14,
                                 height: 14
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Common/ProductItem.tsx",
-                                lineNumber: 138,
+                                lineNumber: 152,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 src: "/images/icons/icon-star.svg",
-                                alt: "star icon",
+                                alt: "star",
                                 width: 14,
                                 height: 14
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Common/ProductItem.tsx",
-                                lineNumber: 144,
+                                lineNumber: 153,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Common/ProductItem.tsx",
-                        lineNumber: 119,
+                        lineNumber: 148,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1129,70 +1142,66 @@ const ProductItem = ({ item })=>{
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Common/ProductItem.tsx",
-                        lineNumber: 152,
+                        lineNumber: 156,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Common/ProductItem.tsx",
-                lineNumber: 118,
+                lineNumber: 147,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                className: "font-medium text-dark ease-out duration-200 hover:text-[#3683ab] mb-1.5",
-                onClick: ()=>handleProductDetails(),
+                className: "font-medium text-dark hover:text-[#3683ab] mb-1.5",
+                onClick: handleProductDetails,
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                     href: "/shop-details",
-                    children: [
-                        " ",
-                        item.title,
-                        " "
-                    ]
-                }, void 0, true, {
+                    children: item.title
+                }, void 0, false, {
                     fileName: "[project]/src/components/Common/ProductItem.tsx",
-                    lineNumber: 159,
+                    lineNumber: 164,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/components/Common/ProductItem.tsx",
-                lineNumber: 155,
+                lineNumber: 160,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+            !hidePrice && firstVariant && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                 className: "flex items-center gap-2 font-medium text-lg",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         className: "text-dark",
                         children: [
                             "₹",
-                            item.discountedPrice
+                            firstVariant.price
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Common/ProductItem.tsx",
-                        lineNumber: 163,
-                        columnNumber: 9
+                        lineNumber: 170,
+                        columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                    firstVariant.oldPrice && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         className: "text-dark-4 line-through",
                         children: [
                             "₹",
-                            item.price
+                            firstVariant.oldPrice
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Common/ProductItem.tsx",
-                        lineNumber: 164,
-                        columnNumber: 9
+                        lineNumber: 173,
+                        columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Common/ProductItem.tsx",
-                lineNumber: 162,
-                columnNumber: 7
+                lineNumber: 169,
+                columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/Common/ProductItem.tsx",
-        lineNumber: 49,
+        lineNumber: 70,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -1219,35 +1228,179 @@ __turbopack_context__.s([
 ]);
 const shopData = [
     // ================= AC REPAIR INSTALLATION =================
-    // {
-    //   id: 1,
-    //   title: "AC Installation",
-    //   category: "acrepairinstallation",
-    //   subCategory: "ac-installation",
-    //   rateCardKey: "ac",
-    //   reviews: 15,
-    //   imgs: {
-    //     thumbnails: ["/images/ac/ac-main.jpg"],
-    //     previews: ["/images/ac/ac-main.jpg"],
-    //   },
-    //   variants: [],
-    // },
     {
-        id: 2,
-        title: "AC Service",
+        id: 10,
+        title: "Jet Service",
         category: "acrepairinstallation",
         subCategory: "ac-service",
         rateCardKey: "ac",
-        reviews: 20,
+        reviews: 10,
         imgs: {
             thumbnails: [
-                "/images/ac/ac-service.jpg"
+                "/images/ac/jet-service.png"
             ],
             previews: [
-                "/images/ac/ac-service.jpg"
+                "/images/ac/jet-service.png"
             ]
         },
-        variants: []
+        description: {
+            about: [
+                "High-pressure jet cleaning of indoor unit",
+                "Deep cleaning of cooling coil",
+                "Blower and fan cleaning",
+                "Drain line cleaning",
+                "Outdoor condenser jet wash",
+                "Cooling performance testing"
+            ],
+            benefits: [
+                "Strong and fast cooling",
+                "Removal of deep dirt and blockages",
+                "Improved airflow",
+                "Reduced electricity consumption",
+                "Extended AC lifespan"
+            ]
+        },
+        variants: [
+            {
+                id: 101,
+                title: "1 AC Foam Jet Service",
+                price: 599,
+                oldPrice: 699,
+                description: "Complete AC inspection and jet cleaning"
+            },
+            {
+                id: 102,
+                title: "2 AC Foam Jet Service",
+                price: 799,
+                oldPrice: 899,
+                description: "Deep jet cleaning for two AC units"
+            },
+            {
+                id: 103,
+                title: "3 AC Foam Jet Service",
+                price: 999,
+                oldPrice: 1099,
+                description: "Deep jet cleaning for three AC units"
+            },
+            {
+                id: 104,
+                title: "4 AC Foam Jet Service",
+                price: 1299,
+                oldPrice: 1399,
+                description: "Deep jet cleaning for Four AC units"
+            }
+        ]
+    },
+    {
+        id: 11,
+        title: "Basic AC Service",
+        category: "acrepairinstallation",
+        subCategory: "ac-service",
+        rateCardKey: "ac",
+        reviews: 10,
+        imgs: {
+            thumbnails: [
+                "/images/ac/basic-ac-service.png"
+            ],
+            previews: [
+                "/images/ac/basic-ac-service.png"
+            ]
+        },
+        description: {
+            about: [
+                "Basic cleaning of indoor AC unit",
+                "Air filter cleaning and dust removal",
+                "Cooling coil surface cleaning",
+                "Drain pipe inspection and cleaning",
+                "Outdoor unit basic cleaning",
+                "Complete AC performance check"
+            ],
+            benefits: [
+                "Maintains healthy airflow",
+                "Improves cooling efficiency",
+                "Reduces dust and bad smell",
+                "Helps lower electricity consumption",
+                "Prevents minor AC issues"
+            ]
+        },
+        variants: [
+            {
+                id: 101,
+                title: "1 AC Basic Service",
+                price: 399,
+                oldPrice: 499,
+                description: "Basic cleaning and inspection for one AC unit"
+            },
+            {
+                id: 102,
+                title: "2 AC Basic Service",
+                price: 699,
+                oldPrice: 799,
+                description: "Basic cleaning and inspection for two AC units"
+            },
+            {
+                id: 103,
+                title: "3 AC Basic Service",
+                price: 999,
+                oldPrice: 1099,
+                description: "Basic cleaning and inspection for three AC units"
+            },
+            {
+                id: 104,
+                title: "4 AC Basic Service",
+                price: 1299,
+                oldPrice: 1399,
+                description: "Basic cleaning and inspection for four AC units"
+            }
+        ]
+    },
+    {
+        id: 12,
+        title: "AC Gas Charging",
+        category: "acrepairinstallation",
+        subCategory: "ac-service",
+        rateCardKey: "ac",
+        reviews: 6,
+        imgs: {
+            thumbnails: [
+                "/images/ac/gas-charging.jpg"
+            ],
+            previews: [
+                "/images/ac/gas-charging.jpg"
+            ]
+        },
+        description: {
+            about: [
+                "Complete AC gas pressure inspection",
+                "Leak detection and basic check",
+                "Top-up or refill of AC refrigerant gas",
+                "Cooling performance testing",
+                "System pressure balancing"
+            ],
+            benefits: [
+                "Restores proper cooling performance",
+                "Improves AC efficiency",
+                "Prevents compressor overload",
+                "Reduces electricity consumption",
+                "Ensures longer AC lifespan"
+            ]
+        },
+        variants: [
+            {
+                id: 121,
+                title: "Split AC Gas Charging",
+                price: 1999,
+                oldPrice: 2199,
+                description: "Gas refill service for split AC with pressure check"
+            },
+            {
+                id: 122,
+                title: "Window AC Gas Charging",
+                price: 1799,
+                oldPrice: 1999,
+                description: "Gas refill service for window AC unit"
+            }
+        ]
     },
     {
         id: 5,
@@ -1463,11 +1616,13 @@ const NewArrival = ()=>{
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "text-center sm:text-left grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-7.5 gap-y-9",
                     children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Shop$2f$shopData$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].slice(0, 4).map((item, key)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Common$2f$ProductItem$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                            item: item
+                            item: item,
+                            hideCart: true,
+                            hidePrice: true
                         }, key, false, {
                             fileName: "[project]/src/components/Home/NewArrivals/index.tsx",
                             lineNumber: 52,
-                            columnNumber: 13
+                            columnNumber: 3
                         }, ("TURBOPACK compile-time value", void 0)))
                 }, void 0, false, {
                     fileName: "[project]/src/components/Home/NewArrivals/index.tsx",
@@ -2508,6 +2663,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Home$2f
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Home$2f$NewArrivals$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Home/NewArrivals/index.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Home$2f$PromoBanner$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Home/PromoBanner/index.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Home$2f$BestSeller$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Home/BestSeller/index.tsx [app-client] (ecmascript)");
+// import Testimonials from "./Testimonials";
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Home$2f$Testimonials$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Home/Testimonials/index.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Common$2f$DynamicModal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Common/DynamicModal.tsx [app-client] (ecmascript)");
 ;
@@ -2528,34 +2684,34 @@ const Home = ()=>{
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Home$2f$Hero$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/components/Home/index.tsx",
-                lineNumber: 17,
+                lineNumber: 19,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Home$2f$Categories$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                 onCategoryClick: (slug)=>setActiveCategory(slug)
             }, void 0, false, {
                 fileName: "[project]/src/components/Home/index.tsx",
-                lineNumber: 20,
+                lineNumber: 22,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Home$2f$NewArrivals$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/components/Home/index.tsx",
-                lineNumber: 22,
+                lineNumber: 24,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Home$2f$PromoBanner$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/components/Home/index.tsx",
-                lineNumber: 23,
+                lineNumber: 25,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Home$2f$BestSeller$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/components/Home/index.tsx",
-                lineNumber: 24,
+                lineNumber: 26,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Home$2f$Testimonials$2f$index$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/components/Home/index.tsx",
-                lineNumber: 25,
+                lineNumber: 27,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             activeCategory && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Common$2f$DynamicModal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -2563,13 +2719,13 @@ const Home = ()=>{
                 onClose: ()=>setActiveCategory(null)
             }, void 0, false, {
                 fileName: "[project]/src/components/Home/index.tsx",
-                lineNumber: 29,
+                lineNumber: 31,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/Home/index.tsx",
-        lineNumber: 16,
+        lineNumber: 18,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

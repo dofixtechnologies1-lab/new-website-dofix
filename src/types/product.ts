@@ -1,19 +1,28 @@
+export interface Variant {
+  id: number;
+  title: string;
+  price: number;
+  oldPrice?: number;
+  description: string;
+}
+
 export interface Product {
   id: number;
   title: string;
-  category: string;        // ✅ ADD
-  subCategory: string;     // ✅ ADD
-  rateCardKey?: string;
+  category: string;
+  subCategory: string;
+  rateCardKey: string;
   reviews: number;
+
   imgs: {
     thumbnails: string[];
     previews: string[];
   };
-  variants: {
-    id: number;
-    name: string;
-    price: number;
-    discountedPrice: number;
-    image: string;
-  }[];
+
+  description?: {
+    about: string[];
+    benefits: string[];
+  };
+
+  variants: Variant[];
 }

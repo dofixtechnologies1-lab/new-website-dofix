@@ -6,7 +6,8 @@ import Categories from "./Categories";
 import NewArrival from "./NewArrivals";
 import PromoBanner from "./PromoBanner";
 import BestSeller from "./BestSeller";
-import Testimonials from "./Testimonials";
+import Testimonials from "@/components/Home/Testimonials";
+import FaqSection from "@/components/Home/FaqSection";
 import DynamicModal from "@/components/Common/DynamicModal";
 
 const Home = () => {
@@ -16,7 +17,6 @@ const Home = () => {
     <main>
       <Hero />
 
-      {/* 🔥 Pass open function to Categories */}
       <Categories onCategoryClick={(slug) => setActiveCategory(slug)} />
 
       <NewArrival />
@@ -24,7 +24,9 @@ const Home = () => {
       <BestSeller />
       <Testimonials />
 
-      {/* 🔥 Modal Render */}
+      {/* ✅ ADD THIS */}
+      <FaqSection />
+
       {activeCategory && (
         <DynamicModal
           categorySlug={activeCategory}

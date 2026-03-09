@@ -20,24 +20,31 @@ const SingleItem = ({ item }: { item: Product }) => {
   };
 
   // add to cart
-  const handleAddToCart = () => {
-    dispatch(
-      addItemToCart({
-        ...item,
-        quantity: 1,
-      })
-    );
-  };
+const handleAddToCart = () => {
+  dispatch(
+    addItemToCart({
+      id: item.id,
+      title: item.title,
+      price: item.variants?.[0]?.price || 0,
+      discountedPrice: item.variants?.[0]?.oldPrice || 0,
+      quantity: 1,
+      imgs: item.imgs,
+    })
+  );
+};
 
-  const handleItemToWishList = () => {
-    dispatch(
-      addItemToWishlist({
-        ...item,
-        status: "available",
-        quantity: 1,
-      })
-    );
-  };
+const handleItemToWishList = () => {
+  dispatch(
+    addItemToWishlist({
+      id: item.id,
+      title: item.title,
+      price: item.variants?.[0]?.price || 0,
+      discountedPrice: item.variants?.[0]?.oldPrice || 0,
+      quantity: 1,
+      imgs: item.imgs,
+    })
+  );
+};
 
   return (
     <div className="group">
@@ -84,10 +91,10 @@ const SingleItem = ({ item }: { item: Product }) => {
             <Link href="/shop-details"> {item.title} </Link>
           </h3>
 
-          <span className="flex items-center justify-center gap-2 font-medium text-lg">
+          {/* <span className="flex items-center justify-center gap-2 font-medium text-lg">
             <span className="text-dark">₹{item.discountedPrice}</span>
             <span className="text-dark-4 line-through">₹{item.price}</span>
-          </span>
+          </span> */}
         </div>
 
         <div className="flex justify-center items-center">

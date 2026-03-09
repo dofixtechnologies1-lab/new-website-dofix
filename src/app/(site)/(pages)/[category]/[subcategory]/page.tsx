@@ -24,68 +24,77 @@ export default async function SubCategoryPage({
   }
 
   return (
-    <div className="max-w-[600px] mx-auto py-16 px-4 pt-45">
+    <div className="max-w-7xl mx-auto pt-32 pb-32 pt-55 px-4">
 
       {/* Heading */}
-      <h1 className="text-4xl font-bold mb-6 capitalize">
-        {subcategory.replace(/-/g, " ")} 
+      <h1 className="text-2xl font-bold mb-4 capitalize">
+        {subcategory.replace(/-/g, " ")}
       </h1>
 
       {/* Service Count */}
-      <div className="inline-block mb-10 px-6 py-3 border-2 border-[#3683ab] text-[#3683ab] rounded-full text-sm font-medium">
+      <div className="inline-block mb-6 px-5 py-2 border border-[#3683ab] text-[#3683ab] rounded-full text-sm font-medium">
         {filteredServices.length} Services Available
       </div>
 
-      {/* Cards */}
-      <div className="space-y-8">
+      {/* Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
         {filteredServices.map((service) => (
           <div
             key={service.id}
-            className="bg-white rounded-3xl shadow-lg p-4 flex items-center justify-between hover:shadow-xl transition"
+            className="bg-white rounded-2xl shadow-md p-4 flex items-center justify-between"
           >
-            <div className="flex items-center gap-6">
+
+            <div className="flex items-center gap-4">
 
               {/* Image */}
-              <div className="w-40 h-40 rounded-2xl overflow-hidden">
+              <div className="w-[90px] h-[90px] rounded-xl overflow-hidden">
                 <Image
                   src={service.imgs.thumbnails[0]}
                   alt={service.title}
-                  width={160}
-                  height={160}
+                  width={90}
+                  height={90}
                   className="object-cover w-full h-full"
                 />
               </div>
 
               {/* Content */}
               <div>
-                <h2 className="text-2xl font-semibold">
+
+                <h2 className="text-lg font-semibold">
                   {service.title}
                 </h2>
 
-                <div className="mt-2 text-gray-500">
+                <div className="text-sm text-gray-500 mt-1">
                   ⭐ 4.7 ({service.reviews})
                 </div>
 
-                <div className="mt-4 inline-block px-5 py-2 border border-[#3683ab] text-[#3683ab] rounded-full text-sm">
+                <div className="mt-2 inline-block px-4 py-1 border border-[#3683ab] text-[#3683ab] rounded-full text-xs">
                   {service.variants.length} Options Available
                 </div>
 
-                <div className="mt-4 text-[#3683ab] font-medium">
-                  View Details
-                </div>
+                <Link href={`/ac-services/${service.id}`}>
+                  <p className="mt-2 text-[#3683ab] text-sm font-medium">
+                    View Details
+                  </p>
+                </Link>
+
               </div>
             </div>
 
-            {/* Arrow Button */}
+            {/* Arrow */}
             <Link
               href={`/ac-services/${service.id}`}
-              className="w-14 h-14 rounded-full bg-gray-200 flex items-center justify-center text-2xl text-[#3683ab] hover:bg-[#3683ab] hover:text-white transition"
+              className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-lg text-[#3683ab]"
             >
               →
             </Link>
+
           </div>
         ))}
+
       </div>
+
     </div>
   );
 }

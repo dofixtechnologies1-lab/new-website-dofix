@@ -1,17 +1,30 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import CustomSelect from "./CustomSelect";
+// import CustomSelect from "./CustomSelect";
 import { menuData } from "./menuData";
 import Dropdown from "./Dropdown";
 import { useAppSelector } from "@/redux/hooks";
+import shopData from "@/components/Shop/shopData";
+import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import { selectTotalPrice } from "@/redux/features/cart-slice";
 import { useCartModalContext } from "@/app/context/CartSidebarModalContext";
 import Image from "next/image";
 
 const Header = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  
+  const router = useRouter();
+
+const [searchQuery, setSearchQuery] = useState("");
+const [searchResults, setSearchResults] = useState<any[]>([]);
+const [showResults, setShowResults] = useState(false);
+const [location, setLocation] = useState("Detecting...");
+const [fullLocation, setFullLocation] = useState("");
+const [openLocationModal, setOpenLocationModal] = useState(false);
+  // const [searchQuery, setSearchQuery] = useState("");
+  // const [location, setLocation] = useState("Detecting...");
+  // const [location, setLocation] = useState("Detecting location...");
   const [navigationOpen, setNavigationOpen] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
   const { openCartModal } = useCartModalContext();
@@ -32,19 +45,81 @@ const Header = () => {
     }
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleStickyMenu);
-  });
 
-  const options = [
-    { label: "All Services", value: "0" },
-    { label: "Ac Repair", value: "1" },
-    { label: "Home Cleaning", value: "2" },
-    { label: "Interior Work", value: "3" },
-    { label: "Home Appliance", value: "4" },
-    { label: "Painting", value: "5" },
-    { label: "Electrician", value: "6" },
-  ];
+  const handleSearch = (value: string) => {
+  setSearchQuery(value);
+
+  if (value.length < 2) {
+    setSearchResults([]);
+    setShowResults(false);
+    return;
+  }
+
+  const filtered = shopData.filter((service) =>
+    service.title.toLowerCase().includes(value.toLowerCase())
+  );
+
+  setSearchResults(filtered);
+  setShowResults(true);
+};
+
+useEffect(() => {
+  window.addEventListener("scroll", handleStickyMenu);
+
+  return () => {
+    window.removeEventListener("scroll", handleStickyMenu);
+  };
+}, []);
+
+
+ useEffect(() => {
+  if (!navigator.geolocation) {
+    setLocation("Location not supported");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(async (position) => {
+    const { latitude, longitude } = position.coords;
+
+    try {
+      const res = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
+      );
+
+      const data = await res.json();
+      const address = data.address;
+
+      const shortLocation = `${address.suburb || address.city || address.town}, ${address.state}`;
+
+      const fullAddress = [
+        address.house_number,
+        address.road,
+        address.suburb,
+        address.city || address.town,
+        address.state,
+        address.postcode,
+      ]
+        .filter(Boolean)
+        .join(", ");
+
+      setLocation(shortLocation);
+      setFullLocation(fullAddress);
+
+    } catch {
+      setLocation("Location unavailable");
+    }
+  });
+}, []);
+
+  // const options = [
+  //   { label: "All Services", value: "0" },
+  //   { label: "Ac Repair", value: "1" },
+  //   { label: "Home Cleaning", value: "2" },
+  //   { label: "Interior Work", value: "3" },
+  //   { label: "Home Appliance", value: "4" },
+  //   { label: "Painting", value: "5" },
+  //   { label: "Electrician", value: "6" },
+  // ];
 
   return (
     <header
@@ -71,15 +146,21 @@ const Header = () => {
             </Link>
 
             <div className="max-w-[475px] w-full">
-              <form>
-                <div className="flex items-center">
-                  <CustomSelect options={options} />
+              <form onSubmit={(e) => e.preventDefault()}>
+                {/* <div className="flex items-center"> */}
+                <div className="flex items-center gap-3 w-full">
+                  <button
+                    onClick={() => setOpenLocationModal(true)}
+                    className="flex items-center gap-2 px-4 bg-gray-1 border border-gray-3 rounded-l-[5px] text-sm font-medium text-[#4a4949] h-[42px]"
+                  >
+                   {location}
+                  </button>
 
                   <div className="relative max-w-[333px] sm:min-w-[333px] w-full">
                     {/* <!-- divider --> */}
                     <span className="absolute left-0 top-1/2 -translate-y-1/2 inline-block w-px h-5.5 bg-gray-4"></span>
                     <input
-                      onChange={(e) => setSearchQuery(e.target.value)}
+                      onChange={(e) => handleSearch(e.target.value)}
                       value={searchQuery}
                       type="search"
                       name="search"
@@ -89,6 +170,35 @@ const Header = () => {
                       className="custom-search w-full rounded-r-[5px] bg-gray-1 !border-l-0 border border-gray-3 py-2.5 pl-4 pr-10 outline-none ease-in duration-200"
                     />
 
+                         {showResults && searchResults.length > 0 && (
+                       <div className="absolute left-0 top-full mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-80 overflow-y-auto">
+                     
+                         {searchResults.map((item) => (
+                           <div
+                             key={item.id}
+                             onClick={() => {
+                               router.push(`/service/${item.id}`);
+                               setSearchQuery("");
+                               setShowResults(false);
+                             }}
+                             className="flex items-center gap-3 p-3 hover:bg-gray-100 cursor-pointer"
+                           >
+                             <Image
+                               src={item.imgs.previews[0]}
+                               alt={item.title}
+                               width={40}
+                               height={40}
+                             />
+                     
+                             <p className="text-sm font-medium">
+                               {item.title}
+                             </p>
+                           </div>
+                         ))}
+                     
+                       </div>
+                     )}
+                     
                     <button
                       id="search-btn"
                       aria-label="Search"
@@ -146,9 +256,9 @@ const Header = () => {
                 <span className="block text-2xs text-dark-4 uppercase">
                   24/7 SUPPORT
                 </span>
-                <p className="font-medium text-custom-sm text-dark">
+                <a href="tel:+918383849293" className="font-medium text-custom-sm text-dark hover:text-[#3683ab]">
                   +91 8383849293
-                </p>
+                </a>
               </div>
             </div>
 
@@ -386,6 +496,31 @@ const Header = () => {
           </div>
         </div>
       </div>
+      {openLocationModal && (
+  // <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-[9999]">
+<div className="fixed inset-0 backdrop-blur-md flex items-center justify-center z-[9999]"
+     style={{ background: "rgba(0,0,0,0.65)" }}>
+    <div className="bg-white rounded-xl p-6 w-[400px]">
+
+      <h3 className="text-lg font-semibold mb-3">
+        Your Location
+      </h3>
+
+      <p className="text-sm text-gray-600 mb-4">
+        {fullLocation}
+      </p>
+
+      <button
+        onClick={() => setOpenLocationModal(false)}
+        className="bg-[#3683ab] text-white px-4 py-2 rounded-md"
+      >
+        Close
+      </button>
+
+    </div>
+
+  </div>
+)}
     </header>
   );
 };

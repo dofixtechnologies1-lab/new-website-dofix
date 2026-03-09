@@ -26,35 +26,151 @@ __turbopack_context__.s([
 ]);
 const shopData = [
     // ================= AC REPAIR INSTALLATION =================
-    // {
-    //   id: 1,
-    //   title: "AC Installation",
-    //   category: "acrepairinstallation",
-    //   subCategory: "ac-installation",
-    //   rateCardKey: "ac",
-    //   reviews: 15,
-    //   imgs: {
-    //     thumbnails: ["/images/ac/ac-main.jpg"],
-    //     previews: ["/images/ac/ac-main.jpg"],
-    //   },
-    //   variants: [],
-    // },
     {
-        id: 2,
-        title: "AC Service",
+        id: 10,
+        title: "Foam Jet AC Service",
         category: "acrepairinstallation",
         subCategory: "ac-service",
         rateCardKey: "ac",
-        reviews: 20,
+        reviews: 10,
         imgs: {
             thumbnails: [
-                "/images/ac/ac-service.jpg"
+                "/images/ac/jet-service.png"
             ],
             previews: [
-                "/images/ac/ac-service.jpg"
+                "/images/ac/jet-service.png"
             ]
         },
-        variants: []
+        description: {
+            about: [
+                "High-pressure jet cleaning of indoor unit",
+                "Deep cleaning of cooling coil",
+                "Blower and fan cleaning",
+                "Drain line cleaning",
+                "Outdoor condenser jet wash",
+                "Cooling performance testing"
+            ],
+            benefits: [
+                "Strong and fast cooling",
+                "Removal of deep dirt and blockages",
+                "Improved airflow",
+                "Reduced electricity consumption",
+                "Extended AC lifespan"
+            ]
+        },
+        variants: [
+            {
+                id: 101,
+                title: "Split AC Foam Jet Service",
+                price: 499,
+                oldPrice: 699,
+                description: "Complete AC inspection and jet cleaning"
+            },
+            {
+                id: 102,
+                title: "Window AC Foam Jet Service",
+                price: 599,
+                oldPrice: 999,
+                description: "Deep jet cleaning for two AC units"
+            }
+        ]
+    },
+    {
+        id: 11,
+        title: "Power Jet Pump Ac Service",
+        category: "acrepairinstallation",
+        subCategory: "ac-service",
+        rateCardKey: "ac",
+        reviews: 10,
+        imgs: {
+            thumbnails: [
+                "/images/ac/basic-ac-service.png"
+            ],
+            previews: [
+                "/images/ac/basic-ac-service.png"
+            ]
+        },
+        description: {
+            about: [
+                "Basic cleaning of indoor AC unit",
+                "Air filter cleaning and dust removal",
+                "Cooling coil surface cleaning",
+                "Drain pipe inspection and cleaning",
+                "Outdoor unit basic cleaning",
+                "Complete AC performance check"
+            ],
+            benefits: [
+                "Maintains healthy airflow",
+                "Improves cooling efficiency",
+                "Reduces dust and bad smell",
+                "Helps lower electricity consumption",
+                "Prevents minor AC issues"
+            ]
+        },
+        variants: [
+            {
+                id: 101,
+                title: "Split AC Jet Pump Service",
+                price: 399,
+                oldPrice: 799,
+                description: "Basic cleaning and inspection for one AC unit"
+            },
+            {
+                id: 102,
+                title: "Window AC Jet Pump Service",
+                price: 399,
+                oldPrice: 599,
+                description: "Basic cleaning and inspection for two AC units"
+            }
+        ]
+    },
+    {
+        id: 12,
+        title: "AC Gas Charging",
+        category: "acrepairinstallation",
+        subCategory: "ac-service",
+        rateCardKey: "ac",
+        reviews: 6,
+        imgs: {
+            thumbnails: [
+                "/images/ac/gas-charging.jpg"
+            ],
+            previews: [
+                "/images/ac/gas-charging.jpg"
+            ]
+        },
+        description: {
+            about: [
+                "Complete AC gas pressure inspection",
+                "Leak detection and basic check",
+                "Top-up or refill of AC refrigerant gas",
+                "Cooling performance testing",
+                "System pressure balancing"
+            ],
+            benefits: [
+                "Restores proper cooling performance",
+                "Improves AC efficiency",
+                "Prevents compressor overload",
+                "Reduces electricity consumption",
+                "Ensures longer AC lifespan"
+            ]
+        },
+        variants: [
+            {
+                id: 121,
+                title: "Split AC Gas Charging",
+                price: 1999,
+                oldPrice: 2199,
+                description: "Gas refill service for split AC with pressure check"
+            },
+            {
+                id: 122,
+                title: "Window AC Gas Charging",
+                price: 1799,
+                oldPrice: 1999,
+                description: "Gas refill service for window AC unit"
+            }
+        ]
     },
     {
         id: 5,
@@ -209,10 +325,10 @@ async function SubCategoryPage({ params }) {
         }, this);
     }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "max-w-[600px] mx-auto py-16 px-4 pt-45",
+        className: "max-w-7xl mx-auto pt-32 pb-32 pt-55 px-4",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                className: "text-4xl font-bold mb-6 capitalize",
+                className: "text-2xl font-bold mb-4 capitalize",
                 children: subcategory.replace(/-/g, " ")
             }, void 0, false, {
                 fileName: "[project]/src/app/(site)/(pages)/[category]/[subcategory]/page.tsx",
@@ -220,7 +336,7 @@ async function SubCategoryPage({ params }) {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "inline-block mb-10 px-6 py-3 border-2 border-[#3683ab] text-[#3683ab] rounded-full text-sm font-medium",
+                className: "inline-block mb-6 px-5 py-2 border border-[#3683ab] text-[#3683ab] rounded-full text-sm font-medium",
                 children: [
                     filteredServices.length,
                     " Services Available"
@@ -231,43 +347,43 @@ async function SubCategoryPage({ params }) {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "space-y-8",
+                className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6",
                 children: filteredServices.map((service)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "bg-white rounded-3xl shadow-lg p-4 flex items-center justify-between hover:shadow-xl transition",
+                        className: "bg-white rounded-2xl shadow-md p-4 flex items-center justify-between",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex items-center gap-6",
+                                className: "flex items-center gap-4",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "w-40 h-40 rounded-2xl overflow-hidden",
+                                        className: "w-[90px] h-[90px] rounded-xl overflow-hidden",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                                             src: service.imgs.thumbnails[0],
                                             alt: service.title,
-                                            width: 160,
-                                            height: 160,
+                                            width: 90,
+                                            height: 90,
                                             className: "object-cover w-full h-full"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/(site)/(pages)/[category]/[subcategory]/page.tsx",
-                                            lineNumber: 50,
+                                            lineNumber: 52,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(site)/(pages)/[category]/[subcategory]/page.tsx",
-                                        lineNumber: 49,
+                                        lineNumber: 51,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                                className: "text-2xl font-semibold",
+                                                className: "text-lg font-semibold",
                                                 children: service.title
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(site)/(pages)/[category]/[subcategory]/page.tsx",
-                                                lineNumber: 61,
+                                                lineNumber: 64,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "mt-2 text-gray-500",
+                                                className: "text-sm text-gray-500 mt-1",
                                                 children: [
                                                     "⭐ 4.7 (",
                                                     service.reviews,
@@ -275,53 +391,60 @@ async function SubCategoryPage({ params }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/(site)/(pages)/[category]/[subcategory]/page.tsx",
-                                                lineNumber: 65,
+                                                lineNumber: 68,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "mt-4 inline-block px-5 py-2 border border-[#3683ab] text-[#3683ab] rounded-full text-sm",
+                                                className: "mt-2 inline-block px-4 py-1 border border-[#3683ab] text-[#3683ab] rounded-full text-xs",
                                                 children: [
                                                     service.variants.length,
                                                     " Options Available"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/(site)/(pages)/[category]/[subcategory]/page.tsx",
-                                                lineNumber: 69,
+                                                lineNumber: 72,
                                                 columnNumber: 17
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "mt-4 text-[#3683ab] font-medium",
-                                                children: "View Details"
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                                                href: `/ac-services/${service.id}`,
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "mt-2 text-[#3683ab] text-sm font-medium",
+                                                    children: "View Details"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/(site)/(pages)/[category]/[subcategory]/page.tsx",
+                                                    lineNumber: 77,
+                                                    columnNumber: 19
+                                                }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(site)/(pages)/[category]/[subcategory]/page.tsx",
-                                                lineNumber: 73,
+                                                lineNumber: 76,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(site)/(pages)/[category]/[subcategory]/page.tsx",
-                                        lineNumber: 60,
+                                        lineNumber: 62,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(site)/(pages)/[category]/[subcategory]/page.tsx",
-                                lineNumber: 46,
+                                lineNumber: 48,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                                 href: `/ac-services/${service.id}`,
-                                className: "w-14 h-14 rounded-full bg-gray-200 flex items-center justify-center text-2xl text-[#3683ab] hover:bg-[#3683ab] hover:text-white transition",
+                                className: "w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-lg text-[#3683ab]",
                                 children: "→"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(site)/(pages)/[category]/[subcategory]/page.tsx",
-                                lineNumber: 80,
+                                lineNumber: 86,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, service.id, true, {
                         fileName: "[project]/src/app/(site)/(pages)/[category]/[subcategory]/page.tsx",
-                        lineNumber: 42,
+                        lineNumber: 43,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {

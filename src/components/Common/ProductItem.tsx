@@ -7,36 +7,57 @@ import { updateQuickView } from "@/redux/features/quickView-slice";
 import { addItemToCart } from "@/redux/features/cart-slice";
 import { addItemToWishlist } from "@/redux/features/wishlist-slice";
 import { updateproductDetails } from "@/redux/features/product-details";
-import { useDispatch } from "react-redux";
-import { useAppDispatch  } from "@/redux/hooks";
+import { useAppDispatch } from "@/redux/hooks";
 import Link from "next/link";
 
-const ProductItem = ({ item }: { item: Product }) => {
+const ProductItem = ({
+  item,
+  hideCart,
+  hidePrice,
+}: {
+  item: Product;
+  hideCart?: boolean;
+  hidePrice?: boolean;
+}) => {
   const { openModal } = useModalContext();
-
   const dispatch = useAppDispatch();
 
-  // update the QuickView state
+  const firstVariant = item.variants?.[0];
+
+  // Quick view
   const handleQuickViewUpdate = () => {
     dispatch(updateQuickView({ ...item }));
   };
 
-  // add to cart
+  // Add to cart
   const handleAddToCart = () => {
+    if (!firstVariant) return;
+
     dispatch(
       addItemToCart({
-        ...item,
+        id: item.id,
+        title: item.title,
+        price: firstVariant.oldPrice || firstVariant.price,
+        discountedPrice: firstVariant.price,
         quantity: 1,
+        imgs: item.imgs,
       })
     );
   };
 
+  // Wishlist
   const handleItemToWishList = () => {
+    if (!firstVariant) return;
+
     dispatch(
       addItemToWishlist({
-        ...item,
-        status: "available",
+        id: item.id,
+        title: item.title,
+        price: firstVariant.oldPrice || firstVariant.price,
+        discountedPrice: firstVariant.price,
         quantity: 1,
+        // status: "available",
+        imgs: item.imgs,
       })
     );
   };
@@ -48,17 +69,22 @@ const ProductItem = ({ item }: { item: Product }) => {
   return (
     <div className="group">
       <div className="relative overflow-hidden flex items-center justify-center rounded-lg bg-[#F6F7FB] min-h-[270px] mb-4">
-        <Image src={item.imgs.previews[0]} alt="services" width={300} height={250} />
+        <Image
+          src={item.imgs.previews[0]}
+          alt="services"
+          width={300}
+          height={250}
+        />
 
         <div className="absolute left-0 bottom-0 translate-y-full w-full flex items-center justify-center gap-2.5 pb-5 ease-linear duration-200 group-hover:translate-y-0">
+          
+          {/* Quick View */}
           <button
             onClick={() => {
               openModal();
               handleQuickViewUpdate();
             }}
-            id="newOne"
-            aria-label="button for quick view"
-            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-[#3683ab]"
+            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 bg-white hover:text-[#3683ab]"
           >
             <svg
               className="fill-current"
@@ -83,20 +109,22 @@ const ProductItem = ({ item }: { item: Product }) => {
             </svg>
           </button>
 
-          <button
-            onClick={() => handleAddToCart()}
-            className="inline-flex font-medium text-custom-sm py-[7px] px-5 rounded-[5px] bg-[#3683ab] text-white ease-out duration-200 hover:bg-[#14455b]-dark"
-          >
-            Add to cart
-          </button>
+          {/* Add to cart */}
+          {!hideCart && (
+  <button
+    onClick={() => handleAddToCart()}
+    className="inline-flex font-medium text-custom-sm py-[7px] px-5 rounded-[5px] bg-[#3683ab] text-white ease-out duration-200 hover:bg-[#14455b]-dark"
+  >
+    Add to cart
+  </button>
+)}
 
+          {/* Wishlist */}
           <button
-            onClick={() => handleItemToWishList()}
-            aria-label="button for favorite select"
-            id="favOne"
-            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 ease-out duration-200 text-dark bg-white hover:text-[#3683ab]"
+            onClick={handleItemToWishList}
+            className="flex items-center justify-center w-9 h-9 rounded-[5px] shadow-1 bg-white hover:text-[#3683ab]"
           >
-            <svg
+             <svg
               className="fill-current"
               width="16"
               height="16"
@@ -115,54 +143,39 @@ const ProductItem = ({ item }: { item: Product }) => {
         </div>
       </div>
 
+      {/* Rating */}
       <div className="flex items-center gap-2.5 mb-2">
         <div className="flex items-center gap-1">
-          <Image
-            src="/images/icons/icon-star.svg"
-            alt="star icon"
-            width={14}
-            height={14}
-          />
-          <Image
-            src="/images/icons/icon-star.svg"
-            alt="star icon"
-            width={14}
-            height={14}
-          />
-          <Image
-            src="/images/icons/icon-star.svg"
-            alt="star icon"
-            width={14}
-            height={14}
-          />
-          <Image
-            src="/images/icons/icon-star.svg"
-            alt="star icon"
-            width={14}
-            height={14}
-          />
-          <Image
-            src="/images/icons/icon-star.svg"
-            alt="star icon"
-            width={14}
-            height={14}
-          />
+          <Image src="/images/icons/icon-star.svg" alt="star" width={14} height={14}/>
+          <Image src="/images/icons/icon-star.svg" alt="star" width={14} height={14}/>
+          <Image src="/images/icons/icon-star.svg" alt="star" width={14} height={14}/>
+          <Image src="/images/icons/icon-star.svg" alt="star" width={14} height={14}/>
+          <Image src="/images/icons/icon-star.svg" alt="star" width={14} height={14}/>
         </div>
 
         <p className="text-custom-sm">({item.reviews})</p>
       </div>
 
+      {/* Title */}
       <h3
-        className="font-medium text-dark ease-out duration-200 hover:text-[#3683ab] mb-1.5"
-        onClick={() => handleProductDetails()}
+        className="font-medium text-dark hover:text-[#3683ab] mb-1.5"
+        onClick={handleProductDetails}
       >
-        <Link href="/shop-details"> {item.title} </Link>
+        <Link href="/shop-details">{item.title}</Link>
       </h3>
 
-      <span className="flex items-center gap-2 font-medium text-lg">
-        <span className="text-dark">₹{item.discountedPrice}</span>
-        <span className="text-dark-4 line-through">₹{item.price}</span>
-      </span>
+      {/* Price */}
+      {!hidePrice && firstVariant && (
+        <span className="flex items-center gap-2 font-medium text-lg">
+          <span className="text-dark">₹{firstVariant.price}</span>
+
+          {firstVariant.oldPrice && (
+            <span className="text-dark-4 line-through">
+              ₹{firstVariant.oldPrice}
+            </span>
+          )}
+        </span>
+      )}
     </div>
   );
 };

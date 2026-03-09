@@ -17,7 +17,7 @@ export const subCategoryMapping: any = {
     },
     {
       id: "ac-installation-uninstallation",
-      title: "AC Installation & Uninstallation",
+      title: "AC Installation Uninstallation",
       img: "/images/subcategories/ac-ins.png",
     },
   ],
