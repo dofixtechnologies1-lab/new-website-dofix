@@ -22,23 +22,34 @@ const SingleListItem = ({ item }: { item: Product }) => {
 
   // add to cart
   const handleAddToCart = () => {
-    dispatch(
-      addItemToCart({
-        ...item,
-        quantity: 1,
-      })
-    );
-  };
+  const firstVariant = item.variants?.[0];
+
+  dispatch(
+    addItemToCart({
+      id: Number(item.id),
+      title: item.title,
+      price: firstVariant?.oldPrice || firstVariant?.price || 0,
+      discountedPrice: firstVariant?.price || 0,
+      quantity: 1,
+      imgs: item.imgs,
+    })
+  );
+};
 
   const handleItemToWishList = () => {
-    dispatch(
-      addItemToWishlist({
-        ...item,
-        status: "available",
-        quantity: 1,
-      })
-    );
-  };
+  const firstVariant = item.variants?.[0];
+
+  dispatch(
+    addItemToWishlist({
+      id: Number(item.id),
+      title: item.title,
+      price: firstVariant?.oldPrice || firstVariant?.price || 0,
+      discountedPrice: firstVariant?.price || 0,
+      quantity: 1,
+      imgs: item.imgs,
+    })
+  );
+};
 
   return (
     <div className="group rounded-lg bg-white shadow-1">
@@ -115,10 +126,17 @@ const SingleListItem = ({ item }: { item: Product }) => {
               <Link href="/shop-details"> {item.title} </Link>
             </h3>
 
-            <span className="flex items-center gap-2 font-medium text-lg">
-              <span className="text-dark">${item.discountedPrice}</span>
-              <span className="text-dark-4 line-through">${item.price}</span>
-            </span>
+            {item.variants?.[0] && (
+  <span className="flex items-center gap-2 font-medium text-lg">
+    <span className="text-dark">₹{item.variants[0].price}</span>
+
+    {item.variants[0].oldPrice && (
+      <span className="text-dark-4 line-through">
+        ₹{item.variants[0].oldPrice}
+      </span>
+    )}
+  </span>
+)}
           </div>
 
           <div className="flex items-center gap-2.5 mb-2">

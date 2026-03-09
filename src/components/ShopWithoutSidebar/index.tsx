@@ -26,7 +26,8 @@ const ShopWithoutSidebar = () => {
     selectedCategory === "0"
       ? shopData
       : shopData.filter(
-          (item) => item.categoryId === selectedCategory
+          // (item) => item.categoryId === selectedCategory
+          (item) => item.category === selectedCategory
         );
 
   return (

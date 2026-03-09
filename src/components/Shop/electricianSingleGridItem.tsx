@@ -35,7 +35,7 @@ const ElectricianSingleGridItem = ({ item }: { item: Electrician }) => {
     dispatch(
       addItemToWishlist({
         ...item,
-        status: "available",
+        
         quantity: 1,
       })
     );

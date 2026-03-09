@@ -35,7 +35,6 @@ const InteriorSingleGridItem = ({ item }: { item: Interior }) => {
     dispatch(
       addItemToWishlist({
         ...item,
-        status: "available",
         quantity: 1,
       })
     );

@@ -35,7 +35,7 @@ const ApplianceSingleGridItem = ({ item }: { item: Appliance }) => {
     dispatch(
       addItemToWishlist({
         ...item,
-        status: "available",
+        
         quantity: 1,
       })
     );

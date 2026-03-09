@@ -1362,7 +1362,7 @@ const SingleItem = ({ item })=>{
     // add to cart
     const handleAddToCart = ()=>{
         dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$features$2f$cart$2d$slice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addItemToCart"])({
-            id: item.id,
+            id: Number(item.id),
             title: item.title,
             price: item.variants?.[0]?.price || 0,
             discountedPrice: item.variants?.[0]?.oldPrice || 0,
@@ -1372,7 +1372,7 @@ const SingleItem = ({ item })=>{
     };
     const handleItemToWishList = ()=>{
         dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$features$2f$wishlist$2d$slice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addItemToWishlist"])({
-            id: item.id,
+            id: Number(item.id),
             title: item.title,
             price: item.variants?.[0]?.price || 0,
             discountedPrice: item.variants?.[0]?.oldPrice || 0,

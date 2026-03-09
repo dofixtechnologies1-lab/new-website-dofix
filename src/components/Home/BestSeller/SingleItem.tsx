@@ -23,7 +23,7 @@ const SingleItem = ({ item }: { item: Product }) => {
 const handleAddToCart = () => {
   dispatch(
     addItemToCart({
-      id: item.id,
+      id: Number(item.id),
       title: item.title,
       price: item.variants?.[0]?.price || 0,
       discountedPrice: item.variants?.[0]?.oldPrice || 0,
@@ -36,7 +36,7 @@ const handleAddToCart = () => {
 const handleItemToWishList = () => {
   dispatch(
     addItemToWishlist({
-      id: item.id,
+      id: Number(item.id),
       title: item.title,
       price: item.variants?.[0]?.price || 0,
       discountedPrice: item.variants?.[0]?.oldPrice || 0,

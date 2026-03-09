@@ -35,7 +35,7 @@ const CleaningSingleGridItem = ({ item }: { item: Cleaning }) => {
     dispatch(
       addItemToWishlist({
         ...item,
-        status: "available",
+        
         quantity: 1,
       })
     );
