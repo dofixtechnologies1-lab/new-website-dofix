@@ -253,9 +253,10 @@ var _s = __turbopack_context__.k.signature();
 function ServiceVariantPage() {
     _s();
     const params = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useParams"])();
-    const id = Number(params?.id);
+    const id = params?.id;
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const dispatch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$hooks$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppDispatch"])();
+    // const service = shopData.find((s) => s.id === id);
     const service = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Shop$2f$shopData$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].find((s)=>s.id === id);
     const cartItems = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$hooks$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppSelector"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$features$2f$cart$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["selectCartItems"]);
     const totalPrice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$hooks$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppSelector"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$redux$2f$features$2f$cart$2d$slice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["selectTotalPrice"]);
@@ -265,7 +266,7 @@ function ServiceVariantPage() {
         children: "Service Not Found"
     }, void 0, false, {
         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-        lineNumber: 30,
+        lineNumber: 31,
         columnNumber: 24
     }, this);
     const handleAdd = (variant)=>{
@@ -295,7 +296,7 @@ function ServiceVariantPage() {
                                 className: "w-full h-[220px] object-cover"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                lineNumber: 53,
+                                lineNumber: 54,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -303,13 +304,13 @@ function ServiceVariantPage() {
                                 children: service.title
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                lineNumber: 61,
+                                lineNumber: 62,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                        lineNumber: 51,
+                        lineNumber: 52,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -320,20 +321,20 @@ function ServiceVariantPage() {
                                 children: "🏠"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                lineNumber: 68,
+                                lineNumber: 69,
                                 columnNumber: 11
                             }, this),
                             "AC Service, Repair & Installation"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                        lineNumber: 67,
+                        lineNumber: 68,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                lineNumber: 49,
+                lineNumber: 50,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -341,7 +342,7 @@ function ServiceVariantPage() {
                 children: "Available Services"
             }, void 0, false, {
                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                lineNumber: 75,
+                lineNumber: 76,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -361,7 +362,7 @@ function ServiceVariantPage() {
                                         className: "rounded-lg object-cover h-[110px] w-[160px]"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                        lineNumber: 93,
+                                        lineNumber: 94,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -373,13 +374,13 @@ function ServiceVariantPage() {
                                         children: "Add"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                        lineNumber: 101,
+                                        lineNumber: 102,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                lineNumber: 91,
+                                lineNumber: 92,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -387,7 +388,7 @@ function ServiceVariantPage() {
                                 children: variant.title
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                lineNumber: 114,
+                                lineNumber: 115,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -401,7 +402,7 @@ function ServiceVariantPage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                        lineNumber: 121,
+                                        lineNumber: 122,
                                         columnNumber: 15
                                     }, this),
                                     variant.oldPrice && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -412,13 +413,13 @@ function ServiceVariantPage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                        lineNumber: 126,
+                                        lineNumber: 127,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                lineNumber: 119,
+                                lineNumber: 120,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -426,7 +427,7 @@ function ServiceVariantPage() {
                                 children: variant.description
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                lineNumber: 134,
+                                lineNumber: 135,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -437,7 +438,7 @@ function ServiceVariantPage() {
                                         children: "The Dofix Rate Card"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                        lineNumber: 141,
+                                        lineNumber: 142,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -449,24 +450,24 @@ function ServiceVariantPage() {
                                         children: "View Rate Card"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                        lineNumber: 145,
+                                        lineNumber: 146,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                lineNumber: 139,
+                                lineNumber: 140,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, variant.id, true, {
                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                        lineNumber: 84,
+                        lineNumber: 85,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                lineNumber: 80,
+                lineNumber: 81,
                 columnNumber: 7
             }, this),
             service.description?.about && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -477,7 +478,7 @@ function ServiceVariantPage() {
                         children: "About This Service"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                        lineNumber: 168,
+                        lineNumber: 169,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -486,18 +487,18 @@ function ServiceVariantPage() {
                                 children: item
                             }, index, false, {
                                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                lineNumber: 174,
+                                lineNumber: 175,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                        lineNumber: 172,
+                        lineNumber: 173,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                lineNumber: 166,
+                lineNumber: 167,
                 columnNumber: 9
             }, this),
             service.description?.benefits && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -508,7 +509,7 @@ function ServiceVariantPage() {
                         children: "Benefits"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                        lineNumber: 187,
+                        lineNumber: 188,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -517,18 +518,18 @@ function ServiceVariantPage() {
                                 children: item
                             }, index, false, {
                                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                lineNumber: 193,
+                                lineNumber: 194,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                        lineNumber: 191,
+                        lineNumber: 192,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                lineNumber: 185,
+                lineNumber: 186,
                 columnNumber: 9
             }, this),
             selectedVariant && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$VarientModal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -537,7 +538,7 @@ function ServiceVariantPage() {
                 onClose: ()=>setSelectedVariant(null)
             }, void 0, false, {
                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                lineNumber: 203,
+                lineNumber: 204,
                 columnNumber: 9
             }, this),
             cartItems.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -553,7 +554,7 @@ function ServiceVariantPage() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                lineNumber: 216,
+                                lineNumber: 217,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -564,13 +565,13 @@ function ServiceVariantPage() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                                lineNumber: 220,
+                                lineNumber: 221,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                        lineNumber: 215,
+                        lineNumber: 216,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -579,19 +580,19 @@ function ServiceVariantPage() {
                         children: "View Cart"
                     }, void 0, false, {
                         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                        lineNumber: 225,
+                        lineNumber: 226,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-                lineNumber: 213,
+                lineNumber: 214,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(site)/(pages)/ac-services/[id]/page.tsx",
-        lineNumber: 46,
+        lineNumber: 47,
         columnNumber: 5
     }, this);
 }

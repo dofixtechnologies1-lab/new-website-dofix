@@ -5,7 +5,7 @@ const shopData: Product[] = [
   // ================= AC REPAIR INSTALLATION =================
 
   {
-    id: 10,
+    id: "foam-jet-ac-service",
     title: "Foam Jet AC Service",
     category: "acrepairinstallation",
     subCategory: "ac-service",
@@ -69,7 +69,7 @@ const shopData: Product[] = [
   },
 
 {
-  id: 11,
+  id: "power-jet-pump-ac-service",
   title: "Power Jet Pump Ac Service",
   category: "acrepairinstallation",
   subCategory: "ac-service",
@@ -133,7 +133,7 @@ const shopData: Product[] = [
 },
   
   {
-  id: 12,
+  id: "ac-gas-charging",
   title: "AC Gas Charging",
   category: "acrepairinstallation",
   subCategory: "ac-service",
@@ -182,7 +182,7 @@ const shopData: Product[] = [
 },
 
   {
-    id: 5,
+    id: "ac-repair",
     title: "AC Repair",
     category: "acrepairinstallation",
     subCategory: "ac-repair",
@@ -216,7 +216,7 @@ const shopData: Product[] = [
   // ================= HOME CLEANING =================
 
   {
-    id: 3,
+    id: "deep-cleaning",
     title: "Deep Cleaning",
     category: "home-cleaning",
     subCategory: "deep-cleaning",
@@ -232,7 +232,7 @@ const shopData: Product[] = [
   },
 
   {
-    id: 7,
+    id: "bathroom-cleaning",
     title: "Bathroom Cleaning",
     category: "home-cleaning",
     subCategory: "bathroom-cleaning",
@@ -248,7 +248,7 @@ const shopData: Product[] = [
   },
 
   {
-    id: 8,
+    id: "kitchen-cleaning",
     title: "Kitchen Cleaning",
     category: "home-cleaning",
     subCategory: "kitchen-cleaning",
@@ -282,7 +282,7 @@ const shopData: Product[] = [
   // ================= PAINTING =================
 
   {
-    id: 4,
+    id: "wall-painting",
     title: "Wall Painting",
     category: "painting",
     subCategory: "wall-paint",
@@ -296,6 +296,144 @@ const shopData: Product[] = [
 
     variants: [],
   },
+
+
+// ================= HOME APPLIANCES =================
+
+{
+  id: "refrigerator-repair",
+  title: "Refrigerator Repair",
+  category: "home-appliances",
+  subCategory: "refrigerator",
+  rateCardKey: "appliances",
+  reviews: 8,
+
+  imgs: {
+    thumbnails: ["/images/appliances/fridge.jpg"],
+    previews: ["/images/appliances/fridge.jpg"],
+  },
+
+  variants: [],
+},
+
+{
+  id: "washing-machine-repair",
+  title: "Washing Machine Repair",
+  category: "home-appliances",
+  subCategory: "washing-machine",
+  rateCardKey: "appliances",
+  reviews: 7,
+
+  imgs: {
+    thumbnails: ["/images/appliances/washing-machine.jpg"],
+    previews: ["/images/appliances/washing-machine.jpg"],
+  },
+
+  variants: [],
+},
+
+{
+  id: "microwave-repair",
+  title: "Microwave Repair",
+  category: "home-appliances",
+  subCategory: "microwave",
+  rateCardKey: "appliances",
+  reviews: 6,
+
+  imgs: {
+    thumbnails: ["/images/appliances/microwave.jpg"],
+    previews: ["/images/appliances/microwave.jpg"],
+  },
+
+  variants: [],
+},
+
+// ================= INTERIOR =================
+
+{
+  id: "modular-kitchen-design",
+  title: "Modular Kitchen Design",
+  category: "interior",
+  subCategory: "kitchen-interior",
+  rateCardKey: "interior",
+  reviews: 9,
+
+  imgs: {
+    thumbnails: ["/images/interior/modular-kitchen.jpg"],
+    previews: ["/images/interior/modular-kitchen.jpg"],
+  },
+
+  variants: [],
+},
+
+{
+  id: "wardrobe-design",
+  title: "Wardrobe Design",
+  category: "interior",
+  subCategory: "wardrobe",
+  rateCardKey: "interior",
+  reviews: 7,
+
+  imgs: {
+    thumbnails: ["/images/interior/wardrobe.jpg"],
+    previews: ["/images/interior/wardrobe.jpg"],
+  },
+
+  variants: [],
+},
+
+// ================= ELECTRICIAN =================
+
+{
+  id: "switch-board-repair",
+  title: "Switch Board Repair",
+  category: "electrician",
+  subCategory: "switch-board",
+  rateCardKey: "electrician",
+  reviews: 12,
+
+  imgs: {
+    thumbnails: ["/images/electrician/switch-board.jpg"],
+    previews: ["/images/electrician/switch-board.jpg"],
+  },
+
+  variants: [],
+},
+
+{
+  id: "fan-installation",
+  title: "Fan Installation",
+  category: "electrician",
+  subCategory: "fan-install",
+  rateCardKey: "electrician",
+  reviews: 10,
+
+  imgs: {
+    thumbnails: ["/images/electrician/fan.jpg"],
+    previews: ["/images/electrician/fan.jpg"],
+  },
+
+  variants: [],
+},
+
+{
+  id: "light-installation",
+  title: "Light Installation",
+  category: "electrician",
+  subCategory: "light-install",
+  rateCardKey: "electrician",
+  reviews: 9,
+
+  imgs: {
+    thumbnails: ["/images/electrician/light.jpg"],
+    previews: ["/images/electrician/light.jpg"],
+  },
+
+  variants: [],
+},
+
 ];
+
+
 
 export default shopData;

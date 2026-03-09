@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { Product } from "@/types/product";
+import { useRouter } from "next/navigation";
 import { useModalContext } from "@/app/context/QuickViewModalContext";
 import { updateQuickView } from "@/redux/features/quickView-slice";
 import { addItemToCart } from "@/redux/features/cart-slice";
@@ -21,6 +22,7 @@ const ProductItem = ({
 }) => {
   const { openModal } = useModalContext();
   const dispatch = useAppDispatch();
+  const router = useRouter();
 
   const firstVariant = item.variants?.[0];
 
@@ -29,13 +31,21 @@ const ProductItem = ({
     dispatch(updateQuickView({ ...item }));
   };
 
+
+  const slugify = (text: string) => {
+  return text
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]+/g, "");
+};
+
   // Add to cart
   const handleAddToCart = () => {
     if (!firstVariant) return;
 
     dispatch(
       addItemToCart({
-        id: item.id,
+        id: Number(item.id),
         title: item.title,
         price: firstVariant.oldPrice || firstVariant.price,
         discountedPrice: firstVariant.price,
@@ -51,7 +61,7 @@ const ProductItem = ({
 
     dispatch(
       addItemToWishlist({
-        id: item.id,
+        id: Number(item.id),
         title: item.title,
         price: firstVariant.oldPrice || firstVariant.price,
         discountedPrice: firstVariant.price,
@@ -144,26 +154,25 @@ const ProductItem = ({
       </div>
 
       {/* Rating */}
-      <div className="flex items-center gap-2.5 mb-2">
-        <div className="flex items-center gap-1">
-          <Image src="/images/icons/icon-star.svg" alt="star" width={14} height={14}/>
-          <Image src="/images/icons/icon-star.svg" alt="star" width={14} height={14}/>
-          <Image src="/images/icons/icon-star.svg" alt="star" width={14} height={14}/>
-          <Image src="/images/icons/icon-star.svg" alt="star" width={14} height={14}/>
-          <Image src="/images/icons/icon-star.svg" alt="star" width={14} height={14}/>
+     {/* Rating */}
+        <div className="flex items-center justify-center gap-2.5 mb-2">
+          <div className="flex items-center gap-1">
+            <Image src="/images/icons/icon-star.svg" alt="star" width={14} height={14}/>
+            <Image src="/images/icons/icon-star.svg" alt="star" width={14} height={14}/>
+            <Image src="/images/icons/icon-star.svg" alt="star" width={14} height={14}/>
+            <Image src="/images/icons/icon-star.svg" alt="star" width={14} height={14}/>
+            <Image src="/images/icons/icon-star.svg" alt="star" width={14} height={14}/>
+          </div>
+        
+          <p className="text-custom-sm">({item.reviews})</p>
         </div>
-
-        <p className="text-custom-sm">({item.reviews})</p>
-      </div>
-
       {/* Title */}
       <h3
-        className="font-medium text-dark hover:text-[#3683ab] mb-1.5"
-        onClick={handleProductDetails}
-      >
-        <Link href="/shop-details">{item.title}</Link>
-      </h3>
-
+  onClick={() => router.push(`/ac-services/${slugify(item.title)}`)}
+  className="cursor-pointer flex items-center justify-center text-center text-white bg-[#3683ab] mb-1.5 rounded-md px-3 py-2 hover:bg-[#2f6f91] transition"
+>
+  {item.title}
+</h3>
       {/* Price */}
       {!hidePrice && firstVariant && (
         <span className="flex items-center gap-2 font-medium text-lg">
@@ -179,5 +188,6 @@ const ProductItem = ({
     </div>
   );
 };
+
 
 export default ProductItem;

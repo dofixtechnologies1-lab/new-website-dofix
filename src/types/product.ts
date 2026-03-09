@@ -1,5 +1,5 @@
 export interface Variant {
-  id: number;
+  id: string | number;
   title: string;
   price: number;
   oldPrice?: number;
@@ -7,7 +7,7 @@ export interface Variant {
 }
 
 export interface Product {
-  id: number;
+  id: string | number;
   title: string;
   category: string;
   subCategory: string;

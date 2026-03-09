@@ -15,11 +15,12 @@ import VariantModal from "@/components/VarientModal";
 export default function ServiceVariantPage() {
 
   const params = useParams();
-  const id = Number(params?.id);
+  const id = (params?.id);
 
   const router = useRouter();
   const dispatch = useAppDispatch();
 
+  // const service = shopData.find((s) => s.id === id);
   const service = shopData.find((s) => s.id === id);
 
   const cartItems = useAppSelector(selectCartItems);
