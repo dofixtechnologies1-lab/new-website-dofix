@@ -1,12 +1,8 @@
 import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
-type InitialState = {
-  items: CartItem[];
-};
-
 type CartItem = {
-  id: number;
+  id: string | number;
   title: string;
   price: number;
   discountedPrice: number;
@@ -17,6 +13,10 @@ type CartItem = {
   };
 };
 
+type InitialState = {
+  items: CartItem[];
+};
+
 const initialState: InitialState = {
   items: [],
 };
@@ -25,33 +25,35 @@ export const cart = createSlice({
   name: "cart",
   initialState,
   reducers: {
+
+    // ✅ Add Item
     addItemToCart: (state, action: PayloadAction<CartItem>) => {
-      const { id, title, price, quantity, discountedPrice, imgs } =
-        action.payload;
-      const existingItem = state.items.find((item) => item.id === id);
+      const item = action.payload;
+
+      const existingItem = state.items.find(
+        (cartItem) => cartItem.id === item.id
+      );
 
       if (existingItem) {
-        existingItem.quantity += quantity;
+        existingItem.quantity += item.quantity;
       } else {
-        state.items.push({
-          id,
-          title,
-          price,
-          quantity,
-          discountedPrice,
-          imgs,
-        });
+        state.items.push(item);
       }
     },
-    removeItemFromCart: (state, action: PayloadAction<number>) => {
+
+    // ✅ Remove Item
+    removeItemFromCart: (state, action: PayloadAction<string | number>) => {
       const itemId = action.payload;
       state.items = state.items.filter((item) => item.id !== itemId);
     },
+
+    // ✅ Update Quantity
     updateCartItemQuantity: (
       state,
-      action: PayloadAction<{ id: number; quantity: number }>
+      action: PayloadAction<{ id: string | number; quantity: number }>
     ) => {
       const { id, quantity } = action.payload;
+
       const existingItem = state.items.find((item) => item.id === id);
 
       if (existingItem) {
@@ -59,6 +61,7 @@ export const cart = createSlice({
       }
     },
 
+    // ✅ Clear Cart
     removeAllItemsFromCart: (state) => {
       state.items = [];
     },
@@ -68,9 +71,10 @@ export const cart = createSlice({
 export const selectCartItems = (state: RootState) => state.cartReducer.items;
 
 export const selectTotalPrice = createSelector([selectCartItems], (items) => {
-  return items.reduce((total, item) => {
-    return total + item.discountedPrice * item.quantity;
-  }, 0);
+  return items.reduce(
+    (total, item) => total + item.discountedPrice * item.quantity,
+    0
+  );
 });
 
 export const {
@@ -79,4 +83,5 @@ export const {
   updateCartItemQuantity,
   removeAllItemsFromCart,
 } = cart.actions;
+
 export default cart.reducer;
