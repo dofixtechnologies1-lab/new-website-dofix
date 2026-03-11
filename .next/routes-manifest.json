@@ -30,6 +30,14 @@
       "namedRegex": "^/ac\\-services/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/blog/[slug]",
+      "regex": "^/blog/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/blog/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/rate-card/[categoryId]",
       "regex": "^/rate\\-card/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -73,28 +81,28 @@
       "namedRegex": "^/about(?:/)?$"
     },
     {
-      "page": "/blogs/blog-details",
-      "regex": "^/blogs/blog\\-details(?:/)?$",
+      "page": "/account",
+      "regex": "^/account(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/blogs/blog\\-details(?:/)?$"
+      "namedRegex": "^/account(?:/)?$"
     },
     {
-      "page": "/blogs/blog-details-with-sidebar",
-      "regex": "^/blogs/blog\\-details\\-with\\-sidebar(?:/)?$",
+      "page": "/account/profile",
+      "regex": "^/account/profile(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/blogs/blog\\-details\\-with\\-sidebar(?:/)?$"
+      "namedRegex": "^/account/profile(?:/)?$"
     },
     {
-      "page": "/blogs/blog-grid",
-      "regex": "^/blogs/blog\\-grid(?:/)?$",
+      "page": "/api/send-otp",
+      "regex": "^/api/send\\-otp(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/blogs/blog\\-grid(?:/)?$"
+      "namedRegex": "^/api/send\\-otp(?:/)?$"
     },
     {
-      "page": "/blogs/blog-grid-with-sidebar",
-      "regex": "^/blogs/blog\\-grid\\-with\\-sidebar(?:/)?$",
+      "page": "/blog",
+      "regex": "^/blog(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/blogs/blog\\-grid\\-with\\-sidebar(?:/)?$"
+      "namedRegex": "^/blog(?:/)?$"
     },
     {
       "page": "/booking",
@@ -161,6 +169,12 @@
       "regex": "^/privacy\\-policy(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/privacy\\-policy(?:/)?$"
+    },
+    {
+      "page": "/refund-policy",
+      "regex": "^/refund\\-policy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/refund\\-policy(?:/)?$"
     },
     {
       "page": "/services",
