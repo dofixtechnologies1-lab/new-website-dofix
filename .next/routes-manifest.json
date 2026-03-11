@@ -219,6 +219,12 @@
       "namedRegex": "^/terms(?:/)?$"
     },
     {
+      "page": "/thank-you",
+      "regex": "^/thank\\-you(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/thank\\-you(?:/)?$"
+    },
+    {
       "page": "/wishlist",
       "regex": "^/wishlist(?:/)?$",
       "routeKeys": {},

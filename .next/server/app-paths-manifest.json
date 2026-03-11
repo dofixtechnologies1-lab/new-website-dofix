@@ -23,6 +23,7 @@
   "/(site)/(pages)/signin/page": "app/(site)/(pages)/signin/page.js",
   "/(site)/(pages)/signup/page": "app/(site)/(pages)/signup/page.js",
   "/(site)/(pages)/terms/page": "app/(site)/(pages)/terms/page.js",
+  "/(site)/(pages)/thank-you/page": "app/(site)/(pages)/thank-you/page.js",
   "/(site)/(pages)/wishlist/page": "app/(site)/(pages)/wishlist/page.js",
   "/(site)/blog/[slug]/page": "app/(site)/blog/[slug]/page.js",
   "/(site)/blog/page": "app/(site)/blog/page.js",

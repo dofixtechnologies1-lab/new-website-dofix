@@ -1,34 +1,29 @@
 "use client";
+
 import { useRouter } from "next/navigation";
-import { useState, useRef } from "react";
-import {
-  GoogleMap,
-  Marker,
-  useJsApiLoader,
-} from "@react-google-maps/api";
+import { useState, useRef, useEffect } from "react";
+import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 
 const defaultCenter = {
   lat: 28.6139,
   lng: 77.2090,
 };
 
-export default function BookingAddressForm() {
+export default function BookingAddress() {
 
   const router = useRouter();
   const mapRef = useRef<google.maps.Map | null>(null);
 
   const [position, setPosition] = useState(defaultCenter);
   const [addressType, setAddressType] = useState("Home");
-  const [loadingLocation, setLoadingLocation] = useState(false);
-  const [locationUsed, setLocationUsed] = useState(false);
 
   const [formData, setFormData] = useState({
     fullAddress: "",
     houseNo: "",
     floor: "",
     street: "",
-    country: "India",
-    state: "Uttar Pradesh",
+    country: "",
+    state: "",
     pincode: "",
   });
 
@@ -47,21 +42,46 @@ export default function BookingAddressForm() {
     const data = await res.json();
 
     if (data.results?.length > 0) {
+
+      const result = data.results[0];
+
+      let state = "";
+      let country = "";
+      let pincode = "";
+
+      result.address_components.forEach((component: any) => {
+
+        if (component.types.includes("administrative_area_level_1")) {
+          state = component.long_name;
+        }
+
+        if (component.types.includes("country")) {
+          country = component.long_name;
+        }
+
+        if (component.types.includes("postal_code")) {
+          pincode = component.long_name;
+        }
+
+      });
+
       setFormData((prev) => ({
         ...prev,
-        fullAddress: data.results[0].formatted_address,
+        fullAddress: result.formatted_address,
+        state,
+        country,
+        pincode,
       }));
     }
   };
 
-  // Get Current Location
-  const getCurrentLocation = () => {
+  // Auto detect location
+  useEffect(() => {
 
     if (!navigator.geolocation) return;
 
-    setLoadingLocation(true);
-
     navigator.geolocation.getCurrentPosition(
+
       (pos) => {
 
         const lat = pos.coords.latitude;
@@ -70,7 +90,6 @@ export default function BookingAddressForm() {
         const newPos = { lat, lng };
 
         setPosition(newPos);
-        setLocationUsed(true);
 
         if (mapRef.current) {
           mapRef.current.panTo(newPos);
@@ -78,16 +97,17 @@ export default function BookingAddressForm() {
 
         fetchAddressFromLatLng(lat, lng);
 
-        setLoadingLocation(false);
       },
-      () => setLoadingLocation(false)
+
+      () => {
+        console.log("Location permission denied");
+      }
+
     );
-  };
 
-  // Validation
+  }, []);
+
   const validateAddress = () => {
-
-    if (locationUsed) return true;
 
     if (!formData.houseNo || !formData.street || !formData.pincode) {
 
@@ -106,7 +126,6 @@ export default function BookingAddressForm() {
 
       <div className="max-w-[800px] mx-auto bg-white rounded-3xl shadow-xl p-6 space-y-6">
 
-        {/* Heading */}
         <div>
           <h2 className="text-2xl font-semibold text-[#14455b]">
             Address
@@ -116,8 +135,9 @@ export default function BookingAddressForm() {
           </p>
         </div>
 
-        {/* MAP */}
+        {/* Map */}
         <div className="rounded-2xl overflow-hidden border">
+
           <GoogleMap
             mapContainerStyle={{ width: "100%", height: "220px" }}
             center={position}
@@ -144,61 +164,40 @@ export default function BookingAddressForm() {
                 }
 
                 fetchAddressFromLatLng(lat, lng);
+
               }}
             />
 
           </GoogleMap>
+
         </div>
 
-        {/* Current Location Button */}
-        <button
-          onClick={getCurrentLocation}
-          className="w-full bg-[#3683ab] hover:bg-[#14455b] text-white py-3 rounded-xl font-medium transition"
-        >
-          {loadingLocation ? "Fetching location..." : "Use Current Location"}
-        </button>
-
-        {/* Auto Address */}
-        <div>
-          <label className="text-sm font-medium text-gray-600">
-            Detected Address
-          </label>
-
-          <input
-            type="text"
-            value={formData.fullAddress}
-            readOnly
-            className="mt-2 w-full border border-gray-300 bg-gray-100 p-3 rounded-xl text-sm"
-          />
-        </div>
+        {/* Address */}
+        <input
+          type="text"
+          value={formData.fullAddress}
+          readOnly
+          className="w-full border border-gray-300 bg-gray-100 p-3 rounded-xl"
+        />
 
         {/* Address Type */}
-        <div>
+        <div className="flex gap-3">
 
-          <label className="text-sm font-medium text-gray-600">
-            Address Type
-          </label>
+          {["Home", "Office", "Other"].map((type) => (
 
-          <div className="flex gap-4 mt-3">
+            <button
+              key={type}
+              onClick={() => setAddressType(type)}
+              className={`flex-1 py-2 rounded-xl border ${
+                addressType === type
+                  ? "bg-[#3683ab] text-white"
+                  : "border-gray-300"
+              }`}
+            >
+              {type}
+            </button>
 
-            {["Home", "Office", "Other"].map((type) => (
-
-              <button
-                key={type}
-                type="button"
-                onClick={() => setAddressType(type)}
-                className={`flex-1 py-2 rounded-xl border text-sm font-medium transition ${
-                  addressType === type
-                    ? "bg-[#3683ab] text-white border-[#3683ab]"
-                    : "border-gray-300 text-gray-600"
-                }`}
-              >
-                {type}
-              </button>
-
-            ))}
-
-          </div>
+          ))}
 
         </div>
 
@@ -206,62 +205,56 @@ export default function BookingAddressForm() {
         <div className="space-y-4">
 
           <input
-            type="text"
             placeholder="House/Office No."
             value={formData.houseNo}
             onChange={(e) =>
               setFormData({ ...formData, houseNo: e.target.value })
             }
-            className="w-full border border-gray-300 p-3 rounded-xl focus:ring-2 focus:ring-[#3683ab] outline-none"
+            className="w-full border border-gray-300 p-3 rounded-xl"
           />
 
           <input
-            type="text"
             placeholder="Floor"
             value={formData.floor}
             onChange={(e) =>
               setFormData({ ...formData, floor: e.target.value })
             }
-            className="w-full border border-gray-300 p-3 rounded-xl focus:ring-2 focus:ring-[#3683ab] outline-none"
+            className="w-full border border-gray-300 p-3 rounded-xl"
           />
 
           <input
-            type="text"
             placeholder="Street / Area"
             value={formData.street}
             onChange={(e) =>
               setFormData({ ...formData, street: e.target.value })
             }
-            className="w-full border border-gray-300 p-3 rounded-xl focus:ring-2 focus:ring-[#3683ab] outline-none"
+            className="w-full border border-gray-300 p-3 rounded-xl"
           />
 
           <input
-            type="text"
-            value="India"
+            value={formData.country}
             readOnly
-            className="w-full border border-gray-200 bg-gray-100 p-3 rounded-xl text-gray-500"
+            className="w-full border border-gray-200 bg-gray-100 p-3 rounded-xl"
           />
 
           <input
-            type="text"
-            value="Uttar Pradesh"
+            value={formData.state}
             readOnly
-            className="w-full border border-gray-200 bg-gray-100 p-3 rounded-xl text-gray-500"
+            className="w-full border border-gray-200 bg-gray-100 p-3 rounded-xl"
           />
 
           <input
-            type="text"
             placeholder="Pincode"
             value={formData.pincode}
             onChange={(e) =>
               setFormData({ ...formData, pincode: e.target.value })
             }
-            className="w-full border border-gray-300 p-3 rounded-xl focus:ring-2 focus:ring-[#3683ab] outline-none"
+            className="w-full border border-gray-300 p-3 rounded-xl"
           />
 
         </div>
 
-        {/* Add Address Button */}
+        {/* Add Address */}
         <button
           onClick={() => {
 
@@ -282,7 +275,7 @@ export default function BookingAddressForm() {
             router.push("/booking");
 
           }}
-          className="w-full bg-[#3683ab] hover:bg-[#14455b] text-white py-4 rounded-2xl font-semibold text-lg transition"
+          className="w-full bg-[#3683ab] hover:bg-[#14455b] text-white py-4 rounded-2xl font-semibold"
         >
           Add Address
         </button>

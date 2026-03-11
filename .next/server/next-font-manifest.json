@@ -24,6 +24,7 @@
     "[project]/src/app/(site)/(pages)/signin/page": [],
     "[project]/src/app/(site)/(pages)/signup/page": [],
     "[project]/src/app/(site)/(pages)/terms/page": [],
+    "[project]/src/app/(site)/(pages)/thank-you/page": [],
     "[project]/src/app/(site)/(pages)/wishlist/page": [],
     "[project]/src/app/(site)/blog/[slug]/page": [],
     "[project]/src/app/(site)/blog/page": [],

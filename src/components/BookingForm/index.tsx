@@ -16,31 +16,30 @@ export default function BookingForm() {
     }
   }, []);
 
+  const validateEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
 
-const dates = [
-  { day: "Thu", date: "26 Feb" },
-  { day: "Fri", date: "27 Feb" },
-  { day: "Sat", date: "28 Feb" },
-  { day: "Sun", date: "01 Mar" },
-  { day: "Mon", date: "02 Mar" },
-];
+  const dates = [
+    { day: "Thu", date: "26 Feb" },
+    { day: "Fri", date: "27 Feb" },
+    { day: "Sat", date: "28 Feb" },
+    { day: "Sun", date: "01 Mar" },
+    { day: "Mon", date: "02 Mar" },
+  ];
 
-const slots = [
-  "09:00 AM","10:00 AM","11:00 AM",
-  "12:00 PM","01:00 PM","02:00 PM",
-  "03:00 PM","04:00 PM","05:00 PM",
-  "06:00 PM","07:00 PM","08:00 PM"
-];
+  const slots = [
+    "09:00 AM","10:00 AM","11:00 AM",
+    "12:00 PM","01:00 PM","02:00 PM",
+    "03:00 PM","04:00 PM","05:00 PM",
+    "06:00 PM","07:00 PM","08:00 PM"
+  ];
 
-
-
-  // Service
   const [serviceType, setServiceType] = useState("On-site Service");
   const [selectedDate, setSelectedDate] = useState(0);
   const [selectedSlot, setSelectedSlot] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("cash");
 
-  // Customer Details
   const [customerName, setCustomerName] = useState("");
   const [customerPhone, setCustomerPhone] = useState("");
   const [customerEmail, setCustomerEmail] = useState("");
@@ -50,8 +49,28 @@ const slots = [
 
   const handleBooking = async () => {
 
-    if (!customerName || !customerPhone || !selectedSlot) {
-      alert("Please fill required fields");
+    if (!customerName.trim()) {
+      alert("Please enter customer name");
+      return;
+    }
+
+    if (customerPhone.length !== 10) {
+      alert("Phone number must be exactly 10 digits");
+      return;
+    }
+
+    if (customerEmail && !validateEmail(customerEmail)) {
+      alert("Please enter a valid email address");
+      return;
+    }
+
+    if (!selectedSlot) {
+      alert("Please select a time slot");
+      return;
+    }
+
+    if (!address) {
+      alert("Please select an address");
       return;
     }
 
@@ -66,21 +85,34 @@ const slots = [
       customerPhone,
       customerEmail,
       comment,
+      address
     };
 
     console.log("Booking Data:", bookingData);
 
-    // 👉 Replace this with your Laravel API
-    // await fetch("/api/create-booking", { method: "POST", body: JSON.stringify(bookingData) });
+    try {
 
-    setTimeout(() => {
-      setLoading(false);
-      alert("Booking Created Successfully ✅");
-    }, 1500);
+      await fetch("/api/create-booking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(bookingData)
+      });
+
+      router.push("/thank-you");
+
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong");
+    }
+
+    setLoading(false);
   };
 
   return (
     <div className="min-h-screen bg-gray-50 py-6 px-4 pt-55">
+
       <div className="max-w-[800px] mx-auto bg-white rounded-3xl shadow-xl p-6 space-y-6">
 
         <div>
@@ -94,9 +126,12 @@ const slots = [
 
         {/* Service Preference */}
         <div>
-          <h3 className="font-medium mb-3">Service Preference</h3>
+          <h3 className="font-medium text-[#14455b] mb-3">Service Preference</h3>
+
           <div className="flex gap-3">
+
             {["On-site Service", "Technician Pickup"].map((type) => (
+
               <button
                 key={type}
                 onClick={() => setServiceType(type)}
@@ -108,15 +143,20 @@ const slots = [
               >
                 {type}
               </button>
+
             ))}
+
           </div>
         </div>
 
         {/* Select Date */}
         <div>
-          <h3 className="font-medium mb-3">Select Date</h3>
+          <h3 className="font-medium text-[#14455b] mb-3">Select Date</h3>
+
           <div className="flex gap-3 overflow-x-auto">
+
             {dates.map((item, index) => (
+
               <button
                 key={index}
                 onClick={() => setSelectedDate(index)}
@@ -129,15 +169,20 @@ const slots = [
                 <div>{item.day}</div>
                 <div>{item.date}</div>
               </button>
+
             ))}
+
           </div>
         </div>
 
         {/* Select Slot */}
         <div>
-          <h3 className="font-medium mb-3">Select Slot</h3>
+          <h3 className="font-medium text-[#14455b] mb-3">Select Slot</h3>
+
           <div className="grid grid-cols-3 gap-3">
+
             {slots.map((slot, index) => (
+
               <button
                 key={index}
                 onClick={() => setSelectedSlot(slot)}
@@ -149,14 +194,18 @@ const slots = [
               >
                 {slot}
               </button>
+
             ))}
+
           </div>
         </div>
 
         {/* Payment Method */}
         <div>
-          <h3 className="font-medium mb-3">Payment Method</h3>
+          <h3 className="font-medium text-[#14455b] mb-3">Payment Method</h3>
+
           <div className="flex gap-6">
+
             <label className="flex items-center gap-2">
               <input
                 type="radio"
@@ -174,74 +223,77 @@ const slots = [
               />
               Online After Service
             </label>
+
           </div>
         </div>
 
         {/* Customer Details */}
         <div>
-          <h3 className="font-medium mb-3">Assign Customer Details</h3>
+          <h3 className="font-medium text-[#14455b] mb-3">Assign Customer Details</h3>
 
           <div className="space-y-4">
 
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Customer Name"
-                value={customerName}
-                onChange={(e) => setCustomerName(e.target.value)}
-                className="w-full border border-gray-300 rounded-xl p-3 pl-10 focus:outline-none focus:border-[#3683ab]"
-              />
-              <span className="absolute left-3 top-3.5 text-gray-400">👤</span>
-            </div>
+            <input
+              type="text"
+              placeholder="Customer Name"
+              value={customerName}
+              onChange={(e) => setCustomerName(e.target.value)}
+              className="w-full border border-gray-300 rounded-xl p-3"
+            />
 
-            <div className="relative">
-              <input
-                type="tel"
-                placeholder="Customer Phone"
-                value={customerPhone}
-                onChange={(e) => setCustomerPhone(e.target.value)}
-                className="w-full border border-gray-300 rounded-xl p-3 pl-10 focus:outline-none focus:border-[#3683ab]"
-              />
-              <span className="absolute left-3 top-3.5 text-gray-400">📞</span>
-            </div>
+            <input
+              type="tel"
+              placeholder="Customer Phone"
+              value={customerPhone}
+              onChange={(e) => {
+                const value = e.target.value.replace(/[^0-9]/g, "");
+                if (value.length <= 10) {
+                  setCustomerPhone(value);
+                }
+              }}
+              inputMode="numeric"
+              pattern="[0-9]*"
+              maxLength={10}
+              className="w-full border border-gray-300 rounded-xl p-3"
+            />
 
-            <div className="relative">
-              <input
-                type="email"
-                placeholder="Customer Email"
-                value={customerEmail}
-                onChange={(e) => setCustomerEmail(e.target.value)}
-                className="w-full border border-gray-300 rounded-xl p-3 pl-10 focus:outline-none focus:border-[#3683ab]"
-              />
-              <span className="absolute left-3 top-3.5 text-gray-400">✉️</span>
-            </div>
+            <input
+              type="email"
+              placeholder="Customer Email"
+              value={customerEmail}
+              onChange={(e) => setCustomerEmail(e.target.value)}
+              className="w-full border border-gray-300 rounded-xl p-3"
+            />
 
           </div>
         </div>
 
         {/* Address */}
         <div>
-          <h3 className="font-medium mb-3">Add Address</h3>
+          <h3 className="font-medium text-[#14455b] mb-3">Add Address</h3>
+
           <div
             onClick={() => router.push("/booking-address")}
             className="w-full border p-3 rounded-xl cursor-pointer flex justify-between items-center text-gray-500 hover:border-[#3683ab]"
           >
-           <span>
-             {address ? address.fullAddress : "Select an Address"}
-           </span>
-            ✏️
+            <span>
+              {address ? address.fullAddress : "Select an Address"}
+            </span>
+
+            <span>✏️</span>
           </div>
         </div>
 
         {/* Comment */}
         <div>
-          <h3 className="font-medium mb-3">Any Comment</h3>
-           <textarea
+          <h3 className="font-medium text-[#14455b] mb-3">Any Comment</h3>
+
+          <textarea
             placeholder="Write comment here"
             value={comment}
             onChange={(e) => setComment(e.target.value)}
             rows={3}
-            className="w-full border border-gray-300 rounded-xl p-3 focus:outline-none focus:border-[#3683ab]"
+            className="w-full border border-gray-300 rounded-xl p-3"
           />
         </div>
 

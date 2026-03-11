@@ -20,7 +20,7 @@ const Cart = () => {
       </section>
 
       {cartItems.length > 0 ? (
-        <section className="py-12 bg-gray-100 min-h-screen">
+        <section className="py-12 bg-gray min-h-screen">
           <div className="max-w-[900px] mx-auto px-4">
 
             {/* Header */}

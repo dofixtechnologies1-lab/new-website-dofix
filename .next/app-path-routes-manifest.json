@@ -23,6 +23,7 @@
   "/(site)/(pages)/signin/page": "/signin",
   "/(site)/(pages)/signup/page": "/signup",
   "/(site)/(pages)/terms/page": "/terms",
+  "/(site)/(pages)/thank-you/page": "/thank-you",
   "/(site)/(pages)/wishlist/page": "/wishlist",
   "/(site)/blog/[slug]/page": "/blog/[slug]",
   "/(site)/blog/page": "/blog",

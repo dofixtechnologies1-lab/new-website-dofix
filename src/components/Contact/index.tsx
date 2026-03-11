@@ -4,21 +4,111 @@ import Breadcrumb from "../Common/Breadcrumb";
 const Contact = () => {
   return (
     <>
-      <Breadcrumb title={"Contact"} pages={["contact"]} />
+      <Breadcrumb title={"Contact"} pages={["Contact"]} />
 
-      <section className="overflow-hidden py-20 bg-gray-2">
-        <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
-          <div className="flex flex-col xl:flex-row gap-7.5">
-            <div className="xl:max-w-[370px] w-full bg-white rounded-xl shadow-1">
-              <div className="py-5 px-4 sm:px-7.5 border-b border-gray-3">
-                <p className="font-medium text-xl text-dark">
-                  Contact Information
-                </p>
-              </div>
+      <section className="py-20 bg-gray">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
 
-              <div className="p-4 sm:p-7.5">
-                <div className="flex flex-col gap-4">
-                  <p className="flex items-center gap-4">
+          <div className="grid lg:grid-cols-3 gap-8">
+
+            
+            
+
+            {/* Contact Form */}
+            <div className="lg:col-span-2 bg-white rounded-2xl shadow-md p-6 sm:p-10">
+
+              <h3 className="text-xl font-semibold text-gray-800 mb-8">
+                Contact Us
+              </h3>
+
+              <form className="space-y-6">
+
+                <div className="grid md:grid-cols-2 gap-6">
+
+                  <div>
+                    <label className="block text-sm text-gray-600 mb-2">
+                      First Name *
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Your Name"
+                      className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#3683ab] outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm text-gray-600 mb-2">
+                      Last Name *
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Surname"
+                      className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#3683ab] outline-none"
+                    />
+                  </div>
+
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+
+                  <div>
+                    <label className="block text-sm text-gray-600 mb-2">
+                      Enquiry
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Type your enquiry"
+                      className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#3683ab] outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm text-gray-600 mb-2">
+                      Phone
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Enter your phone"
+                      className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#3683ab] outline-none"
+                    />
+                  </div>
+
+                </div>
+
+                <div>
+                  <label className="block text-sm text-gray-600 mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    rows={5}
+                    placeholder="Type your message"
+                    className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#3683ab] outline-none"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="bg-[#3683ab] text-white px-8 py-3 rounded-lg hover:bg-[#14455b] transition"
+                >
+                  Send Message
+                </button>
+
+              </form>
+            </div>
+
+
+            {/* Contact Info */}
+
+            <div className="lg:col-span-1 bg-white rounded-2xl shadow-md p-6">
+
+              <h3 className="text-xl font-semibold text-gray-800 mb-6">
+                Contact Information
+              </h3>
+
+              <div className="space-y-5 text-gray-600">
+
+                <div className="flex items-start gap-3">
+                  <div className="text-[#3683ab] text-xl">
                     <svg
                       width="22"
                       height="22"
@@ -33,10 +123,19 @@ const Contact = () => {
                         fill="#3683ab"
                       />
                     </svg>
-                    contact@dofix.in
-                  </p>
 
-                  <p className="flex items-center gap-4">
+
+                  </div>
+                  <a 
+                    href="mailto:contact@dofix.in"
+                    className="text-black"
+                  >
+                    contact@dofix.in
+                  </a>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="text-[#3683ab] text-xl">
                     <svg
                       width="22"
                       height="22"
@@ -61,10 +160,19 @@ const Contact = () => {
                         fill="#3683ab"
                       />
                     </svg>
-                    +91 8383849293
-                  </p>
 
-                  <p className="flex gap-4">
+
+                  </div>
+                 <a 
+                    href="tel:+918383849293"
+                    className="text-black"
+                  >
+                    +91 8383849293
+                  </a>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="text-[#3683ab] text-xl">
                     <svg
                       className="mt-0.5 shrink-0"
                       width="22"
@@ -80,96 +188,21 @@ const Contact = () => {
                         fill="#3683ab"
                       />
                     </svg>
-                    B-30, Sector-06, Noida, Uttar Pradesh, 201301
-                  </p>
+                  </div>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=B-30+Sector+6+Noida+Uttar+Pradesh+201301"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-black "
+                  >
+                    B-30, Sector-06, Noida,<br />
+                    Uttar Pradesh, 201301
+                  </a>
                 </div>
+
               </div>
             </div>
 
-            <div className="xl:max-w-[770px] w-full bg-white rounded-xl shadow-1 p-4 sm:p-7.5 xl:p-10">
-              <form>
-                <div className="flex flex-col lg:flex-row gap-5 sm:gap-8 mb-5">
-                  <div className="w-full">
-                    <label htmlFor="firstName" className="block mb-2.5">
-                      First Name <span className="text-red">*</span>
-                    </label>
-
-                    <input
-                      type="text"
-                      name="firstName"
-                      id="firstName"
-                      placeholder="Your Name"
-                      className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
-                    />
-                  </div>
-
-                  <div className="w-full">
-                    <label htmlFor="lastName" className="block mb-2.5">
-                      Last Name <span className="text-red">*</span>
-                    </label>
-
-                    <input
-                      type="text"
-                      name="lastName"
-                      id="lastName"
-                      placeholder="Surname"
-                      className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
-                    />
-                  </div>
-                </div>
-
-                <div className="flex flex-col lg:flex-row gap-5 sm:gap-8 mb-5">
-                  <div className="w-full">
-                    <label htmlFor="subject" className="block mb-2.5">
-                      Enquiry
-                    </label>
-
-                    <input
-                      type="text"
-                      name="subject"
-                      id="subject"
-                      placeholder="Type your Enquiry"
-                      className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
-                    />
-                  </div>
-
-                  <div className="w-full">
-                    <label htmlFor="phone" className="block mb-2.5">
-                      Phone
-                    </label>
-
-                    <input
-                      type="text"
-                      name="phone"
-                      id="phone"
-                      placeholder="Enter your phone"
-                      className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
-                    />
-                  </div>
-                </div>
-
-                <div className="mb-7.5">
-                  <label htmlFor="message" className="block mb-2.5">
-                    Message
-                  </label>
-
-                  <textarea
-                    name="message"
-                    id="message"
-                    rows={5}
-                    placeholder="Type your message"
-                    className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full p-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="inline-flex font-medium text-white bg-[#3683ab] py-3 px-7 rounded-md ease-out duration-200 hover:bg-[#14455b]"
-                >
-                  Send Message
-                </button>
-              </form>
-            </div>
           </div>
         </div>
       </section>
