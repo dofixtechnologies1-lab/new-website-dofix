@@ -13,14 +13,12 @@ import { useState } from "react";
 import VariantModal from "@/components/VarientModal";
 
 export default function ServiceVariantPage() {
-
   const params = useParams();
-  const id = (params?.id);
+  const id = params?.id as string;
 
   const router = useRouter();
   const dispatch = useAppDispatch();
 
-  // const service = shopData.find((s) => s.id === id);
   const service = shopData.find((s) => s.id === id);
 
   const cartItems = useAppSelector(selectCartItems);
@@ -38,7 +36,10 @@ export default function ServiceVariantPage() {
         price: variant.price,
         discountedPrice: variant.oldPrice,
         quantity: 1,
-        imgs: service.imgs,
+        imgs: {
+          thumbnails: [variant.img || service.imgs.thumbnails[0]],
+          previews: [variant.img || service.imgs.previews[0]],
+        },
       })
     );
   };
@@ -92,7 +93,7 @@ export default function ServiceVariantPage() {
             <div className="flex justify-between items-start">
 
               <Image
-                src={service.imgs.thumbnails[0]}
+                src={variant.img || service.imgs.thumbnails[0]}
                 alt={variant.title}
                 width={160}
                 height={110}
@@ -101,7 +102,7 @@ export default function ServiceVariantPage() {
 
               <button
                 onClick={(e) => {
-                  e.stopPropagation();   // prevents modal
+                  e.stopPropagation();
                   handleAdd(variant);
                 }}
                 className="bg-[#2b7a9a] text-white px-6 py-2 rounded-md text-sm"
@@ -117,7 +118,7 @@ export default function ServiceVariantPage() {
             </h3>
 
             {/* Price */}
-            <div className=" mt-1">
+            <div className="mt-1">
 
               <span className="font-bold text-lg text-[#14455b]">
                 ₹{variant.price}
@@ -145,7 +146,7 @@ export default function ServiceVariantPage() {
 
               <button
                 onClick={(e) => {
-                  e.stopPropagation(); // prevent modal
+                  e.stopPropagation();
                   router.push(`/rate-card/${service.rateCardKey}`);
                 }}
                 className="text-[#3683ab] font-medium"

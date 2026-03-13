@@ -13,8 +13,8 @@ const shopData: Product[] = [
     reviews: 10,
 
     imgs: {
-      thumbnails: ["/images/ac/jet-service.png"],
-      previews: ["/images/ac/jet-service.png"],
+      thumbnails: ["/images/ac/foam-jet.png"],
+      previews: ["/images/ac/foam-jet.png"],
     },
 
     description: {
@@ -42,6 +42,7 @@ const shopData: Product[] = [
         title: "Split AC Foam Jet Service",
         price: 499,
         oldPrice: 699,
+        img: "/images/ac/foam-s.png",
         description: "Complete AC inspection and jet cleaning",
       },
       {
@@ -49,6 +50,7 @@ const shopData: Product[] = [
         title: "Window AC Foam Jet Service",
         price: 599,
         oldPrice: 999,
+         img: "/images/ac/foam-w.png",
         description: "Deep jet cleaning for two AC units",
       },
       // {
@@ -77,8 +79,8 @@ const shopData: Product[] = [
   reviews: 10,
 
   imgs: {
-    thumbnails: ["/images/ac/basic-ac-service.png"],
-    previews: ["/images/ac/basic-ac-service.png"],
+    thumbnails: ["/images/ac/jet-pump.png"],
+    previews: ["/images/ac/jet-pump.png"],
   },
 
   description: {
@@ -104,8 +106,9 @@ const shopData: Product[] = [
     {
       id: 101,
       title: "Split AC Jet Pump Service",
-      price: 399,
+      price: 499,
       oldPrice: 799,
+      img: "/images/ac/split-jet.png",
       description: "Basic cleaning and inspection for one AC unit",
     },
     {
@@ -113,6 +116,7 @@ const shopData: Product[] = [
       title: "Window AC Jet Pump Service",
       price: 399,
       oldPrice: 599,
+      img: "/images/ac/window-jet.png",
       description: "Basic cleaning and inspection for two AC units",
     },
     // {
@@ -141,8 +145,8 @@ const shopData: Product[] = [
   reviews: 6,
 
   imgs: {
-    thumbnails: ["/images/ac/gas-charging.jpg"],
-    previews: ["/images/ac/gas-charging.jpg"],
+    thumbnails: ["/images/ac/gas-charge.png"],
+    previews: ["/images/ac/gas-charge.png"],
   },
 
   description: {
@@ -166,35 +170,97 @@ const shopData: Product[] = [
   variants: [
     {
       id: 121,
-      title: "Split AC Gas Charging",
-      price: 1999,
-      oldPrice: 2199,
+      title: "Gas Charging (0.8 to 1 Ton)",
+      price: 2499,
+      oldPrice: 2599,
+      img: "/images/ac/gas1.png",
       description: "Gas refill service for split AC with pressure check",
     },
     {
       id: 122,
-      title: "Window AC Gas Charging",
-      price: 1799,
-      oldPrice: 1999,
-      description: "Gas refill service for window AC unit",
+      title: "Gas Charging (1.2 to 1.5 Ton)",
+      price: 2799,
+      oldPrice: 2899,
+      img: "/images/ac/gas2.png",
+      description: "Gas refill service for split AC with pressure check",
+    },
+     {
+      id: 123,
+      title: "Gas Charging (1.6 to 2 Ton)",
+      price: 3199,
+      oldPrice: 3299,
+      img: "/images/ac/gas3.png",
+      description: "Gas refill service for split AC with pressure check",
+    },
+  ],
+},
+
+{
+  id: "cassette-ac-jet-service",
+  title: "Cassette AC Jet Service",
+  category: "acrepairinstallation",
+  subCategory: "ac-service",
+  rateCardKey: "ac",
+  reviews: 6,
+
+  imgs: {
+    thumbnails: ["/images/ac/c-jet.png"],
+    previews: ["/images/ac/c-jet.png"],
+  },
+
+  description: {
+    about: [
+      "Deep jet cleaning of cassette AC indoor unit",
+      "Cooling coil cleaning with high-pressure jet",
+      "Blower and fan blade cleaning",
+      "Drain tray and drain pipe cleaning",
+      "Dust and dirt removal from air vents",
+      "Complete AC performance testing after service",
+    ],
+
+    benefits: [
+      "Improves cooling performance",
+      "Removes dust, bacteria and bad odor",
+      "Ensures smooth airflow",
+      "Reduces electricity consumption",
+      "Increases AC lifespan",
+    ],
+  },
+
+  variants: [
+    {
+      id: 131,
+      title: "Cassette AC Jet Service",
+      price: 699,
+      oldPrice: 799,
+      img: "/images/ac/c-jet-service.png",
+      description: "Deep jet cleaning service for cassette AC units",
     },
   ],
 },
 
   {
-    id: "ac-repair",
-    title: "AC Repair",
+    id: "ac-less-no-cooling-repair",
+    title: "Ac Less/No Cooling Repair",
     category: "acrepairinstallation",
     subCategory: "ac-repair",
     rateCardKey: "ac",
     reviews: 18,
 
     imgs: {
-      thumbnails: ["/images/ac/ac-repair.jpg"],
-      previews: ["/images/ac/ac-repair.jpg"],
+      thumbnails: ["/images/ac/ac-repair.png"],
+      previews: ["/images/ac/ac-repair.png"],
     },
 
-    variants: [],
+    variants: [
+
+      // id: 1,
+      // title: "Cassette AC Jet Service",
+      // price: 699,
+      // oldPrice: 799,
+      // img: "/images/ac/c-jet-service.png",
+      // description: "Deep jet cleaning service for cassette AC units",
+    ],
   },
 
   {
@@ -206,8 +272,8 @@ const shopData: Product[] = [
     reviews: 12,
 
     imgs: {
-      thumbnails: ["/images/ac/ac-install-uninstall.jpg"],
-      previews: ["/images/ac/ac-install-uninstall.jpg"],
+      thumbnails: ["/images/ac/ac-install-uninstall.png"],
+      previews: ["/images/ac/ac-install-uninstall.png"],
     },
 
     variants: [],
@@ -224,8 +290,8 @@ const shopData: Product[] = [
     reviews: 10,
 
     imgs: {
-      thumbnails: ["/images/cleaning/deep.jpg"],
-      previews: ["/images/cleaning/deep.jpg"],
+      thumbnails: ["/images/cleaning/deep.png"],
+      previews: ["/images/cleaning/deep.png"],
     },
 
     variants: [],
@@ -240,8 +306,8 @@ const shopData: Product[] = [
     reviews: 9,
 
     imgs: {
-      thumbnails: ["/images/cleaning/bathroom.jpg"],
-      previews: ["/images/cleaning/bathroom.jpg"],
+      thumbnails: ["/images/cleaning/bathroom.png"],
+      previews: ["/images/cleaning/bathroom.png"],
     },
 
     variants: [],
@@ -256,8 +322,8 @@ const shopData: Product[] = [
     reviews: 11,
 
     imgs: {
-      thumbnails: ["/images/cleaning/kitchen.jpg"],
-      previews: ["/images/cleaning/kitchen.jpg"],
+      thumbnails: ["/images/cleaning/kitchen.png"],
+      previews: ["/images/cleaning/kitchen.png"],
     },
 
     variants: [],
@@ -272,8 +338,8 @@ const shopData: Product[] = [
     reviews: 14,
 
     imgs: {
-      thumbnails: ["/images/cleaning/full-home.jpg"],
-      previews: ["/images/cleaning/full-home.jpg"],
+      thumbnails: ["/images/cleaning/full-home.png"],
+      previews: ["/images/cleaning/full-home.png"],
     },
 
     variants: [],
@@ -290,8 +356,8 @@ const shopData: Product[] = [
     reviews: 8,
 
     imgs: {
-      thumbnails: ["/images/painting/wall.jpg"],
-      previews: ["/images/painting/wall.jpg"],
+      thumbnails: ["/images/painting/wall.png"],
+      previews: ["/images/painting/wall.png"],
     },
 
     variants: [],
@@ -309,8 +375,8 @@ const shopData: Product[] = [
   reviews: 8,
 
   imgs: {
-    thumbnails: ["/images/appliances/fridge.jpg"],
-    previews: ["/images/appliances/fridge.jpg"],
+    thumbnails: ["/images/appliances/fridge.png"],
+    previews: ["/images/appliances/fridge.png"],
   },
 
   variants: [],
@@ -325,8 +391,8 @@ const shopData: Product[] = [
   reviews: 7,
 
   imgs: {
-    thumbnails: ["/images/appliances/washing-machine.jpg"],
-    previews: ["/images/appliances/washing-machine.jpg"],
+    thumbnails: ["/images/appliances/washing-machine.png"],
+    previews: ["/images/appliances/washing-machine.png"],
   },
 
   variants: [],
@@ -341,8 +407,8 @@ const shopData: Product[] = [
   reviews: 6,
 
   imgs: {
-    thumbnails: ["/images/appliances/microwave.jpg"],
-    previews: ["/images/appliances/microwave.jpg"],
+    thumbnails: ["/images/appliances/microwave.png"],
+    previews: ["/images/appliances/microwave.png"],
   },
 
   variants: [],
@@ -359,8 +425,8 @@ const shopData: Product[] = [
   reviews: 9,
 
   imgs: {
-    thumbnails: ["/images/interior/modular-kitchen.jpg"],
-    previews: ["/images/interior/modular-kitchen.jpg"],
+    thumbnails: ["/images/interior/modular-kitchen.png"],
+    previews: ["/images/interior/modular-kitchen.png"],
   },
 
   variants: [],
@@ -375,8 +441,8 @@ const shopData: Product[] = [
   reviews: 7,
 
   imgs: {
-    thumbnails: ["/images/interior/wardrobe.jpg"],
-    previews: ["/images/interior/wardrobe.jpg"],
+    thumbnails: ["/images/interior/wardrobe.png"],
+    previews: ["/images/interior/wardrobe.png"],
   },
 
   variants: [],
@@ -393,8 +459,8 @@ const shopData: Product[] = [
   reviews: 12,
 
   imgs: {
-    thumbnails: ["/images/electrician/switch-board.jpg"],
-    previews: ["/images/electrician/switch-board.jpg"],
+    thumbnails: ["/images/electrician/switch-board.png"],
+    previews: ["/images/electrician/switch-board.png"],
   },
 
   variants: [],
@@ -409,8 +475,8 @@ const shopData: Product[] = [
   reviews: 10,
 
   imgs: {
-    thumbnails: ["/images/electrician/fan.jpg"],
-    previews: ["/images/electrician/fan.jpg"],
+    thumbnails: ["/images/electrician/fan.png"],
+    previews: ["/images/electrician/fan.png"],
   },
 
   variants: [],
@@ -425,8 +491,8 @@ const shopData: Product[] = [
   reviews: 9,
 
   imgs: {
-    thumbnails: ["/images/electrician/light.jpg"],
-    previews: ["/images/electrician/light.jpg"],
+    thumbnails: ["/images/electrician/light.png"],
+    previews: ["/images/electrician/light.png"],
   },
 
   variants: [],

@@ -4,6 +4,7 @@ export interface Variant {
   price: number;
   oldPrice?: number;
   description: string;
+  img?: string; 
 }
 
 export interface Product {

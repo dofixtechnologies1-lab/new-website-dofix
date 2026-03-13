@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { addItemToCart } from "@/redux/features/cart-slice";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface Props {
   variant: any;
@@ -18,9 +19,11 @@ export default function VariantModal({ variant, service, onClose }: Props) {
 
   if (!variant) return null;
 
-  const discount = Math.round(
-    ((variant.oldPrice - variant.price) / variant.oldPrice) * 100
-  );
+  const discount = variant.oldPrice
+    ? Math.round(((variant.oldPrice - variant.price) / variant.oldPrice) * 100)
+    : 0;
+
+  const imageSrc = variant.img || service.imgs.thumbnails[0];
 
   // ADD TO CART
   const handleAddToCart = () => {
@@ -32,7 +35,10 @@ export default function VariantModal({ variant, service, onClose }: Props) {
         price: variant.price,
         discountedPrice: variant.oldPrice,
         quantity: 1,
-        imgs: service.imgs,
+        imgs: {
+          thumbnails: [imageSrc],
+          previews: [imageSrc],
+        },
       })
     );
 
@@ -64,9 +70,12 @@ export default function VariantModal({ variant, service, onClose }: Props) {
 
         {/* Image */}
         <div className="p-3 pb-0">
-          <img
-            src={service.imgs.thumbnails[0]}
-            className="w-full h-24 object-cover rounded-lg"
+          <Image
+            src={imageSrc}
+            alt={variant.title}
+            width={400}
+            height={200}
+            className="w-full h-28 object-cover rounded-lg"
           />
         </div>
 
@@ -84,19 +93,25 @@ export default function VariantModal({ variant, service, onClose }: Props) {
               ₹{variant.price}
             </span>
 
-            <span className="line-through text-gray-400 text-xs">
-              ₹{variant.oldPrice}
-            </span>
+            {variant.oldPrice && (
+              <span className="line-through text-gray-400 text-xs">
+                ₹{variant.oldPrice}
+              </span>
+            )}
 
-            <span className="bg-[#2c7da0] text-white text-[10px] px-2 py-1 rounded-full">
-              {discount}% OFF
-            </span>
+            {variant.oldPrice && (
+              <span className="bg-[#2c7da0] text-white text-[10px] px-2 py-1 rounded-full">
+                {discount}% OFF
+              </span>
+            )}
 
           </div>
 
-          <p className="text-green-600 text-[11px] mb-2">
-            You save ₹{variant.oldPrice - variant.price}
-          </p>
+          {variant.oldPrice && (
+            <p className="text-green-600 text-[11px] mb-2">
+              You save ₹{variant.oldPrice - variant.price}
+            </p>
+          )}
 
           {/* About */}
           {service.description?.about && (
