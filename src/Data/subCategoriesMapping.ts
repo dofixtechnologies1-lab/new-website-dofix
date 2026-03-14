@@ -16,6 +16,12 @@ export const subCategoryMapping: any = {
       title: "AC Installation Uninstallation",
       img: "/images/subcategories/ac-ins.png",
     },
+     {
+      id: "ac-addon-services",
+      title: "Addon Services",
+      img: "/images/subcategories/addon.png",
+    },
+
   ],
 
   "home-cleaning": [
