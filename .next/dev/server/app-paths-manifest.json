@@ -1,0 +1,6 @@
+{
+  "/(site)/(pages)/[category]/[subcategory]/page": "app/(site)/(pages)/[category]/[subcategory]/page.js",
+  "/(site)/(pages)/ac-services/[id]/page": "app/(site)/(pages)/ac-services/[id]/page.js",
+  "/(site)/(pages)/shop-details/page": "app/(site)/(pages)/shop-details/page.js",
+  "/(site)/page": "app/(site)/page.js"
+}

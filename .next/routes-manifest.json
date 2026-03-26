@@ -1,0 +1,264 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/ac-services/[id]",
+      "regex": "^/ac\\-services/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/ac\\-services/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/blog/[slug]",
+      "regex": "^/blog/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/blog/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/rate-card/[categoryId]",
+      "regex": "^/rate\\-card/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPcategoryId": "nxtPcategoryId"
+      },
+      "namedRegex": "^/rate\\-card/(?<nxtPcategoryId>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/[category]/[subcategory]",
+      "regex": "^/([^/]+?)/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPcategory": "nxtPcategory",
+        "nxtPsubcategory": "nxtPsubcategory"
+      },
+      "namedRegex": "^/(?<nxtPcategory>[^/]+?)/(?<nxtPsubcategory>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/about",
+      "regex": "^/about(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about(?:/)?$"
+    },
+    {
+      "page": "/account",
+      "regex": "^/account(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/account(?:/)?$"
+    },
+    {
+      "page": "/account/profile",
+      "regex": "^/account/profile(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/account/profile(?:/)?$"
+    },
+    {
+      "page": "/api/send-otp",
+      "regex": "^/api/send\\-otp(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/send\\-otp(?:/)?$"
+    },
+    {
+      "page": "/api/send-otp/create-user",
+      "regex": "^/api/send\\-otp/create\\-user(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/send\\-otp/create\\-user(?:/)?$"
+    },
+    {
+      "page": "/api/send-otp/verify-otp",
+      "regex": "^/api/send\\-otp/verify\\-otp(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/send\\-otp/verify\\-otp(?:/)?$"
+    },
+    {
+      "page": "/blog",
+      "regex": "^/blog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog(?:/)?$"
+    },
+    {
+      "page": "/booking",
+      "regex": "^/booking(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/booking(?:/)?$"
+    },
+    {
+      "page": "/booking-address",
+      "regex": "^/booking\\-address(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/booking\\-address(?:/)?$"
+    },
+    {
+      "page": "/cart",
+      "regex": "^/cart(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/cart(?:/)?$"
+    },
+    {
+      "page": "/checkout",
+      "regex": "^/checkout(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/checkout(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/error",
+      "regex": "^/error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/error(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/interior",
+      "regex": "^/interior(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/interior(?:/)?$"
+    },
+    {
+      "page": "/mail-success",
+      "regex": "^/mail\\-success(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/mail\\-success(?:/)?$"
+    },
+    {
+      "page": "/my-account",
+      "regex": "^/my\\-account(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/my\\-account(?:/)?$"
+    },
+    {
+      "page": "/privacy-policy",
+      "regex": "^/privacy\\-policy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacy\\-policy(?:/)?$"
+    },
+    {
+      "page": "/refund-policy",
+      "regex": "^/refund\\-policy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/refund\\-policy(?:/)?$"
+    },
+    {
+      "page": "/services",
+      "regex": "^/services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services(?:/)?$"
+    },
+    {
+      "page": "/shop-details",
+      "regex": "^/shop\\-details(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/shop\\-details(?:/)?$"
+    },
+    {
+      "page": "/shop-with-sidebar",
+      "regex": "^/shop\\-with\\-sidebar(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/shop\\-with\\-sidebar(?:/)?$"
+    },
+    {
+      "page": "/shop-without-sidebar",
+      "regex": "^/shop\\-without\\-sidebar(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/shop\\-without\\-sidebar(?:/)?$"
+    },
+    {
+      "page": "/signin",
+      "regex": "^/signin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/signin(?:/)?$"
+    },
+    {
+      "page": "/signup",
+      "regex": "^/signup(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/signup(?:/)?$"
+    },
+    {
+      "page": "/terms",
+      "regex": "^/terms(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/terms(?:/)?$"
+    },
+    {
+      "page": "/thank-you",
+      "regex": "^/thank\\-you(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/thank\\-you(?:/)?$"
+    },
+    {
+      "page": "/wishlist",
+      "regex": "^/wishlist(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/wishlist(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

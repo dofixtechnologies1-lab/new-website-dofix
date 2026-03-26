@@ -1,0 +1,3 @@
+{
+  "/api/send-otp/create-user/route": "app/api/send-otp/create-user/route.js"
+}
