@@ -4,6 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import {
   addItemToCart,
+  removeItemFromCart,
   selectCartItems,
   selectTotalPrice,
 } from "@/redux/features/cart-slice";
@@ -11,6 +12,7 @@ import shopData from "@/components/Shop/shopData";
 import Image from "next/image";
 import { useState } from "react";
 import VariantModal from "@/components/VarientModal";
+import { Star, ReceiptText } from "lucide-react";
 
 export default function ServiceVariantPage() {
   const params = useParams();
@@ -19,7 +21,7 @@ export default function ServiceVariantPage() {
   const router = useRouter();
   const dispatch = useAppDispatch();
 
-  const service = shopData.find((s) => s.id === id);
+  const service = shopData.find((s) => String(s.id) === String(id));
 
   const cartItems = useAppSelector(selectCartItems);
   const totalPrice = useAppSelector(selectTotalPrice);
@@ -28,179 +30,185 @@ export default function ServiceVariantPage() {
 
   if (!service) return <div className="p-10">Service Not Found</div>;
 
+  // ADD
   const handleAdd = (variant: any) => {
     dispatch(
-  addItemToCart({
-    id: variant.id,
-    title: variant.title,
-    price: variant.price,       
-    oldPrice: variant.oldPrice,  
-    quantity: 1,
-    imgs: {
-      thumbnails: [variant.img || service.imgs.thumbnails[0]],
-      previews: [variant.img || service.imgs.previews[0]],
-    },
-  })
-);
+      addItemToCart({
+        id: String(variant.id),
+        title: variant.title,
+        price: variant.price,
+        oldPrice: variant.oldPrice,
+        quantity: 1,
+        imgs: {
+          thumbnails: [variant.img || service.imgs.thumbnails[0]],
+          previews: [variant.img || service.imgs.previews[0]],
+        },
+      })
+    );
+  };
+
+  // REMOVE
+  const handleRemove = (variantId: string | number) => {
+    dispatch(removeItemFromCart(String(variantId)));
+  };
+
+  // CHECK QUANTITY
+  const getItemQuantity = (variantId: string | number) => {
+    return (
+      cartItems.find((item) => String(item.id) === String(variantId))
+        ?.quantity || 0
+    );
   };
 
   return (
-    <div className="min-h-screen bg-gray pt-55 pb-40 px-4 md:px-8">
+    <div className="min-h-screen bg-[#f3f4f6] pt-55 md:pt-40 pb-20">
+      
+      {/* TOP HERO CARD */}
+      <div className="px-4 mt-6">
+        <div className="bg-white rounded-[28px] shadow-sm overflow-hidden border border-[#eef2f5]">
+          
+          {/* IMAGE */}
+          <div className="relative">
+            <Image
+              src={service.imgs.thumbnails[0]}
+              alt={service.title}
+              width={1200}
+              height={500}
+              className="w-full h-[240px] object-cover"
+            />
 
-      {/* Hero Image */}
-      <div className="bg-white rounded-2xl shadow-sm overflow-hidden mb-8">
+            {/* DARK OVERLAY */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
 
-        <div className="relative">
+            {/* TITLE */}
+            <div className="absolute bottom-8 left-6 text-white text-[22px] font-bold leading-tight">
+              {service.title}
+            </div>
+          </div>
 
-          <Image
-            src={service.imgs.thumbnails[0]}
-            alt={service.title}
-            width={1200}
-            height={400}
-            className="w-full h-[220px] object-cover"
-          />
+          {/* BOTTOM INFO ROW */}
+          <div className="px-6 py-6 flex items-center justify-between gap-4 flex-wrap">
+            <div className="flex items-center gap-3 text-[#1f2937] text-[18px] font-semibold">
+              <span className="text-[20px]">🏠</span>
+              AC Service, Repair & Installation
+            </div>
 
-          <div className="absolute bottom-4 left-4 text-white text-2xl font-semibold">
-            {service.title}
+            <div className="flex items-center gap-2 border border-[#d7e5ee] bg-[#f6fbfe] px-5 py-3 rounded-full text-[18px] text-[#1f2937]">
+              <Star size={18} className="text-[#1383b8] fill-[#1383b8]" />
+              <span className="font-semibold">3.5</span>
+              <span className="text-gray-500">(6)</span>
+            </div>
+          </div>
+
+          {/* DIVIDER */}
+          <div className="px-6 pb-6">
+            <div className="h-[2px] bg-[#eef2f5] rounded-full" />
           </div>
 
         </div>
+      </div>
 
-        <div className="px-5 py-4 flex items-center text-gray-600 text-sm border-t">
-          <span className="mr-2">🏠</span>
-          AC Service, Repair & Installation
+      {/* BODY */}
+      <div className="px-4 mt-6">
+
+        <h2 className="text-xl font-bold mb-5">
+          Available Services
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+
+          {service.variants.map((variant) => {
+            const quantity = getItemQuantity(variant.id);
+
+            return (
+              <div
+                key={variant.id}
+                onClick={() => setSelectedVariant(variant)}
+                className="bg-white rounded-[22px] p-5 shadow-sm h-full flex flex-col justify-between"
+              >
+
+                {/* TOP */}
+                <div className="flex justify-between items-start">
+
+                  <h3 className="font-bold text-lg max-w-[70%]">
+                    {variant.title}
+                  </h3>
+
+                  <div className="flex items-center gap-1 bg-[#fff4d6] px-2 py-1 rounded-full text-sm">
+                    <Star size={14} className="text-yellow-500 fill-yellow-500" />
+                    3.5 (6)
+                  </div>
+
+                </div>
+
+                {/* PRICE */}
+                <div className="mt-2 flex items-center gap-2">
+
+                  {variant.oldPrice && (
+                    <span className="line-through text-gray-400">
+                      ₹{variant.oldPrice}.0
+                    </span>
+                  )}
+
+                  <span className="text-[#1383b8] font-bold text-lg">
+                    ₹{variant.price}.0
+                  </span>
+
+                </div>
+
+                {/* DESC */}
+                <p className="text-gray-500 text-sm mt-2 line-clamp-2">
+                  {variant.description}
+                </p>
+
+                {/* ACTIONS */}
+                <div className="flex gap-3 mt-4">
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      router.push(`/rate-card/${service.rateCardKey}`);
+                    }}
+                    className="flex-1 border border-[#cfe1ea] text-[#247fa9] rounded-xl py-3 flex items-center justify-center gap-2 font-medium"
+                  >
+                    <ReceiptText size={16} />
+                    View Rate Card
+                  </button>
+
+                  {/* SAME BUTTON TOGGLE */}
+                  {quantity > 0 ? (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleRemove(variant.id);
+                      }}
+                      className="bg-[#f25555] text-white px-6 rounded-xl font-semibold"
+                    >
+                      Remove
+                    </button>
+                  ) : (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleAdd(variant);
+                      }}
+                      className="bg-[#3683ab] text-white px-6 rounded-xl font-semibold"
+                    >
+                      Add
+                    </button>
+                  )}
+
+                </div>
+
+              </div>
+            );
+          })}
+
         </div>
 
       </div>
 
-      {/* Section Title */}
-      <h2 className="text-xl md:text-2xl font-bold mb-6">
-        Available Services
-      </h2>
-
-      {/* Variant Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        {service.variants.map((variant) => (
-
-          <div
-            key={variant.id}
-            onClick={() => setSelectedVariant(variant)}
-            className="bg-white rounded-xl shadow-sm p-4 cursor-pointer hover:shadow-md transition"
-          >
-
-            {/* Top Section */}
-            <div className="flex justify-between items-start">
-
-              <Image
-                src={variant.img || service.imgs.thumbnails[0]}
-                alt={variant.title}
-                width={160}
-                height={110}
-                className="rounded-lg object-cover h-[110px] w-[160px]"
-              />
-
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleAdd(variant);
-                }}
-                className="bg-[#2b7a9a] text-white px-6 py-2 rounded-md text-sm"
-              >
-                Add
-              </button>
-
-            </div>
-
-            {/* Title */}
-            <h3 className="font-semibold text-lg mt-4">
-              {variant.title}
-            </h3>
-
-            {/* Price */}
-            <div className="mt-1">
-
-              <span className="font-bold text-lg text-[#14455b]">
-                ₹{variant.price}
-              </span>
-
-              {variant.oldPrice && (
-                <span className="line-through text-md text-gray-400 ml-2">
-                  ₹{variant.oldPrice}
-                </span>
-              )}
-
-            </div>
-
-            {/* Description */}
-            <p className="text-sm text-gray-500 mt-2">
-              {variant.description}
-            </p>
-
-            {/* Rate Card */}
-            <div className="flex justify-between items-center mt-3">
-
-              <span className="text-yellow-500 italic text-sm">
-                The Dofix Rate Card
-              </span>
-
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  router.push(`/rate-card/${service.rateCardKey}`);
-                }}
-                className="text-[#3683ab] font-medium"
-              >
-                View Rate Card
-              </button>
-
-            </div>
-
-          </div>
-
-        ))}
-
-      </div>
-
-      {/* About Service */}
-      {service.description?.about && (
-
-        <div className="mt-8">
-
-          <h3 className="text-lg font-semibold mb-2">
-            About This Service
-          </h3>
-
-          <ul className="list-disc pl-5 space-y-1 text-gray-600">
-            {service.description.about.map((item: string, index: number) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-
-        </div>
-
-      )}
-
-      {/* Benefits */}
-      {service.description?.benefits && (
-
-        <div className="mt-6">
-
-          <h3 className="text-lg font-semibold mb-2">
-            Benefits
-          </h3>
-
-          <ul className="list-disc pl-5 space-y-1 text-gray-600">
-            {service.description.benefits.map((item: string, index: number) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-
-        </div>
-
-      )}
-
-      {/* Variant Modal */}
+      {/* MODAL */}
       {selectedVariant && (
         <VariantModal
           variant={selectedVariant}
@@ -209,10 +217,10 @@ export default function ServiceVariantPage() {
         />
       )}
 
-      {/* Sticky Cart */}
+      {/* STICKY CART */}
       {cartItems.length > 0 && (
 
-        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[95%] md:w-[600px] bg-[#2b7a9a] text-white rounded-xl shadow-lg flex justify-between items-center px-6 py-4">
+        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[95%] md:w-[500px] bg-[#1383b8] text-white rounded-xl shadow-lg flex justify-between items-center px-6 py-4">
 
           <div>
             <p className="text-sm">
@@ -226,7 +234,7 @@ export default function ServiceVariantPage() {
 
           <button
             onClick={() => router.push("/cart")}
-            className="bg-white text-[#2b7a9a] px-6 py-2 rounded-lg font-semibold"
+            className="bg-white text-[#1383b8] px-5 py-2 rounded-lg font-semibold"
           >
             View Cart
           </button>
